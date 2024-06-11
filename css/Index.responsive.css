@@ -1,0 +1,528 @@
+/* responsive */
+@media (min-width: 2559px) {
+  html {
+    font-size: 1.375rem;
+  }
+  .containerSlide {
+    margin-left: 14.0746rem;
+  }
+  footer section {
+    gap: 26.625rem;
+  }
+  footer .f_wrapper01 .third {
+    font-size: 0.6875rem;
+  }
+}
+@media (max-width: 2400px) {
+  html {
+    font-size: 1.25rem;
+  }
+  .containerSlide {
+    margin-left: 14.0746rem;
+  }
+  footer section {
+    gap: 29.625rem;
+  }
+  footer .f_wrapper01 .third {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 2000px) {
+  html {
+    font-size: 1.1875rem;
+  }
+  .containerSlide {
+    margin-left: 8.0746rem;
+  }
+}
+@media (max-width: 1921px) {
+  html {
+    font-size: 1.0625rem;
+  }
+  .container {
+    max-width: 101.625rem;
+  }
+  .containerSlide {
+    margin-left: 6.0746rem;
+  }
+  .promo .se3_desc {
+    left: 66%;
+  }
+}
+@media (max-width: 1707px) {
+  html {
+    font-size: 1rem;
+  }
+  .container {
+    max-width: 91.625rem;
+  }
+}
+@media (max-width: 1600px) {
+  .containerSlide {
+    margin-left: 4.5rem;
+  }
+  footer .f_wrapper01 .third {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 1500px) {
+  html {
+    font-size: 0.9375rem;
+  }
+  aside {
+    top: 28%;
+  }
+}
+@media (max-width: 1400px) {
+  html {
+    font-size: 0.875rem;
+  }
+  .container {
+    max-width: 81.625rem;
+  }
+  .containerSlide {
+    margin-left: 10.5rem;
+  }
+  .subNav_content {
+    grid-template: 2.5rem / repeat(8, 1fr);
+  }
+  .magazine .magaImg img {
+    width: 36.75rem;
+    height: 45.0625rem;
+  }
+  .promo article > img {
+    width: 62.375rem;
+  }
+  .promo article h3 {
+    font-size: 2.125rem;
+  }
+  .promo .se3_desc {
+    padding: 1.5rem 3.125rem;
+  }
+  .sec3_p {
+    font-size: 1.125rem;
+  }
+}
+@media (max-width: 1300px) {
+  .containerSlide {
+    margin-left: 6.5rem;
+  }
+  footer {
+    padding: 5rem 8rem;
+  }
+}
+@media (max-width: 1200px) {
+  html {
+    font-size: 0.8125rem;
+  }
+
+  .subNav_content {
+    grid-template: 2.5rem / repeat(6, 1fr);
+  }
+
+  .sec3_p {
+    font-size: 0.9375rem;
+  }
+  footer section {
+    gap: 11.625rem;
+  }
+}
+@media (max-width: 1100px) {
+  .container {
+    max-width: 72.625rem;
+  }
+  .notice_board .notice_content {
+    width: 40%;
+  }
+  .slide-wrapper .imgWrap {
+    height: 32.75rem;
+  }
+  .imgWrap > img {
+    width: 67%;
+  }
+  .slide-wrapper .imgRight {
+    gap: 4rem;
+    width: 23%;
+  }
+  .red_Btn_big {
+    width: 12.125rem;
+  }
+  .magazine .magaImg img {
+    width: 32.75rem;
+    height: 38.0625rem;
+  }
+}
+@media (max-width: 1024px) {
+  .promo .se3_desc {
+    gap: 2rem;
+  }
+  .promo article .sale_inner {
+    padding: 2rem 3rem;
+  }
+  footer {
+    padding: 4rem 7rem;
+  }
+}
+
+@media (max-width: 960px) {
+  html {
+    font-size: 0.75rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  .notice .notice_content {
+    width: 45%;
+  }
+  .subNav_content {
+    font-size: 2rem;
+  }
+  .magn > span {
+    font-size: 1rem;
+  }
+  .magn::before {
+    position: absolute;
+    top: -18%;
+  }
+}
+
+@media (max-width: 831px) {
+  .container {
+    max-width: 60.625rem;
+  }
+  .subNav a {
+    padding: 0.425rem;
+    font-size: 1rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  .slide-wrapper .imgWrap {
+    height: 30.75rem;
+  }
+  .slide-wrapper .imgRight {
+    gap: 3rem;
+  }
+  aside {
+    top: 24%;
+  }
+  .magazine .magaImg img {
+    width: 26.75rem;
+    height: 30rem;
+  }
+  .y_Btn2 {
+    width: 15.5rem;
+  }
+  .promo article h3 {
+    font-size: 1.875rem;
+  }
+  .promo .se3_desc {
+    padding: 1.5rem 3.125rem;
+    gap: 1.75rem;
+  }
+  .sec3_p {
+    font-size: 0.8125rem;
+  }
+  .promo article h3 {
+    line-height: 2.75rem;
+  }
+  .promo article > img {
+    width: 52.375rem;
+  }
+  footer {
+    padding: 4rem;
+  }
+  #btn_top {
+    width: 2.25rem;
+    height: 2.25rem;
+    line-height: 1.875rem;
+    font-size: 1.25rem;
+    right: 3%;
+    top: 90%;
+    border-radius: 5px;
+  }
+  #btn_top i {
+    position: absolute;
+    top: 29%;
+    right: 50%;
+    left: 46%;
+    bottom: -20%;
+  }
+  footer .f_wrapper01 .third {
+    font-size: 0.7375rem;
+  }
+}
+@media (max-width: 770px) {
+  html {
+    font-size: 0.625rem;
+  }
+  h1 > .logo {
+    margin-top: 4px;
+  }
+  .container {
+    max-width: 68.625rem;
+  }
+  .notice_board .notice_content {
+    width: 50%;
+  }
+  .containerSlide {
+    margin-left: 4.5rem;
+  }
+  aside {
+    top: 30%;
+  }
+  .promo .se3_desc {
+    padding: 1.5rem 2.7rem;
+    gap: 1.25rem;
+  }
+  .magazine .magaImg img {
+    width: 30.75rem;
+    height: 36rem;
+  }
+}
+
+@media (max-width: 690px) {
+  html {
+    font-size: 0.5625rem;
+  }
+  .container {
+    max-width: 71.625rem;
+  }
+  .notice .notice_content {
+    width: 70%;
+  }
+  aside {
+    gap: 2.5rem;
+    right: 2%;
+  }
+
+  aside .icon i {
+    font-size: 1.75rem;
+  }
+  aside .icon span {
+    font-size: 0.375rem;
+  }
+  .slide-wrapper .imgWrap {
+    width: 98%;
+  }
+  .slide-wrapper .imgWrap {
+    height: 29.75rem;
+  }
+  .magazine .magaImg img {
+    width: 32.75rem;
+    height: 38rem;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 62.625rem;
+  }
+  .magazine .magaImg img {
+    width: 31.75rem;
+  }
+  footer {
+    padding: 4rem 3rem;
+  }
+}
+@media (max-width: 551px) {
+  html {
+    font-size: 0.5rem;
+  }
+  .container {
+    max-width: 64.625rem;
+  }
+  .notice_board .notice_content {
+    width: 80%;
+  }
+  .subNav_content {
+    grid-template: 2.5rem / repeat(5, 1fr);
+  }
+  .slide-wrapper .imgWrap {
+    width: 92%;
+  }
+  .magazine .magaImg img {
+    width: 30rem;
+    height: 36rem;
+  }
+  .sec3_p {
+    font-size: 0.6125rem;
+  }
+  footer .f_wrapper02 li:nth-child(3) {
+    line-height: 1.8rem;
+  }
+  footer .f_wrapper01 .third {
+    line-height: 1.9rem;
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    max-width: 61.625rem;
+  }
+  .containerSlide {
+    margin-left: 2.5rem;
+  }
+  .slide-wrapper .imgWrap {
+    width: 95%;
+  }
+  .magazine .magaImg img {
+    width: 28rem;
+    height: 34rem;
+  }
+}
+@media (max-width: 431px) {
+  html {
+    font-size: 0.4375rem;
+  }
+  .mainNAV {
+    margin-top: 12px;
+  }
+  .container {
+    max-width: 55.625rem;
+  }
+  .containerSlide {
+    margin-top: 5.5rem;
+  }
+  .notice_board {
+    height: 2.375rem;
+  }
+  .subNav_content {
+    grid-template: 2.125rem / repeat(3, 1fr);
+  }
+  .subNav a {
+    font-weight: 300;
+  }
+  .imgWrap > img {
+    width: 70%;
+  }
+  .lnb {
+    margin-top: 0;
+  }
+
+  .magn::before {
+    top: -30%;
+    left: 30%;
+  }
+
+  .slide-wrapper .imgWrap {
+    height: 25.75rem;
+    width: 100%;
+  }
+  .controls {
+    right: 0%;
+  }
+  aside {
+    flex-direction: row;
+    top: 6%;
+    right: 0%;
+    gap: 1.5rem;
+  }
+
+  .icon a {
+    color: var(--G);
+  }
+  .icon-text {
+    width: fit-content;
+    top: 80%;
+    line-height: 1.7rem;
+  }
+  .magn {
+    right: -10%;
+    bottom: -4%;
+  }
+  .gnb_search input.on {
+    left: 5%;
+    bottom: 35%;
+    font-size: 8px;
+  }
+
+  h2 {
+    font-weight: 500;
+  }
+  .slide_start {
+    height: 33.75rem;
+  }
+  .slide-wrapper .imgRight {
+    gap: 2rem;
+    width: 25%;
+  }
+  .imgDesc {
+    font-weight: 300;
+  }
+  #imgTit {
+    font-weight: 600;
+  }
+  .magazine article {
+    flex-direction: column;
+    text-align: center;
+    gap: 8rem;
+  }
+  .maga {
+    text-align: center;
+  }
+  .magazine article figure ul .DVALA {
+    left: 18%;
+  }
+  .magazine article figure ul .DONALT {
+    left: 35%;
+  }
+  .magazine article figure ul .NISKO {
+    left: 14%;
+  }
+  .magazine article figure ul .LETANTO {
+    right: 20%;
+  }
+
+  .random_coupon .notice {
+    width: 45rem;
+    height: 17.75rem;
+  }
+  .promo article > img {
+    width: 42.375rem;
+  }
+  .promo article h3 {
+    font-weight: 500;
+  }
+  .sec3_p {
+    font-weight: 300;
+  }
+  .promo .se3_desc {
+    left: 60%;
+    width: 120px;
+  }
+  .best {
+    margin-top: 11.5rem;
+  }
+  footer {
+    padding: 2rem 2px;
+  }
+
+  footer section {
+    gap: 4.625rem;
+  }
+  footer .f_wrapper01 .third {
+    gap: 1.625rem;
+    line-height: 2.5rem;
+  }
+  footer .f_wrapper02 li:nth-child(3) {
+    line-height: 2.25rem;
+  }
+  @media (max-width: 391px) {
+    .container {
+      max-width: 53.625rem;
+    }
+    .magn {
+      right: -7%;
+    }
+    .promo article > img {
+      width: 35.375rem;
+    }
+    .promo .se3_desc {
+      width: 95px;
+    }
+    .promo .se3_desc {
+      left: 62%;
+    }
+  }
+}

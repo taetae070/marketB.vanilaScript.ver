@@ -1,0 +1,508 @@
+@charset "utf-8";
+@import url("normalize.css");
+@import url("reset.css");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap");
+@import url("slick.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css");
+
+header {
+  box-sizing: border-box;
+  /* overflow-x: hidden; */
+}
+
+:root {
+  --R: #b73131;
+  --Y: #eab413;
+
+  --B: #333;
+  --G: #504f4f;
+  --Gg: #bab2b2;
+  --S: #ededed;
+
+  --font_weight_R: 400;
+}
+/* FONT */
+body {
+  font-family: "Noto Sans KR", sans-serif !important;
+  color: var(--B);
+  overflow-x: hidden;
+}
+
+.M {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* buttons */
+.red_Btn_big {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #b73131;
+  width: 14.125rem;
+  height: 4.125rem;
+  margin: 0 auto;
+  border: none;
+}
+.red_Btn_big a {
+  color: #fff;
+  font-size: 1.25rem;
+}
+.Btn_sm {
+  width: 8.5625rem;
+  height: 3.75rem;
+  border: none;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.red {
+  background-color: var(--R);
+}
+.red a {
+  color: #fff;
+}
+.yel {
+  background-color: var(--Y);
+}
+.yel a {
+  color: var(--B);
+}
+
+.y_Btn2 {
+  background-color: var(--Y);
+  height: 3.75rem;
+  width: 17.5rem;
+  border: none;
+}
+.y_Btn2 button:hover {
+  background-color: var(--Y) !important;
+}
+.y_Btn2 a {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.btn_text {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--B);
+}
+
+.btn_shop {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+#btn_top {
+  width: 45px;
+  height: 45px;
+  color: #fff;
+  background-color: var(--Gg);
+  box-shadow: 1px 1px 5px var(--G);
+  display: block;
+  text-align: center;
+  line-height: 45px;
+  font-size: 25px;
+  border-radius: 10px;
+  position: fixed;
+  transform: rotate(45deg);
+  right: 5%;
+  top: 90%;
+  z-index: 50;
+  opacity: 0;
+  transition: opacity 0.5s;
+  overflow: hidden;
+}
+.percentage {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  background-color: var(--Y);
+  width: 130%;
+  height: 0%;
+  transform-origin: 100% 100%;
+  transform: rotate(-45deg) translate(50%);
+}
+#btn_top i {
+  transform: rotate(-45deg);
+}
+#btn_top.on {
+  opacity: 1;
+}
+
+/* #btn_top i {
+  top: 20%;
+  right: 25%;
+} */
+
+/* ---------------------------------display */
+header {
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+.m_t {
+  margin-top: 12.5rem;
+}
+.mt {
+  margin-top: 12.5rem;
+}
+.m_auto {
+  margin: 0px 12.25rem;
+}
+
+.A {
+  position: absolute;
+}
+
+.R {
+  position: relative;
+}
+
+.F {
+  display: flex;
+}
+.FC {
+  display: flex;
+  flex-direction: column;
+}
+.G {
+  display: grid;
+}
+
+.blind {
+  position: absolute;
+  text-indent: -99999em;
+  overflow: hidden;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.fl {
+  float: left;
+}
+.mb {
+  margin-bottom: 15.625rem;
+}
+
+/* ------------------------------------category */
+.title_Wrap {
+  background: #dcdbd9;
+  width: 73%;
+  height: 16.75rem;
+}
+.sub_header {
+  z-index: -10;
+  top: -52%;
+  width: 100%;
+  height: 16.75rem;
+}
+
+.title_Wrap img {
+  width: 60%;
+  height: 33.3vh;
+  object-fit: cover;
+}
+.home {
+  padding-left: 1.5625rem;
+}
+
+.category_list {
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #504f4f;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.category_list li {
+  display: flex;
+  position: relative;
+  line-height: 3.4375rem;
+  padding: 0 1.25rem;
+}
+
+.category_list li h4 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* 글자 밑라인 dep01*/
+.category_list > li h4 {
+  position: relative;
+}
+.category_list > li h4::after {
+  content: "";
+  position: absolute;
+  bottom: 20%;
+  left: 0%;
+  width: 100%;
+  height: 1px;
+  transform: scaleX(0);
+  background-color: var(--B);
+  transition: 0.3s ease-in-out;
+}
+.category_list > li > h4:hover::after {
+  transform: scaleX(1);
+}
+.category_list > li > h4:hover {
+  font-weight: 600;
+}
+.catebox_1,
+.catebox_2 {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9375rem;
+  border: 1px solid #bab2b2;
+  text-align: left;
+}
+
+/* dep 02, 03*/
+.catebox_1 > li span::after,
+.catebox_2 li::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 66%;
+  height: 1px;
+  transform: scaleX(0);
+  background-color: var(--B);
+  transition: all 0.3s ease-in-out;
+}
+.catebox_1 > li span:hover::after,
+.catebox_2 li:hover::after {
+  transform: scaleX(1);
+}
+
+/* dep02 */
+.catebox_1 span {
+  width: 9.6875rem;
+}
+.catebox_2 li {
+  background: var(--S);
+}
+.catebox_1 > li > ul {
+  width: 9rem;
+}
+.lnb {
+  margin-top: 0.875rem;
+  width: 11.25rem;
+  z-index: 1;
+}
+
+.category_list ul {
+  position: absolute;
+  width: 100%;
+  left: 100%;
+  top: -1px;
+  display: none;
+  background-color: #f6dd85;
+}
+/* hover event */
+.category_list {
+  display: none;
+}
+.category_list:hover {
+  display: block;
+}
+.category_list > li:hover > ul {
+  display: block;
+}
+.catebox_1 > li:hover ul {
+  display: block;
+}
+.category_list > ul > ul {
+  background-color: #ededed;
+}
+/* gnb */
+.menu_btn {
+  background: transparent;
+  border: none;
+  padding: 12px 0 0 0;
+  cursor: pointer;
+}
+
+.menu_img {
+  width: 1.875rem;
+  height: 1.5625rem;
+}
+.mainNAV {
+  top: 1.8rem;
+}
+
+h1 > .logo {
+  display: inline-block;
+  width: 15rem;
+  height: 2.375rem;
+  background: url(../img/logo.png) 0 0 no-repeat;
+  background-size: cover;
+  font-size: 0;
+  line-height: 0;
+}
+/* -----------------------gnb end */
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 3.125rem;
+  margin-bottom: 3.125rem;
+}
+
+.container {
+  max-width: 90.625rem;
+  margin: 0 auto;
+  margin-top: 12.5rem;
+}
+.containerSlide {
+  margin-top: 12.5rem;
+  margin-left: 4.0746rem;
+}
+/* common design */
+.rating .star i {
+  color: var(--Y);
+}
+.rating .star {
+  width: 0;
+  overflow: hidden;
+}
+.etc {
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+.best_desc .price {
+  font-size: 1.25rem;
+}
+.best_desc .review_num {
+  margin-right: 1.125rem;
+}
+.best_desc .cart_wish_BtnWrapper {
+  gap: 0.75rem;
+}
+.cart_wish_BtnWrapper button {
+  padding: 0;
+}
+nav ul {
+  margin-left: 0 !important;
+}
+
+/* click event */
+.wish_Btn i:last-child {
+  display: none;
+  color: red;
+}
+
+.wish_Btn.on i:last-child {
+  display: block;
+  color: red;
+}
+.wish_Btn.on i:first-child {
+  display: none;
+}
+
+.cart_Btn i {
+  color: var(--B);
+}
+
+.cart_Btn.on i {
+  color: var(--Y);
+}
+/* hover */
+.cart_wish_BtnWrapper .wish_Btn::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 0%;
+}
+
+/* ---------------------------------------footer */
+
+footer {
+  margin-top: 21.875rem;
+  padding: 5rem 6rem;
+  display: flex;
+  color: var(--G);
+  background-color: var(--S);
+}
+
+footer h1 {
+  margin-bottom: 5rem;
+}
+footer ul {
+  display: flex;
+}
+footer section {
+  display: flex;
+  gap: 27.625rem;
+}
+
+footer .f_wrapper01 {
+  margin-left: 1rem;
+  margin-top: 5rem;
+}
+footer .f_wrapper01 .ul_wrap01 {
+  flex-direction: column;
+  gap: 1.563rem;
+}
+footer .f_wrapper01 .ul_wrap01 ul {
+  gap: 0.625rem;
+  font-size: 1rem;
+}
+footer .f_wrapper01 .ul_wrap01 li {
+  gap: 1.563rem;
+}
+footer .f_wrapper01 .ul_wrap01 li a {
+  gap: 1.563rem;
+  color: var(--G);
+}
+
+/* 2번째 문단 vs 3번째 문단 사이 */
+footer .f_wrapper01 .second {
+  margin-bottom: 2.813rem;
+}
+
+footer .f_wrapper01 .third {
+  flex-direction: column;
+  gap: 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+
+footer .f_wrapper02 {
+  margin-top: 5rem;
+}
+footer .f_wrapper02 > ul {
+  flex-direction: column;
+  gap: 1.563rem;
+  font-size: 1rem;
+}
+footer .f_wrapper02 li:nth-child(3) {
+  line-height: 1.25rem;
+}
+/* icon */
+.f_wrapper02 .sns_wrapper {
+  gap: 0.625rem;
+}
+
+.f_wrapper02 .sns_wrapper i {
+  font-size: 1.5rem;
+  color: var(--G);
+}
+/*  */
+.mainNAV .gnb_btns > button:hover,
+.mainNAV .gnb_btns > button:focus,
+.mainNAV .gnb_btns > button {
+  background-color: transparent;
+  color: var(--B);
+}

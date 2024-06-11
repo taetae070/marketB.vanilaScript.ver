@@ -1,0 +1,215 @@
+h2 {
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  z-index: 100;
+  right: 3%;
+  top: 72%;
+  font-size: 1.875rem;
+}
+header {
+  overflow-x: unset;
+}
+
+.mainNAV {
+  z-index: 1;
+  margin: 0px 7rem;
+}
+
+/* map */
+.STORE {
+  margin: 22.5rem 7rem;
+}
+
+.store_desc {
+  font-weight: 400;
+  font-size: 1.625rem;
+  line-height: 3.75rem;
+  margin-bottom: 6.25rem;
+}
+.store_Wrap {
+  height: 80vh;
+}
+.store_Wrap .store_formWrap {
+  width: 100%;
+}
+.store_form {
+  height: auto;
+  border: 1px #333 solid;
+  padding: 1.875rem 1.875rem 0 1.875rem;
+  overflow: auto;
+  /* width: 100%; */
+}
+.mapallWrap {
+  width: 100%;
+}
+.city {
+  width: 38%;
+  margin-right: 1.25rem;
+}
+.county {
+  width: 55%;
+}
+
+/* .city,
+.county {
+    display: inline-block;
+} */
+.store_form > p {
+  font-size: 0.875rem;
+  color: #bab2b2;
+  margin: 2.5rem 0;
+}
+/* 스토어 리스트 시작 */
+.store_Wrap .store_name {
+  margin-bottom: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.store_Wrap .store_name > h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--B);
+  display: block;
+  margin-bottom: 0;
+  /* margin-top: 0 !important; */
+}
+.store_number {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #333;
+}
+.address {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--Gg);
+}
+/* ----------------map */
+#map {
+  margin-left: 6.5rem;
+  width: 65.625rem;
+  height: 42.5rem;
+}
+.P {
+  padding-bottom: 1.25rem;
+}
+
+/* script: var iwContent 참고 */
+.store_info {
+  width: 15.625rem;
+  /* height: 12.5rem; */
+  padding: 2rem 1.5rem;
+  background: #fff;
+  box-shadow: 0.313rem 0.313rem 0.25rem rgba(51, 51, 51, 0.25);
+  text-align: center;
+}
+.store_info::before {
+  content: "";
+  position: absolute;
+  border-width: 1.1rem 1rem;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent;
+  margin-bottom: 1.25rem;
+  position: absolute;
+  left: 45%;
+  top: 100%;
+}
+
+.store_info > h3 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  color: var(--B);
+  margin-bottom: 1.25rem;
+  margin-top: 0 !important;
+}
+.store_info > button {
+  width: 100%;
+  height: 2.2rem;
+  background: var(--Y);
+  border-radius: 5px;
+  border: none;
+}
+/* 모달창 */
+.info_panel {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  display: none;
+}
+
+.info_content {
+  /* width: 22.688rem; */
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-shadow: 0.313rem 0.313rem 0.25rem rgba(51, 51, 51, 0.25);
+  background: #fff;
+  left: 65%;
+  top: 47%;
+  border-radius: 5px;
+  padding: 1.875rem;
+}
+.info_content > h6 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 0.875rem;
+  padding: 20px 0;
+}
+.info_content > h6::after {
+  content: "";
+  position: absolute;
+  bottom: 1rem;
+  left: 0%;
+  width: 3.875rem;
+  color: #333;
+}
+.info_content > h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #333;
+  margin: 20px 0 30px;
+}
+.info_content .bold {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #333;
+}
+.info_content p:nth-child(2) {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: #504f4f;
+  line-height: 1.25rem;
+}
+.close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+/* new */
+.info_index .store_address,
+.info_index .store_time {
+  gap: 3.125rem;
+}
+.info_index .store_number {
+  gap: 4.0625rem;
+}
+
+.info_index {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.info_content .info_first {
+  gap: 20.75rem;
+}
+
+/* .x {
+  width: 3rem;
+  height: 2.5rem;
+} */

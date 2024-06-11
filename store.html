@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="html5, css3, javascript, jquery, jquery library, map API, 마켓비, marketB"
+    />
+    <meta
+      name="description"
+      content="이태경 포트폴리오 - 마켓비 홈페이지 리뉴얼"
+    />
+    <meta name="author" content="이태경" />
+    <meta name="robots" content="index,follow" />
+    <meta property="og:title" content="MarketB 홈페이지 리뉴얼 프로젝트" />
+    <meta
+      property="og:description"
+      content="MarketB 공식 홈페이지를 리뉴얼한 개인 포트폴리오입니다."
+    />
+    <meta
+      property="og:image"
+      content="https://github.com/taekyungggg/Market-B/img"
+    />
+    <meta property="og:url" content="https://github.com/taekyungggg/Market-B" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-icon-192x192.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <!--  -->
+    <title>offline store</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/store.css" />
+  </head>
+  <body>
+    <header class="R">
+      <div class="R mb">
+        <!-- 메뉴버튼+카테고리, 홈버튼 -->
+        <div class="mainNAV R">
+          <div class="gnb_btns R F">
+            <!--메뉴버튼  -->
+            <button class="menu_btn">
+              <img src="img/bars-solid.svg" alt="menu" class="menu_img" />
+            </button>
+            <!-- 마켓비　로고 -->
+            <h1>
+              <a href="index.html" class="logo"></a>
+            </h1>
+          </div>
+          <nav class="lnb A">
+            <ul class="category_list">
+              <li>
+                <h4>
+                  <a
+                    href="https://marketb.kr/product/list.html?cate_no=621"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >침실가구</a
+                  >
+                </h4>
+                <ul class="catebox_1 R">
+                  <li>
+                    <span>침대</span>
+                    <ul class="catebox_2">
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=634"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        ></a
+                        >킹/퀸침대
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=639"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >슈퍼/싱글침대</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=636"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          이층/벙커침대</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span
+                      ><a
+                        href="https://marketb.kr/product/list.html?cate_no=638"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >매트리스/토퍼</a
+                      ></span
+                    >
+                    <ul class="catebox_2">
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=640"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        ></a
+                        >킹/퀸
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=639"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        ></a
+                        >슈퍼/싱글
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=641"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        ></a
+                        >유아매트리스
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span
+                      ><a
+                        href="https://marketb.kr/product/list.html?cate_no=1509"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >화장대/콘솔/야외</a
+                      ></span
+                    >
+                    <ul class="catebox_2">
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=1509"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >화장대</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=658"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >콘솔</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=656"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >야외테이블</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span
+                      ><a
+                        href="https://marketb.kr/product/list.html?cate_no=625"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >수납장</a
+                      ></span
+                    >
+                    <ul class="catebox_2">
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=694"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >원목수납장</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=693"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >철제수납장</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=1861"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >모듈수납장</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://marketb.kr/product/list.html?cate_no=703"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          >사무용수납장</a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>옷납/수납장</h4>
+                <ul class="catebox_1">
+                  <li>
+                    <span>옷장/붙박이장</span>
+                    <ul class="catebox_2">
+                      <li>옷장</li>
+                      <li>붙박이장</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>드레스룸/행거</span>
+                    <ul class="catebox_2">
+                      <li>드레스룸</li>
+                      <li>행거</li>
+                      <li>수납장</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>거실가구</h4>
+                <ul class="catebox_1 R">
+                  <li>
+                    <span>소파</span>
+                    <ul class="catebox_2">
+                      <li>1인</li>
+                      <li>2~3인</li>
+                      <li>4인이상/카우치소파</li>
+                      <li>소파베드</li>
+                      <li>소파커버/솜</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>거실테이블</span>
+                    <ul class="catebox_2">
+                      <li>티테이블</li>
+                      <li>사이드테이블</li>
+                      <li>리프트업테이블</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>서재가구</h4>
+                <ul class="catebox_1 R">
+                  <li>
+                    <span>책상/책장/ACC</span>
+                    <ul class="catebox_2">
+                      <li>책상</li>
+                      <li>책장</li>
+                      <li>4인이상/카우치소파</li>
+                      <li>책상세트</li>
+                      <li>서랍/책꽃이/ACC</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>서재의자</span>
+                    <ul class="catebox_2">
+                      <li>책상의자</li>
+                      <li>디자인체어</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <h4>주방가구</h4>
+                <ul class="catebox_1 R">
+                  <li>
+                    <span>식탁/테이블</span>
+                    <ul class="catebox_2">
+                      <li>원목/무늬목</li>
+                      <li>대리석/세라믹</li>
+                      <li>리놀륨/신소재</li>
+                      <li>접이식 식탁</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>홈바/아일랜드식탁</span>
+                    <ul class="catebox_2">
+                      <li>바 테이블</li>
+                      <li>아일랜드식탁</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>식탁의자</span>
+                    <ul class="catebox_2">
+                      <li>식탁의자</li>
+                      <li>홈바의자</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <span>주방수납</span>
+                    <ul class="catebox_2">
+                      <li>주방수납장</li>
+                      <li>렌지대</li>
+                      <li>주방웨건/트롤리</li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="sub_header A F">
+        <div class="title_Wrap R">
+          <h2>Offline store</h2>
+        </div>
+        <img src="img/map/store.png" alt="마켓비 오프라인매장" />
+      </div>
+    </header>
+
+    <!-- section start -->
+    <section class="STORE">
+      <div class="store_desc">
+        <p>
+          홈퍼니싱에 대한 모든 것을 한눈에 볼 수 있는 마켓비 오프라인 매장.
+          <br />
+          오프라인 매장의 다양한 혜택까지 놓치지 마세요!
+        </p>
+      </div>
+      <div class="mapallWrap F">
+        <div class="store_Wrap F">
+          <div class="store_form">
+            <div class="store_formWrap F">
+              <select
+                class="form-select city"
+                aria-label="Default select example"
+              >
+                <option selected>지역</option>
+                <option value="1" class="region">수도권</option>
+                <option value="2" class="region">충청도</option>
+                <option value="3" class="region">경상도</option>
+                <option value="4" class="region">제주</option>
+              </select>
+              <select
+                class="form-select county"
+                aria-label="Default select example"
+              >
+                <option selected>시/군/구</option>
+                <option value="1" class="town">경기도</option>
+                <option value="2" class="town">충청남도</option>
+                <option value="3" class="town">충청북도</option>
+                <option value="4" class="town">서귀포</option>
+              </select>
+            </div>
+            <p>각 점포별 영업시간이 다를 수 있습니다.</p>
+
+            <div class="store_list">
+              <div
+                class="store_name"
+                data-lat="37.7292709"
+                data-lng="126.7637605"
+                data-id="1"
+              >
+                <h3>파주운정 컨셉 스토어</h3>
+                <p class="store_number">070-7729-5183</p>
+                <p class="address">경기도 파주시 책향기로 836 아름터타워 7F</p>
+              </div>
+              <div
+                class="store_name"
+                data-lat="37.8208237"
+                data-lng="126.8194574"
+                data-id="2"
+              >
+                <h3>파주부곡아울렛 스토어</h3>
+                <p class="store_number">031-946-5688</p>
+                <p class="address">경기 파주시 파주읍 정문로 726</p>
+              </div>
+              <div
+                class="store_name"
+                data-lat="36.6351191"
+                data-lng="127.4821028"
+                data-id="3"
+              >
+                <h3>청주 스토어</h3>
+                <p class="store_number">0507-1488-3633</p>
+                <p class="address">
+                  충청북도 청주시 서원구 사운로68번길 50 1,2층
+                </p>
+              </div>
+              <div
+                class="store_name"
+                data-lat="36.8078612"
+                data-lng="127.1378214"
+                data-id="4"
+              >
+                <h3>천안 스토어</h3>
+                <p class="store_number">041-553-8230</p>
+                <p class="address">
+                  충남 천안시 동남구 양지4길 12-10 B동 101호 마켓비
+                </p>
+              </div>
+              <!-- 경상도 -->
+              <div
+                class="store_name"
+                data-lat="35.1908251"
+                data-lng="128.8201610"
+                data-id="5"
+              >
+                <h3>김해 스토어</h3>
+                <p class="store_number">0507-1308-0046</p>
+                <p class="address">경남 김해시 장유로 412 2층</p>
+              </div>
+              <!-- 제주 -->
+              <div
+                class="store_name"
+                data-lat="33.4940168"
+                data-lng="126.4372534"
+                data-id="6"
+              >
+                <h3>제주 스토어</h3>
+                <p class="store_number">064-713-7227</p>
+                <p class="address">제주 제주시 월산북길 45</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- map -->
+        <div id="map" data-id="1"></div>
+        <div id="info_panel1" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>파주운정 컨셉 스토어</h5>
+            <div class="info_index FC">
+              <div class="F store_address">
+                <strong>매장주소</strong>
+                <p class="info_ad">경기도 파주시 책향기로 836 아름터타워 7F</p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">070-7729-5183</p>
+              </div>
+              <img src="img/map/paju1.PNG" alt="파주운정 컨셉 스토어" />
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">
+                  평일9:30 ~19:30<br />휴무일 매주 일요일 (명절휴일 및 임시휴일
+                  사전공지)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="info_panel2" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>파주부곡 아울렛 스토어</h5>
+            <div class="info_index FC">
+              <div class="store_address F">
+                <strong>매장주소</strong>
+                <p class="info_ad">경기도 파주시 파주읍 정문로 726</p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">031-946-5688</p>
+              </div>
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">
+                  평일10:00~18:00<br />휴무일 매주 일요일 (명절휴일 및 임시휴일
+                  사전공지)
+                </p>
+              </div>
+              <img src="img/map/paju2.PNG" alt="파주부곡 컨셉 스토어" />
+            </div>
+          </div>
+        </div>
+
+        <div id="info_panel3" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>청주 스토어</h5>
+            <div class="info_index FC">
+              <div class="store_address F">
+                <strong>매장주소</strong>
+                <p class="info_ad">
+                  충북 청주시 서원구 사운로68번길 50 1층, 2층
+                </p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">0507-1488-3633</p>
+              </div>
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">평일11:00~21:00<br />휴무일 매주 월요일</p>
+              </div>
+              <img src="img/map/chungju.png" alt="마켓비 천안 스토어" />
+            </div>
+          </div>
+        </div>
+        <!-- 천안 -->
+        <div id="info_panel4" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>천안 스토어</h5>
+            <div class="info_index FC">
+              <div class="store_address F">
+                <strong>매장주소</strong>
+                <p class="info_ad">
+                  충남 천안시 동남구 양지4길 12-10 B동 101호 마켓비
+                </p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">041-553-8230</p>
+              </div>
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">평일11:00~20:00<br />명절 당일 휴무</p>
+              </div>
+              <img src="img/map/chunan.png" alt="마켓비 천안 스토어" />
+            </div>
+          </div>
+        </div>
+        <!-- 경상 -->
+        <div id="info_panel5" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>김해 스토어</h5>
+            <div class="info_index FC">
+              <div class="store_address F">
+                <strong>매장주소</strong>
+                <p class="info_ad">경남 김해시 장유로 412 2층</p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">0507-1308-0046</p>
+              </div>
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">
+                  평일10:00~19:00<br />명절 임시휴무 별도 공지
+                </p>
+              </div>
+              <img src="img/map/chunan.png" alt="마켓비 김해 스토어" />
+            </div>
+          </div>
+        </div>
+        <!-- 제주 -->
+        <div id="info_panel6" class="info_panel">
+          <div class="info_content R">
+            <div class="info_first F">
+              <h6>매장안내</h6>
+              <button type="button" class="close">
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+            <h5>제주 스토어</h5>
+            <div class="info_index FC">
+              <div class="store_address F">
+                <strong>매장주소</strong>
+                <p class="info_ad">제주 제주시 월산북길 45</p>
+              </div>
+              <div class="store_number F">
+                <strong>연락처</strong>
+                <p class="info_num">064-713-7227</p>
+              </div>
+              <div class="store_time F">
+                <strong>영업시간</strong>
+                <p class="info_hour">
+                  평일9:00~19:00<br />명절 임시휴무 별도 공지
+                </p>
+              </div>
+              <img src="img/map/jeju.png" alt="마켓비 제주 스토어" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- </div> -->
+    </section>
+    <!--  -->
+    <footer>
+      <h1>
+        <a href="index.html" class="logo blind">마켓비</a>
+      </h1>
+      <section>
+        <div class="f_wrapper01">
+          <div class="ul_wrap01 F">
+            <ul class="F first">
+              <li><a href="">회사소개</a></li>
+              <li><a href="">이용약관</a></li>
+              <li><a href="">개인정보처리방침</a></li>
+              <li><a href="">품질보증기준</a></li>
+              <li><a href="">에스크로 서비스 가입확인</a></li>
+            </ul>
+            <ul class="second">
+              <li><a href="">입접문의</a></li>
+              <li><a href="">대량/제휴문의</a></li>
+              <li><a href="">대리점/위탁문의</a></li>
+            </ul>
+          </div>
+
+          <ul class="third">
+            <li>
+              대표(주)마켓비 | 대표 남지희 | 주소 경기도 파주시 책향기로836
+              아름터타워8층 | 대표번호 031-943-8307
+            </li>
+            <li>
+              사업자등록번호 141-81-15759 [사업자정보확인] | 통신판매업신고
+              2009-경기파주-1943호 | 개인정보보호책임자 이효정 marketb@nate.com
+            </li>
+            <li>COPYRIGHT ⓒ MARKETB ALL RIGHTS RESERVED.</li>
+          </ul>
+        </div>
+        <div class="f_wrapper02">
+          <ul class="last">
+            <li>고객문의 대표전화</li>
+            <li>031-943-8307</li>
+            <li>
+              <div>
+                평일 09:00 ~ 17:30 / 점심 12:30 ~ 13:30 (주말 및 공휴일 휴무)
+              </div>
+            </li>
+            <li class="sns_wrapper F">
+              <a href=""><i class="fa-brands fa-instagram"></i></a>
+              <a href=""><i class="fa-brands fa-youtube"></i></a>
+              <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+              <a href=""><i class="fa-brands fa-square-twitter"></i></a>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=201344e968f6b7c4a698c3d90b709003"
+    ></script>
+    <script src="js/common.js"></script>
+    <script async src="js/store.js"></script>
+  </body>
+</html>

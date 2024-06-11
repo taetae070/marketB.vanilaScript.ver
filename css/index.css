@@ -1,0 +1,710 @@
+.lnb {
+  z-index: 1;
+}
+body {
+  font-size: 1rem;
+  color: var(--B);
+}
+header .container {
+  margin-top: 0;
+}
+h4 {
+  font-size: 1.875rem;
+  line-height: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.first_alert {
+  top: 25%;
+  left: 10%;
+  z-index: 9999;
+  background: #fff;
+  border: 4px solid var(--Gg);
+  padding: 2.125rem;
+  display: none;
+}
+.desc_pf {
+  gap: 1rem;
+}
+.desc_pf > div > p {
+  margin-top: 10px;
+}
+.desc_pf div {
+  font-weight: 500;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+.desc_pf div span {
+  font-weight: 500;
+}
+.desc_pf div p {
+  color: var(--G);
+  font-weight: 300;
+}
+.desc_pf div a {
+  color: var(--Gg);
+}
+.desc_pf div i {
+  margin: 0 5px;
+}
+.contact {
+  margin-right: 1rem;
+}
+.desc_click {
+  padding-left: 7.8125rem;
+  font-size: 0.75rem;
+  color: var(--Gg);
+  font-weight: 300;
+}
+.desc_pf a:hover {
+  color: var(--Y);
+}
+.close {
+  top: 3%;
+  right: 1%;
+  border: none;
+  background: #fff;
+  font-size: 1.1875rem;
+  cursor: pointer;
+}
+.modalHidden {
+  display: none;
+}
+
+/* -----------------------------------notice */
+.notice_board {
+  width: 100%;
+  height: 2.875rem;
+  background: #3a3936;
+}
+
+.notice_board .notice_content {
+  flex-wrap: nowrap;
+  width: 30%;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notice_board .notice_content a {
+  color: #fff;
+  font-size: 0.75rem;
+}
+.notice_board .notice_content a i {
+  margin-right: 0.625rem;
+}
+.notice_board .notice_content i:hover,
+.notice_board .notice_content a:hover {
+  color: var(--Y);
+}
+/* ------------------------------------subNav */
+.subNav {
+  margin-top: 4rem;
+}
+.subNav a {
+  padding: 0.625rem;
+  font-size: 1rem;
+  text-align: start;
+}
+.subNav_content {
+  width: 100%;
+  display: grid;
+  grid-template: 2.5rem / repeat(10, 1fr);
+  text-align: center;
+  color: var(--B);
+}
+.subNav::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  background: #f2f2f2;
+  width: 90.625rem;
+  height: 2px;
+  top: 100%;
+  z-index: -2;
+}
+
+/* ----------------------------------------검색창 */
+.gnb_search {
+  grid-column: 10/10;
+  position: relative;
+  width: 18.75rem;
+}
+
+.icon_search {
+  width: 10%;
+  transition: 0.3s all;
+}
+
+/* 클릭 후 검색창 */
+
+.gnb_search::before {
+  left: 100%;
+  right: 0;
+  bottom: 0;
+  transition: 0.3s all;
+  content: "";
+  position: absolute;
+  border-radius: 24px;
+  height: 3.5rem;
+  background: #f2f2f2;
+  z-index: -1;
+}
+.gnb_search.on::before {
+  left: 0;
+}
+
+.gnb_search input {
+  opacity: 0;
+  outline: none;
+  /* padding: 3px 0 0 0; */
+  /* display: block; */
+  border: none;
+  background: none;
+}
+.gnb_search input.on {
+  left: -6%;
+  opacity: 1;
+}
+
+.gnb_search > input:before {
+  /* left: 0; */
+  content: "";
+  position: absolute;
+  border-radius: 20px;
+  transition: 0.3s all;
+  height: 3rem;
+  background: #f2f2f2;
+}
+
+/* 돋보기 */
+.magn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  right: 3%;
+  bottom: 10%;
+}
+.magn > span {
+  color: var(--B);
+  font-size: 0.75rem;
+}
+.magn::before {
+  content: "";
+  display: block;
+  width: 1.375rem;
+  height: 1.375rem;
+  background: url(../img/magnifying-glass-solid.svg) no-repeat;
+  color: var(--B);
+  margin: 0 auto;
+}
+
+/* ------------------------------------slide */
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.slide_start {
+  margin-top: 2.5rem;
+  height: 38.75rem;
+}
+
+.mainImg_wrapper .slide-wrapper {
+  display: flex;
+}
+.slide-wrapper .imgWrap {
+  height: 35.75rem;
+  width: 100%;
+}
+
+.imgWrap > img {
+  /* width: 65.625rem; */
+  width: 70%;
+}
+.slide-wrapper .imgRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 5rem;
+  width: 20%;
+  /* width: 20rem; */
+  padding: 0 10px;
+}
+
+.slide-wrapper .Y {
+  background-color: #f6dd84;
+}
+.slide-wrapper .B {
+  background-color: #8dd9ea;
+}
+.slide-wrapper .Br {
+  background-color: #eac58d;
+}
+.slide-wrapper .Gr {
+  background-color: #a5e7c3;
+}
+
+h2 {
+  font-size: 2.25rem;
+  font-weight: 400;
+  line-height: 2.375rem;
+}
+
+#imgTit {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+.imgDesc {
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+}
+
+.imgPrice {
+  font-weight: 400;
+  font-size: 2.5rem;
+}
+
+/* 슬라이드 버튼 */
+.hidden {
+  display: none;
+}
+
+.slide_start .play {
+  /* display: none; */
+  transition: all 0.1s ease-in-out;
+  right: 15.8%;
+  bottom: 5%;
+}
+
+.slide_start .pause {
+  bottom: 6%;
+  left: 83.4%;
+  bottom: 5%;
+  z-index: 10000;
+  transition: all 0.1s ease-in-out;
+}
+
+.slide_start .btn {
+  color: var(--G);
+  margin-top: -1.875rem;
+}
+.slide_start .swiper-button-next::after,
+.slide_start .swiper-button-prev::after {
+  font-size: 1.5rem;
+  position: absolute;
+  width: auto;
+}
+.slide_start .swiper-button-next {
+  top: 97%;
+  right: 12%;
+}
+.slide_start .swiper-button-prev {
+  top: 97%;
+  left: 80%;
+}
+
+/* ---------------------------------------------aside */
+aside {
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.375rem;
+  z-index: 10;
+  right: 0;
+  top: 30%;
+}
+@keyframes colorChange {
+  0% {
+  }
+  100% {
+    color: var(--Y);
+  }
+}
+.icon {
+  color: var(--B);
+}
+
+.icon a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  text-align: center;
+}
+
+.icon a i {
+  font-size: 1.5rem;
+}
+.icon a span {
+  font-size: 0.8125rem;
+  color: var(--G);
+}
+.icon :hover {
+  animation: colorChange 0.5s 0.1s 1 ease forwards;
+}
+.icon-text {
+  color: var(--G);
+  width: 330%;
+
+  right: -92%;
+  top: 0%;
+  border: 1px solid var(--Gg);
+  border-radius: 3px;
+  padding: 1px;
+  background-color: #fff;
+  display: none;
+}
+
+.icon:hover .icon-text {
+  display: block;
+
+  /* color: var(--B); */
+}
+
+/* -----------------------------------------------section 01 */
+.best h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 3.125rem;
+  /* margin: 12.5rem 0 3.125rem 12.188rem; */
+}
+h6 {
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+.best_desc {
+  text-align: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  box-shadow: 0px, 4px rgba(0, 0, 0, 0.25);
+}
+
+.best_desc p {
+  font-size: 1rem;
+}
+/* ----------------slide */
+.slider_wrapper .wish_alert01,
+.slider_wrapper .wish_alert02,
+.slider_wrapper .cart_alert01,
+.slider_wrapper .cart_alert02 {
+  text-align: center;
+  z-index: 50;
+  bottom: -1%;
+  left: 45%;
+  width: 14%;
+  background: var(--G);
+  border: 1px solid var(--G);
+  border-radius: 4px;
+  padding: 1% 1%;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.slider_wrapper .wish_alert01.active,
+.slider_wrapper .wish_alert02.active,
+.slider_wrapper .cart_alert01.active,
+.slider_wrapper .cart_alert02.active {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+.slider_wrapper {
+  height: 35.625rem;
+  overflow: hidden;
+}
+
+/* ul */
+.slider_wrapper ul {
+  margin-left: 6.188rem;
+  position: absolute;
+  transition: left 0.5s ease-in-out;
+  left: 0;
+  gap: 3.75rem;
+}
+
+.slides li {
+  width: 28.125rem;
+  height: 25rem;
+  background: #ccc;
+  line-height: 36.8125rem;
+}
+.slides li:last-child {
+  gap: 0;
+}
+.bestList .bestItem > button {
+  z-index: 10;
+  right: 0%;
+}
+
+.bestList {
+  box-shadow: 4px 4px 3px #ededed;
+}
+
+.bestList a > img {
+  width: 21.5rem;
+  height: auto;
+}
+
+.yellow_Btn {
+  position: absolute;
+  z-index: 10;
+  right: 75.4%;
+}
+
+.best .prev_btn,
+.next_btn {
+  color: var(--G);
+  font-size: 3.125rem;
+  z-index: 10;
+  top: 36%;
+}
+
+.best .next_btn {
+  right: 1%;
+}
+.best .prev_btn {
+  left: 0;
+}
+
+/* wish, cart btn */
+.wish_Btn i,
+.cart_Btn i {
+  font-size: 1.125rem;
+}
+
+/* --------------------------------------section02 */
+.magazine .maga > p {
+  margin-bottom: 4.375rem;
+  /* margin: 1.563rem 0 2.5rem 0; */
+}
+.magazine article {
+  justify-content: space-between;
+}
+h7 {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+h7 > a:hover {
+  color: var(--Y);
+}
+.magazine article figure .magaPrice {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.magazine article figure .magaInner {
+  padding: 1.563rem 2.188rem;
+  background: #fff;
+  border: 1px #333 solid;
+  display: inline-block;
+  text-align: center;
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.magazine .magaImg img {
+  width: 41.75rem;
+  height: 50.0625rem;
+  box-shadow: 5px 5px 4px #ededed;
+}
+.magazine article figure .circle {
+  width: 2.125rem;
+  height: 2.125rem;
+  background: #9c9c9a;
+  border-radius: 50%;
+}
+.magazine article figure .circle a::before {
+  content: "";
+  position: absolute;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.magazine article figure .circle a:hover::before {
+  width: 1.5rem;
+  height: 1.5rem;
+  background: var(--Y);
+  transform: translate(-50%, -50%) scale(0.8);
+}
+.magazine article figure ul li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  position: absolute;
+}
+
+.magazine article figure ul .DONALT {
+  top: 51%;
+  left: 25%;
+}
+.magazine article figure ul .DVALA {
+  top: 73%;
+  left: 8%;
+}
+.magazine article figure ul .NISKO {
+  top: 55%;
+  left: -5%;
+}
+.magazine article figure ul .EZBO {
+  top: 75%;
+  left: 28%;
+}
+.magazine article figure ul .LETANTO {
+  top: 50%;
+  right: 3%;
+}
+.magazine article figure li .magaTit {
+  gap: 16px;
+  flex-direction: column;
+}
+
+/* ---------------------------------------section03 */
+
+.promo article > img {
+  box-shadow: 5px 5px 4px #ededed;
+  width: 70.375rem;
+  height: auto;
+}
+
+.promo article h3 {
+  font-weight: 500;
+  margin: 0;
+  line-height: 3.75rem;
+}
+.promo .se3_desc {
+  z-index: 40;
+  left: 70%;
+  top: 8%;
+  background: #fff;
+  gap: 2.5rem;
+  align-items: center;
+  text-align: center;
+  /* width: 23rem; */
+  width: 20.5vw;
+  height: auto;
+  box-shadow: 5px 5px 4px #ededed;
+  transition: all 0.3s ease-in-out;
+  transform: scale(1);
+  padding: 2.5rem 3.75rem;
+}
+.promo .se3_desc:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 10px #56b983;
+}
+.sec3_inner .y_Btn2 a {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.sec3_p {
+  line-height: 1.625rem;
+  font-size: 1.25rem;
+}
+.sec3_p02 {
+  font-size: 1rem;
+}
+/* --sale부분-- */
+.promo article .sale_inner {
+  padding: 2.375rem 3rem;
+}
+.promo .sale_inner:hover {
+  transform: scale(1.1);
+  box-shadow: 10px 10px 16px rgb(246, 56, 56);
+}
+
+/* random_coupon*/
+.random_coupon {
+  margin-top: 12.5rem;
+}
+.random_coupon .cp_desc {
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 3.75rem;
+}
+.random_coupon .cp_desc .desc_info {
+  font-size: 1rem;
+}
+.random_coupon .cp_desc .desc_sale {
+  font-size: 1.375rem;
+  color: var(--R);
+  margin-bottom: 1rem;
+}
+.random_coupon .cp_desc01 {
+  font-size: 2.5rem;
+  justify-content: center;
+  color: #56b983;
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+.random_coupon .cp_desc01 > i {
+  margin-right: 0.625rem;
+}
+.random_coupon .cp_desc01 > p {
+  font-family: "Montserrat", sans-serif;
+
+  font-weight: 500;
+}
+.random_coupon .notice {
+  margin: 0 auto;
+  width: 55rem;
+  height: 21.75rem;
+}
+.random_coupon .notice .cp_before {
+  width: 100%;
+  height: 100%;
+  background: var(--S);
+}
+.random_coupon figure .grid {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-auto-flow: row;
+}
+/* 긁으면 보이는거 */
+.random_coupon .notice .scratch {
+  display: block;
+  background-image: url("../img/main/coupon1");
+  background-repeat: no-repeat;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.random_coupon .notice .scratch.drawing {
+  opacity: 1;
+}
+
+.notice .grid {
+  position: relative;
+}
+.notice .grid a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+.PONDE {
+  background: url(../img/detail/PONDE\ 벨벳의자\ grey1.jpg);
+  background-position: left top;
+}
