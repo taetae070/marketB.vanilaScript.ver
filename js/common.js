@@ -1,157 +1,221 @@
-$(document).ready(function () {
+document.addEventListener("DOMContentLoaded", function () {
   // nav
-  $(".menu_btn").click(function () {
-    $(".category_list").show();
+  //메뉴버튼
+  const menuBtn = document.querySelector(".mainNAV .menu_btn");
+  const cateHead = document.querySelector(".category_list");
+  const cateHeadAll = document.querySelectorAll(".category_list");
+  const cateList01 = document.querySelectorAll(
+    ".category_list .catebox_1 > li"
+  );
+  // const cateList02 = document.querySelectorAll(".category_list .catebox_2 li");
+
+  function menuClicked() {
+    menuBtn.addEventListener("click", () => {
+      cateHead.classList.toggle("visible");
+    });
+  }
+  menuClicked();
+
+  // cateHead mouseout 이벤트???
+  cateHeadAll.forEach(function (head) {
+    head.addEventListener("mouseover", function () {
+      const parentLi = head.parentElement;
+      parentLi.classList.add("visible");
+    });
+
+    head.addEventListener("mouseout", function () {
+      const parentLi = head.parentElement;
+      parentLi.classList.remove("visible");
+    });
   });
-  $(".category_list").mouseleave(function () {
-    $(".category_list").hide();
-  });
+
+  function hoverEvent() {
+    cateList01.forEach(function (list01) {
+      list01.addEventListener("mouseover", function () {
+        list01.classList.add("visible");
+
+        const cateList02 = list01.querySelectorAll(".catebox_2 li");
+        cateList02.forEach(function (list02) {
+          list02.addEventListener("mouseover", function () {
+            list02.classList.add("visible");
+          });
+        });
+      });
+    });
+    console.log("hover");
+  }
+  hoverEvent();
 
   // wish, cart btn
-  let empty_like = $(".wish_Btn");
-  empty_like.click(function () {
-    $(this).toggleClass("on");
-  });
-  let putincart_btn = $(".cart_Btn");
-  putincart_btn.click(function () {
-    $(this).toggleClass("on");
+  const wishBtns = document.querySelectorAll(".wish_Btn");
+  const cartBtns = document.querySelectorAll(".cart_Btn");
+  const wishAlert01 = document.querySelector(".wish_alert01");
+  const wishAlert02 = document.querySelector(".wish_alert02");
+  const cartAlert01 = document.querySelector(".cart_alert01");
+  const cartAlert02 = document.querySelector(".cart_alert02");
+
+  function handleAlert(button, alertOn, alertOff) {
+    button.addEventListener("click", function () {
+      if (button.classList.contains("on")) {
+        alertOn.classList.add("active");
+        alertOff.classList.remove("active");
+      } else {
+        alertOn.classList.remove("active");
+        alertOff.classList.add("active");
+      }
+      setTimeout(function () {
+        alertOn.classList.remove("active");
+        alertOff.classList.remove("active");
+      }, 2000);
+    });
+  }
+  wishBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btn.classList.toggle("on");
+    });
   });
 
-  //wish, cart alert
-  let wishBtn = $(".wish_Btn");
-  let cartBtn = $(".cart_Btn");
-  let wishAlert01 = $(".wish_alert01");
-  let wishAlert02 = $(".wish_alert02");
-  let cartAlert01 = $(".cart_alert01");
-  let cartAlert02 = $(".cart_alert02");
+  cartBtns.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      btn.classList.toggle("on");
+    });
+    wishBtns.forEach(function (btn) {
+      handleAlert(btn, wishAlert01, wishAlert02);
+    });
 
-  wishBtn.click(function () {
-    if ($(this).hasClass("on")) {
-      wishAlert01.addClass("active");
-      wishAlert02.removeClass("active");
-    } else {
-      wishAlert01.removeClass("active");
-      wishAlert02.addClass("active");
-    }
-    for (let i = 0; i < 9999; i++) {
-      setTimeout(function () {
-        wishAlert01.removeClass("active");
-        wishAlert02.removeClass("active");
-      }, 2000);
-    }
+    cartBtns.forEach(function (btn) {
+      handleAlert(btn, cartAlert01, cartAlert02);
+    });
   });
-  cartBtn.click(function () {
-    if ($(this).hasClass("on")) {
-      cartAlert01.addClass("active");
-      cartAlert02.removeClass("active");
-    } else {
-      cartAlert01.removeClass("active");
-      cartAlert02.addClass("active");
-    }
-    for (let i = 0; i < 9999; i++) {
-      setTimeout(function () {
-        cartAlert01.removeClass("active");
-        cartAlert02.removeClass("active");
-      }, 2000);
-    }
-  });
+
   // btn top
-  let all_height = $("body, html").innerHeight();
-  let scr_offset = $(window).scrollTop();
-  let btnTop = $("#btn_top");
-  let footerOffset = $("footer").offset().top;
-  let footerHeight = $("footer").innerHeight();
+  let allHeight = document.documentElement.scrollHeight;
+  let scrOffset = window.scrollY; //사용자가 페이지에서 스크롤한 양
+  const btnTop = document.getElementById("btn_top");
+  const footer = document.querySelector("footer");
+  let footerOffset = footer.offsetTop;
+  let footerHeight = footer.offsetHeight;
   let scrPercent = calculateScrPercent();
+  const percentage = document.querySelector("#btn_top .percentage");
 
   function calculateScrPercent() {
-    let windowHeight = $(window).innerHeight();
-    let contentHeight = all_height - footerHeight;
+    let windowHeight = window.innerHeight; //사용자가 보고 있는 브라우저 창의 높이
+    let scrAbleHeight = allHeight - footerHeight; //스크롤 가능한 높이
 
-    if (contentHeight <= 0) {
+    if (scrAbleHeight <= 0) {
       return 100;
     }
-    return ((scr_offset + windowHeight) / contentHeight) * 100;
-  }
-
-  let percentage = $("#btn_top .percentage");
-
-  function Common_resizeEvent() {
-    all_height = $("body, html").innerHeight();
-    scr_offset = $(window).scrollTop();
-    footerOffset = $("footer").offset().top;
-    footerHeight = $("footer").innerHeight();
-    scrPercent = calculateScrPercent();
+    return ((scrOffset + windowHeight) / scrAbleHeight) * 100;
+    //현재 창의 하단 위치가 스크롤 가능한 높이에 대해 얼마나 비율을 차지하는지
   }
 
   function btnTopPosition() {
-    if (scr_offset > 100) {
-      btnTop.addClass("on");
+    if (scrOffset > 100) {
+      btnTop.classList.add("on");
     } else {
-      btnTop.removeClass("on");
+      btnTop.classList.remove("on");
     }
-    percentage.css({ height: `${scrPercent * 1.2}%` });
+    percentage.style.height = `${scrPercent * 1.2}%`;
   }
 
-  $(window).scroll(function () {
-    scr_offset = $(window).scrollTop();
+  window.addEventListener("scroll", function () {
+    scrOffset = window.scrollY;
     scrPercent = calculateScrPercent();
     btnTopPosition();
   });
 
-  btnTop.click((e) => {
+  //맨 위로 이동
+  btnTop.addEventListener("click", function (e) {
     e.preventDefault();
-    $("html, body").animate({ scrollTop: 0 }, 300, function () {
-      scr_offset = $(window).scrollTop();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setTimeout(function () {
+      scrOffset = window.scrollY;
       scrPercent = calculateScrPercent();
       btnTopPosition();
-    });
+    }, 300);
+    //스크롤이 완료되기 전에 스크롤 위치와 관련된 값을 업데이트하면 잘못된 값을 가져올 수 있음
   });
 
-  $(window).resize(function () {
-    setTimeout(() => {
-      Common_resizeEvent();
+  function commonResizeEvent() {
+    let allHeight = document.documentElement.scrollHeight;
+    let scrOffset = window.scrollY;
+    let footerOffset = footer.offsetTop;
+    let footerHeight = footer.offsetHeight;
+    scrPercent = calculateScrPercent();
+  }
+
+  window.addEventListener("resize", function () {
+    setTimeout(function () {
+      commonResizeEvent();
       scrPercent = calculateScrPercent();
       btnTopPosition();
     }, 500);
   });
 
   //상품 슬라이드
-  $(".slider_wrapper").each(function () {
-    var sliderUl = $(this).find("ul"),
-      slides = sliderUl.find("li"),
-      currentIdx = 0,
-      slideCount = slides.length,
-      slideWidth = 450,
-      slideMargin = 30,
-      slideToShow = 4,
-      prevBtn = $(this).find(".prev_btn"),
-      nextBtn = $(this).find(".next_btn");
+  document
+    .querySelectorAll(".slider_wrapper")
+    .forEach(function (sliderWrapper) {
+      var sliderUl = sliderWrapper.querySelector("ul"),
+        slides = sliderUl.querySelectorAll("li"),
+        currentIdx = 0,
+        slideCount = slides.length,
+        prevBtn = sliderWrapper.querySelector(".prev_btn"),
+        nextBtn = sliderWrapper.querySelector(".next_btn");
 
-    // 슬라이드 배치
-    sliderUl.width(slideWidth * slideCount + slideMargin * (slideCount - 1));
-
-    // 슬라이드 이동함수
-    function moveSlide(idx) {
-      sliderUl.css("left", -idx * (slideWidth + slideMargin));
-      currentIdx = idx;
-    }
-
-    // 버튼으로 이동하기
-    nextBtn.on("click", function () {
-      if (currentIdx === slideCount - slideToShow) {
-        moveSlide(0);
-      } else {
-        moveSlide(currentIdx + 1);
+      // 슬라이드 너비 설정
+      function setSlideWidth() {
+        var slideWidth = slides[0].offsetWidth; // 슬라이드의 현재 너비
+        var slideMargin = parseInt(
+          window.getComputedStyle(slides[0]).marginRight
+        ); // 슬라이드의 현재 마진
+        sliderUl.style.width =
+          slideWidth * slideCount + slideMargin * (slideCount - 1) + "px";
+        return { slideWidth, slideMargin };
       }
-    });
-    prevBtn.on("click", function () {
-      if (currentIdx === 0) {
-        moveSlide(slideCount - slideToShow);
-      } else {
-        moveSlide(currentIdx - 1);
+
+      // 슬라이드 이동 너비 설정
+      function moveSlide(idx) {
+        sliderUl.style.left = -idx * (slideWidth + slideMargin) + "px";
+        currentIdx = idx;
       }
+
+      // 초기 슬라이드 설정
+      var { slideWidth, slideMargin } = setSlideWidth();
+
+      nextBtn.addEventListener("click", function () {
+        if (
+          currentIdx ===
+          slideCount -
+            Math.floor(sliderWrapper.offsetWidth / (slideWidth + slideMargin))
+        ) {
+          moveSlide(0, slideWidth, slideMargin); // 첫 슬라이드로 이동
+        } else {
+          moveSlide(currentIdx + 1, slideWidth, slideMargin); // 다음 슬라이드로 이동
+        }
+      });
+
+      prevBtn.addEventListener("click", function () {
+        if (currentIdx === 0) {
+          moveSlide(
+            slideCount -
+              Math.floor(
+                sliderWrapper.offsetWidth / (slideWidth + slideMargin)
+              ),
+            slideWidth,
+            slideMargin
+          ); // 마지막 슬라이드로 이동
+        } else {
+          moveSlide(currentIdx - 1, slideWidth, slideMargin); // 이전 슬라이드로 이동
+        }
+      });
+
+      // 윈도우 리사이즈 이벤트 처리
+      window.addEventListener("resize", function () {
+        var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
+        moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
+      });
     });
-  });
 
   //rate random
   function put_random() {

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // centeredSlideLi: true,
     autoplay: {
       delay: 5000,
-      disableOnInteraction: "false",
+      disableOnInteraction: "true",
     },
     pagination: {
       el: ".swiper-pagination",
@@ -30,14 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
   const pauseBtn = document.querySelector(".slide_start .pause");
   const playBtn = document.querySelector(".slide_start .play");
   pauseBtn.addEventListener("click", () => {
-    console.log("Pause button clicked");
+    swiper.autoplay.stop();
     pauseBtn.classList.toggle("hidden");
-    playBtn.classList.toggle("hidden");
+    playBtn.classList.toggle("visible");
   });
   playBtn.addEventListener("click", () => {
-    console.log("Play button clicked");
-    playBtn.classList.toggle("hidden");
-    pauseBtn.classList.toggle("hidden");
+    swiper.autoplay.start();
+    playBtn.classList.remove("visible");
+    pauseBtn.classList.remove("hidden");
   });
 
   //검색창 버튼 ㅇㅋ
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   moveSlide(0);
 
-  //star rating ㅇㅋ
+  //random star rating
   const ratings = document.querySelectorAll(".rating");
   ratings.forEach(function (rating) {
     let starWraps = rating.querySelectorAll(".star-wrap"),
