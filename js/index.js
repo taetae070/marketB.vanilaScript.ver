@@ -50,79 +50,136 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //section01 슬라이드 ㅇㅋ
-  const slideWrap = document.querySelector(".slider_wrapper"),
-    imgWidth = document.querySelector(".bestList .bestItem img").offsetWidth,
-    slideUl = slideWrap.querySelector("ul"),
-    slideLi = slideWrap.querySelectorAll("li"),
-    imgGap = getComputedStyle(slideUl).getPropertyValue("gap"),
-    slideToShow = 4,
-    prevBtn = document.querySelector(".prev_btn"),
-    nextBtn = document.querySelector(".next_btn");
+  //상품 슬라이드
+  const sliderWrapper = document.querySelector(".slider_wrapper");
+  var sliderUl = sliderWrapper.querySelector("ul"),
+    slides = sliderUl.querySelectorAll("li"),
+    currentIdx = 0,
+    slideCount = slides.length,
+    slideMargin = parseInt(window.getComputedStyle(sliderUl).gap, 10),
+    slideWidth = slides[0].offsetWidth,
+    prevBtn = sliderWrapper.querySelector(".prev_btn"),
+    nextBtn = sliderWrapper.querySelector(".next_btn");
 
-  let currentIdx = 0;
-  function moveSlide(idx) {
-    currentIdx = idx;
-    slideUl.style.left = -idx * (imgWidth + parseInt(imgGap, 10)) + "px";
+  // 슬라이드 너비 설정
+  function setSlideWidth() {
+    // var slideWidth = slides[0].offsetWidth;
+    // var slideMargin = parseInt(window.getComputedStyle(slides[0]).marginRight);
+    sliderUl.style.width =
+      slideWidth * slideCount + slideMargin * (slideCount - 1) + "px";
+    return { slideWidth, slideMargin };
   }
 
-  // Button click event ㅇㅋ
+  // 슬라이드 이동 너비 설정
+  function moveSlide(idx) {
+    sliderUl.style.left = -idx * (slideWidth + slideMargin) + "px";
+    currentIdx = idx;
+  }
+
+  // 초기값
+  var { slideWidth, slideMargin } = setSlideWidth();
+
   nextBtn.addEventListener("click", function () {
-    if (currentIdx === slideLi.length - slideToShow) {
-      //마지막 슬라이드-3이면 첫 슬라이드로 이동
+    if (
+      currentIdx ===
+      slideCount -
+        Math.floor(sliderWrapper.offsetWidth / (slideWidth + slideMargin)) // 전체너비/슬라이드1개 = 화면에 나타낼 수 있는 슬라이드 갯수
+    ) {
       moveSlide(0);
     } else {
       moveSlide(currentIdx + 1);
     }
   });
+
   prevBtn.addEventListener("click", function () {
     if (currentIdx === 0) {
-      moveSlide(slideLi.length - slideToShow);
+      moveSlide(
+        slideCount -
+          Math.floor(sliderWrapper.offsetWidth / (slideWidth + slideMargin))
+      ); // 마지막 슬라이드로 이동
     } else {
-      moveSlide(currentIdx - 1);
+      moveSlide(currentIdx - 1); // 이전 슬라이드로 이동
     }
+    console.log("clicked");
   });
-  moveSlide(0);
 
-  //random star rating
-  const ratings = document.querySelectorAll(".rating");
-  ratings.forEach(function (rating) {
-    let starWraps = rating.querySelectorAll(".star-wrap"),
-      scoreNum = rating.getAttribute("data-rate"),
-      scoreArr = scoreNum.split("."); //ex)4.5 -> [ "4", "5" ]
-
-    if (scoreArr.length > 1) {
-      for (let i = 0; i < parseInt(scoreArr[0], 10); i++) {
-        starWraps[i].querySelector(".star").style.width = "100%";
-        //for 루프 내에서 i를 인덱스로 사용하여 starWraps 집합의 각 요소에 접근하고, 각 .star-wrap 요소 내에 있는 .star 요소의 스타일을 변경할 수 있습니다
-        // [i]는 배열(또는 유사 배열 객체)에서 특정 인덱스에 있는 요소에 접근하기 위해 사용됩니다.
-      }
-      starWraps[parseInt(scoreArr[0], 10)].querySelector(".star").style.width =
-        scoreArr[1] + "0%";
-    } else {
-      for (let i = 0; i < scoreNum; i++) {
-        starWraps[i].querySelector(".star").style.width = "100%";
-      }
-    }
+  // 윈도우 리사이즈 이벤트 처리
+  window.addEventListener("resize", function () {
+    var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
+    moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
   });
+
+  // var slideWrap = document.querySelector(".slider_wrapper"),
+  //   imgWidth = document.querySelector(".bestList .bestItem img").offsetWidth,
+  //   slideUl = slideWrap.querySelector("ul"),
+  //   slideLi = slideWrap.querySelectorAll("li"),
+  //   imgGap = getComputedStyle(slideUl).getPropertyValue("gap"),
+  //   slideToShow = 4,
+  //   prevBtn = document.querySelector(".prev_btn"),
+  //   nextBtn = document.querySelector(".next_btn");
+
+  // let currentIdx = 0;
+  // function moveSlide(idx) {
+  //   currentIdx = idx;
+  //   slideUl.style.left = -idx * (imgWidth + parseInt(imgGap, 10)) + "px";
+  // }
+
+  // // Button click event ㅇㅋ
+  // nextBtn.addEventListener("click", function () {
+  //   if (currentIdx === slideLi.length - slideToShow) {
+  //     //마지막 슬라이드-3이면 첫 슬라이드로 이동
+  //     moveSlide(0);
+  //   } else {
+  //     moveSlide(currentIdx + 1);
+  //   }
+  // });
+  // prevBtn.addEventListener("click", function () {
+  //   if (currentIdx === 0) {
+  //     moveSlide(slideLi.length - slideToShow);
+  //   } else {
+  //     moveSlide(currentIdx - 1);
+  //   }
+  // });
+  // moveSlide(0);
 
   //magazine ㅇㅋ
   const circles = document.querySelectorAll(".circle");
 
-  circles.forEach((circleElement) => {
-    const circleInfo = circleElement.closest("li").querySelector(".magaInner");
-    circleElement.addEventListener("mouseover", () => {
-      if (circleInfo) circleInfo.style.opacity = "1";
-    });
-    circleElement.addEventListener("mouseout", () => {
-      if (circleInfo) circleInfo.style.opacity = "0";
-    });
-    console.log(circleElement);
+  circles.forEach((c) => {
+    const circleInfo = c.closest("li").querySelector(".magaInner");
+
+    const showCircleInfo = () => {
+      if (circleInfo) {
+        circleInfo.style.opacity = "1";
+        circleInfo.style.pointerEvents = "auto"; // 마우스 이벤트 활성화
+      }
+    };
+
+    const hideCircleInfo = () => {
+      setTimeout(() => {
+        if (
+          circleInfo &&
+          !circleInfo.matches(":hover") &&
+          !c.matches(":hover")
+        ) {
+          circleInfo.style.opacity = "0";
+          circleInfo.style.pointerEvents = "none"; // 마우스 이벤트 비활성화
+        }
+      }, 300);
+    };
+
+    c.addEventListener("mouseover", showCircleInfo);
+    c.addEventListener("mouseout", hideCircleInfo);
+
+    if (circleInfo) {
+      circleInfo.addEventListener("mouseout", hideCircleInfo);
+    }
   });
 
-  //coupon
+  //coupon -> 문제점: 페이지로드하자마자 쿠폰섹션으로 가면 이미지 로드가 늦어서 작동이 안됌
   const section5 = document.querySelector(".random_coupon"),
     couponCon = section5.querySelector(".notice"), //coupon Container
-    couponGrey = document.querySelector(".cp_before"), //긁기 전 이미지
+    couponGrey = document.querySelector(".cp_before"), //긁기 전 회색박스
     couponGreyWidth = couponGrey.offsetWidth,
     couponGreyHeight = couponGrey.offsetHeight,
     couponOff = couponCon.getBoundingClientRect();
@@ -161,40 +218,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   event_Sketch();
 
-  // const section5 = document.querySelector(".random_coupon"),
-  //   couponCon = section5.querySelector(".notice"), //coupon Container
-  //   couponGrey = document.querySelector(".cp_before"), //긁기 전 이미지
-  //   couponGreyWidth = couponGrey.offsetWidth(),
-  //   couponGreyHeight = couponGrey.offsetHeight(),
-  //   couponOff = couponCon.offset();
-
-  // function event_Sketch() {
-  //   let randomImg = Math.floor(Math.random() * 3) + 1;
-  //   let couponDiv = `<div class="scratch"></div>`.repeat(32);
-  //   document.querySelector(".grid").innerHTML = couponDiv;
-  //   couponCon
-  //     .find(".scratch")
-  //     .css("background-image", `url("img/main/coupon${randomImg}.png")`);
-
-  //   let scratch = couponCon.find(".scratch"); //임의로 만든 비어있는 클래스
-  //   scratch.each(function (idx, item) {
-  //     scratch.eq(idx).css({
-  //       "background-size": `${couponGreyWidth}px ${couponGreyHeight}px`,
-  //       "background-position-x": `-${
-  //         scratch.eq(idx).offset().left - couponOff.left
-  //       }px`,
-  //       "background-position-y": `-${
-  //         scratch.eq(idx).offset().top - couponOff.top
-  //       }px`,
-  //     });
-  //   });
-  //   scratch.mouseover(function () {
-  //     $(this).addClass("drawing");
-  //     checkOpacity();
-  //   });
-  // }
-  // event_Sketch();
-
   // a태그 넣어주기
   function checkOpacity() {
     let drawingbox = document.querySelectorAll(".grid .drawing");
@@ -225,9 +248,5 @@ document.addEventListener("DOMContentLoaded", function () {
     promo_ps.forEach((p) => {
       p.style.display = "none";
     });
-    // aside_span.classList.add("icon-text A");
-    // promo_p.css({
-    //   display: "none",
-    // });
   }
 });

@@ -299,7 +299,7 @@ header {
   width: 9rem;
 }
 .lnb {
-  margin-top: 0.875rem;
+  margin-top: 2.875rem;
   width: 11.25rem;
   z-index: 100;
 }
@@ -369,6 +369,9 @@ h3 {
   margin-left: 4.0746rem;
 }
 /* common design */
+article ul {
+  gap: 50px;
+}
 .rating .star i {
   color: var(--Y);
 }

@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   menuClicked();
 
-  // cateHead mouseout 이벤트???
+  // categoryHead mouseout
   cateHeadAll.forEach(function (head) {
     head.addEventListener("mouseover", function () {
       const parentLi = head.parentElement;
@@ -42,7 +42,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     });
-    console.log("hover");
   }
   hoverEvent();
 
@@ -66,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(function () {
         alertOn.classList.remove("active");
         alertOff.classList.remove("active");
-      }, 2000);
+      }, 7000);
     });
   }
   wishBtns.forEach(function (btn) {
@@ -152,140 +151,95 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 500);
   });
 
-  //상품 슬라이드
-  document
-    .querySelectorAll(".slider_wrapper")
-    .forEach(function (sliderWrapper) {
-      var sliderUl = sliderWrapper.querySelector("ul"),
-        slides = sliderUl.querySelectorAll("li"),
-        currentIdx = 0,
-        slideCount = slides.length,
-        prevBtn = sliderWrapper.querySelector(".prev_btn"),
-        nextBtn = sliderWrapper.querySelector(".next_btn");
+  const slide_start = document.querySelectorAll(".slider_wrapper");
+  const imgWidth = document.querySelector(".bestList .bestItem img").width;
+  const rowgap_value = parseInt(
+    window.getComputedStyle(slide_start[0].querySelector("ul")).rowGap
+  );
 
-      // 슬라이드 너비 설정
-      function setSlideWidth() {
-        var slideWidth = slides[0].offsetWidth; // 슬라이드의 현재 너비
-        var slideMargin = parseInt(
-          window.getComputedStyle(slides[0]).marginRight
-        ); // 슬라이드의 현재 마진
-        sliderUl.style.width =
-          slideWidth * slideCount + slideMargin * (slideCount - 1) + "px";
-        return { slideWidth, slideMargin };
+  slide_start.forEach(function (slider) {
+    const slide_UL = slider.querySelector("ul");
+    const slides = slide_UL.querySelectorAll("li");
+    let currentIdx = 0;
+    const slideCount = slides.length;
+    const slideWidth = imgWidth;
+    const slideToShow = 3;
+    const prevBtn = slider.querySelector(".prev_btn");
+    const nextBtn = slider.querySelector(".next_btn");
+
+    // ul 너비지정
+    slide_UL.style.width =
+      slideWidth * slideCount + rowgap_value * (slideCount - 1) + "px";
+
+    // 슬라이드 이동함수
+    function moveSlide(idx) {
+      slide_UL.style.left = -idx * (slideWidth + rowgap_value) + "px";
+      currentIdx = idx;
+    }
+    moveSlide(currentIdx);
+
+    // 버튼으로 이동하기
+    nextBtn.addEventListener("click", function () {
+      if (currentIdx === slideCount - slideToShow) {
+        moveSlide(0);
+      } else {
+        moveSlide(currentIdx + 1);
       }
-
-      // 슬라이드 이동 너비 설정
-      function moveSlide(idx) {
-        sliderUl.style.left = -idx * (slideWidth + slideMargin) + "px";
-        currentIdx = idx;
-      }
-
-      // 초기 슬라이드 설정
-      var { slideWidth, slideMargin } = setSlideWidth();
-
-      nextBtn.addEventListener("click", function () {
-        if (
-          currentIdx ===
-          slideCount -
-            Math.floor(sliderWrapper.offsetWidth / (slideWidth + slideMargin))
-        ) {
-          moveSlide(0, slideWidth, slideMargin); // 첫 슬라이드로 이동
-        } else {
-          moveSlide(currentIdx + 1, slideWidth, slideMargin); // 다음 슬라이드로 이동
-        }
-      });
-
-      prevBtn.addEventListener("click", function () {
-        if (currentIdx === 0) {
-          moveSlide(
-            slideCount -
-              Math.floor(
-                sliderWrapper.offsetWidth / (slideWidth + slideMargin)
-              ),
-            slideWidth,
-            slideMargin
-          ); // 마지막 슬라이드로 이동
-        } else {
-          moveSlide(currentIdx - 1, slideWidth, slideMargin); // 이전 슬라이드로 이동
-        }
-      });
-
-      // 윈도우 리사이즈 이벤트 처리
-      window.addEventListener("resize", function () {
-        var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
-        moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
-      });
     });
 
-  //rate random
-  function put_random() {
-    $(".rating").each(function () {
+    prevBtn.addEventListener("click", function () {
+      if (currentIdx === 0) {
+        moveSlide(slideCount - slideToShow);
+      } else {
+        moveSlide(currentIdx - 1);
+      }
+    });
+  });
+
+  //평점, 리뷰수 무작위
+  function putRandomAndReviewNum() {
+    document.querySelectorAll(".rating").forEach(function (el) {
       let randomRate = (Math.random() * 2 + 3).toFixed(1);
       if (randomRate > 5) {
         randomRate = 5;
       }
-      $(this).attr("data-rate", randomRate);
+      el.setAttribute("data-rate", randomRate);
     });
-    $(".review_num").each(function () {
+
+    document.querySelectorAll(".review_num").forEach(function (el) {
       let randomNum = Math.ceil(Math.random() * 900) + 1000;
-      $(this).html(`(${randomNum})`);
-    });
-    // console.log(randomNum);
-  }
-  put_random();
+      el.innerHTML = `(${randomNum})`;
 
-  //review random
-  function put_reviewNum() {
-    $(".review_num").each(function () {
       let randomRate = (Math.random() * 2 + 3).toFixed(1);
       if (randomRate > 5) {
         randomRate = 5;
       }
-      $(this).attr("data-rate", randomRate);
+      el.setAttribute("data-rate", randomRate);
     });
   }
-  put_reviewNum();
 
-  //star rating
+  putRandomAndReviewNum();
+
+  //random star rating
   const ratings = document.querySelectorAll(".rating");
   ratings.forEach(function (rating) {
     let starWraps = rating.querySelectorAll(".star-wrap"),
       scoreNum = rating.getAttribute("data-rate"),
-      scoreArr = scoreNum.split("."); //ex)4.5 -> [ "4", "5" ]
+      scoreArr = scoreNum.split("."); //ex) 4.5 -> ["4", "5"]
 
     if (scoreArr.length > 1) {
-      for (let i = 0; i < parseInt(scoreArr[0], 10); i++) {
+      let fullStars = parseInt(scoreArr[0], 10);
+      for (let i = 0; i < fullStars; i++) {
         starWraps[i].querySelector(".star").style.width = "100%";
-        //for 루프 내에서 i를 인덱스로 사용하여 starWraps 집합의 각 요소에 접근하고, 각 .star-wrap 요소 내에 있는 .star 요소의 스타일을 변경할 수 있습니다
-        // [i]는 배열(또는 유사 배열 객체)에서 특정 인덱스에 있는 요소에 접근하기 위해 사용됩니다.
       }
-      starWraps[parseInt(scoreArr[0], 10)].querySelector(".star").style.width =
-        scoreArr[1] + "0%";
+      if (fullStars < starWraps.length) {
+        starWraps[fullStars].querySelector(".star").style.width =
+          scoreArr[1] * 10 + "%";
+      }
     } else {
       for (let i = 0; i < scoreNum; i++) {
         starWraps[i].querySelector(".star").style.width = "100%";
       }
     }
   });
-  // let rating = $(".rating");
-  // rating.each(function () {
-  //   let $this = $(this);
-  //   let scoreNum = $this.attr("data-rate");
-  //   let scoreArr = scoreNum.split(".");
-  //   console.log(scoreArr);
-  //   if (scoreArr.length > 1) {
-  //     for (let i = 0; i < scoreArr[0]; i++) {
-  //       $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
-  //     }
-  //     $this
-  //       .find(".star-wrap")
-  //       .eq(scoreArr[0])
-  //       .find(".star")
-  //       .css({ width: scoreArr[1] + "0%" });
-  //   } else {
-  //     for (let i = 0; i < scoreNum; i++) {
-  //       $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
-  //     }
-  //   }
-  // });
 });
