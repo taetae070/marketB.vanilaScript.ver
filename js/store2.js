@@ -21,7 +21,8 @@ $(document).ready(function () {
     map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
 
     //마커이미지 변경---------------------------------
-    var imageSrc = "http://tkyung.dothome.co.kr/marketB/img/map/marker.png", // 마커이미지의 주소입니다
+    var imageSrc = "http://taetaeky.dothome.co.kr/img/map/marker.png", // 마커이미지의 주소입니다
+      // var imageSrc = "http://taetaeky.dothome.co.kr/marketB/img/map/marker.png", // 마커이미지의 주소입니다
       imageSize = new kakao.maps.Size(40, 40), // 마커이미지의 크기입니다
       imageOption = { offset: new kakao.maps.Point(20, 40) }; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
@@ -73,19 +74,19 @@ $(document).ready(function () {
   //카카오 윈도우 css변경
   let info_Top = $(".store_info").parent();
   info_Top.css({
-    // left: "-1px",
+    // left: "-0.0625rem",
     // top: "10%",
-    // right: "-1px",
-    left: "-1px",
-    top: "-1px",
-    // right: "-1px",
+    // right: "-0.0625rem",
+    left: "-0.0625rem",
+    top: "-0.0625rem",
+    // right: "-0.0625rem",
   });
 
   let info_setA = $(".store_info").parent().parent();
   info_setA.css({
     width: "0",
     height: "0",
-    top: "137px",
+    top: "8.5625rem",
   });
 
   //모달창
