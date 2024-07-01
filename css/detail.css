@@ -153,6 +153,12 @@ body {
   font-size: 1.625rem;
   font-weight: bold;
 }
+.star-wrap i {
+  font-size: 1rem;
+}
+.best_desc .cart_wish_BtnWrapper {
+  gap: 1rem;
+}
 
 /* info2 */
 .P_info2 {
@@ -211,6 +217,7 @@ body {
 
 .P_info3 {
   gap: 2.5rem;
+  box-shadow: 8px 8px 3px #ededed;
 }
 .P_info3 .buy .b_opt input {
   width: 40px;
@@ -466,8 +473,11 @@ article .section02 .p_info {
 .best_desc {
   text-align: center;
   flex-direction: column;
-  gap: 1.25rem;
-  padding: 1.25rem;
+  gap: 1rem;
+  padding: 1rem;
+}
+.best_desc h6 {
+  font-size: 0.875rem;
 }
 
 .slider_wrapper {
@@ -503,7 +513,7 @@ article .section02 .p_info {
 
 .bestList a > img {
   width: 18.75rem;
-  height: 18.75rem;
+  height: 13.75rem;
 }
 
 .yellow_Btn {
@@ -538,7 +548,7 @@ h3 {
 /* wish, cart btn */
 .wish_Btn i,
 .cart_Btn i {
-  font-size: 1.125rem;
+  font-size: 1rem;
 }
 
 /* slick */
