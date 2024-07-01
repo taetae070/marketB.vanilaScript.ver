@@ -5,6 +5,9 @@ body {
 header {
   overflow-x: unset;
 }
+.lnb {
+  margin-top: 0.875rem;
+}
 
 .mainNAV {
   z-index: 1;
