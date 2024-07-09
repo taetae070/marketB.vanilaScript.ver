@@ -9,9 +9,8 @@ header .container {
   margin-top: 0;
 }
 h4 {
-  /* font-size: 1.875rem;
-  line-height: 2.5rem; */
   margin-bottom: 1rem;
+  line-height: 1.35rem;
 }
 
 .first_alert {
@@ -19,16 +18,15 @@ h4 {
   left: 10%;
   z-index: 9999;
   background: #fff;
-  border: 4px solid var(--Gg);
-  padding: 2.125rem;
-  display: none;
+  border: 3.5px solid var(--Y);
+  border-radius: 4px;
+  box-shadow: 6px -6px 2px var(--S);
+  padding: 1.5rem;
 }
 .desc_pf {
-  gap: 1rem;
+  gap: 1.3rem;
 }
-.desc_pf > div > p {
-  margin-top: 10px;
-}
+
 .desc_pf div {
   font-weight: 500;
   display: flex;
