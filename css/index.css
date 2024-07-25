@@ -484,11 +484,11 @@ h6 {
 .magazine article {
   justify-content: space-between;
 }
-h7 {
+#h7 {
   font-size: 1.25rem;
   font-weight: 400;
 }
-h7 > a:hover {
+#h7> a:hover {
   color: var(--Y);
 }
 .magazine article figure .magaPrice {

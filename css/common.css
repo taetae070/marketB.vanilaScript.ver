@@ -42,11 +42,14 @@ body {
   height: 4.125rem;
   margin: 0 auto;
   border: none;
+  
 }
-.red_Btn_big a {
+.red_Btn_big span{
   color: #fff;
   font-size: 1.25rem;
 }
+
+
 .Btn_sm {
   width: 8.5625rem;
   height: 3.75rem;
@@ -225,8 +228,8 @@ header {
 .category_list li {
   display: flex;
   position: relative;
-  line-height: 2.5rem;
-  padding: 0 1.25rem;
+  line-height: 1.5rem;
+  padding: 0.6rem 1.25rem;
   font-size: 1rem;
 }
 

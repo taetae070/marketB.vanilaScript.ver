@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //x 버튼 ㅇㅋ
+  //x 버튼 
   const modalPop = document.querySelector("modal");
   const closeBtn = modalPop.querySelector(".close");
 
@@ -7,7 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
     modalPop.classList.toggle("modalHidden");
   });
 
-  //슬라이드 좌우 버튼 ㅇㅋ
+  //메인 슬라이드 button (쇼핑하기) 
+  const mainEventUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
+  const shopBtn = document.querySelector(".red_Btn_big");
+
+  shopBtn.addEventListener("click", function() {
+    location.href = mainEventUrl;
+  });
+
+  //상품 슬라이드 button (세일) 
+  const saleButton = document.querySelector(".saleButton");
+    const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
+
+    saleButton.addEventListener("click", function() {
+      location.href =saleUrl;
+    });
+
+
+  //슬라이드 좌우 버튼 
   const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
     centeredSlide: true,
@@ -40,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
     pauseBtn.classList.remove("hidden");
   });
 
-  //검색창 버튼 ㅇㅋ
+  //검색창 버튼 
   const gnb = document.querySelector(".gnb_search"),
     SearchInput = document.querySelector(".gnb_search input"),
     SearchBtn = document.querySelector(".icon_search > button");
@@ -49,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
     SearchInput.classList.toggle("on");
   });
 
-  //section01 슬라이드 ㅇㅋ
+  //section01 슬라이드 
   //상품 슬라이드
   const sliderWrapper = document.querySelector(".slider_wrapper");
   var sliderUl = sliderWrapper.querySelector("ul"),
@@ -109,40 +126,8 @@ document.addEventListener("DOMContentLoaded", function () {
     moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
   });
 
-  // var slideWrap = document.querySelector(".slider_wrapper"),
-  //   imgWidth = document.querySelector(".bestList .bestItem img").offsetWidth,
-  //   slideUl = slideWrap.querySelector("ul"),
-  //   slideLi = slideWrap.querySelectorAll("li"),
-  //   imgGap = getComputedStyle(slideUl).getPropertyValue("gap"),
-  //   slideToShow = 4,
-  //   prevBtn = document.querySelector(".prev_btn"),
-  //   nextBtn = document.querySelector(".next_btn");
 
-  // let currentIdx = 0;
-  // function moveSlide(idx) {
-  //   currentIdx = idx;
-  //   slideUl.style.left = -idx * (imgWidth + parseInt(imgGap, 10)) + "px";
-  // }
-
-  // // Button click event ㅇㅋ
-  // nextBtn.addEventListener("click", function () {
-  //   if (currentIdx === slideLi.length - slideToShow) {
-  //     //마지막 슬라이드-3이면 첫 슬라이드로 이동
-  //     moveSlide(0);
-  //   } else {
-  //     moveSlide(currentIdx + 1);
-  //   }
-  // });
-  // prevBtn.addEventListener("click", function () {
-  //   if (currentIdx === 0) {
-  //     moveSlide(slideLi.length - slideToShow);
-  //   } else {
-  //     moveSlide(currentIdx - 1);
-  //   }
-  // });
-  // moveSlide(0);
-
-  //magazine ㅇㅋ
+  //magazine 
   const circles = document.querySelectorAll(".circle");
 
   circles.forEach((c) => {
