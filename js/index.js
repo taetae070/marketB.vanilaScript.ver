@@ -7,21 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modalPop.classList.toggle("modalHidden");
   });
 
-  //메인 슬라이드 button (쇼핑하기) 
-  const mainEventUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
-  const shopBtn = document.querySelector(".red_Btn_big");
-
-  shopBtn.addEventListener("click", function() {
-    location.href = mainEventUrl;
-  });
-
-  //상품 슬라이드 button (세일) 
-  const saleButton = document.querySelector(".saleButton");
-    const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
-
-    saleButton.addEventListener("click", function() {
-      location.href =saleUrl;
-    });
+  
 
 
   //슬라이드 좌우 버튼 
@@ -234,4 +220,20 @@ document.addEventListener("DOMContentLoaded", function () {
       p.style.display = "none";
     });
   }
+
+  //메인 슬라이드 button (쇼핑하기) 
+  const mainEventUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
+  const shopBtn = document.querySelector(".red_Btn_big");
+
+  shopBtn.addEventListener("click", function() {
+    location.href = mainEventUrl;
+  });
+
+  //상품 슬라이드 button (세일) 
+  const saleButton = document.querySelector(".saleButton");
+    const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
+
+    saleButton.addEventListener("click", function() {
+      location.href =saleUrl;
+    });
 });
