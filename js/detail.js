@@ -95,40 +95,63 @@ $(document).ready(function () {
   });
 
   //scroll fix event
-  let buyfixed = $("article .section02");
-  let buyfixedOST = buyfixed.offset().top;
+  let infoBox = $("article .section02");
+  // let infoBoxOst = infoBox.offset().top;
   let footerOst = $("footer").offset().top;
-  let buyfixed02 = footerOst - buyfixed.outerHeight() - 10;
-  let articleOst = $(".Pd_title").offset().top - 40 - 18;
+  let infoBox02 = footerOst - infoBox.outerHeight();  
+  // let articleOst = $(".Pd_title").offset().top - 40 - 18;
+  let articleOst = $(".Pd_title").offset().top ; //주방가구 위높이
   console.log(articleOst);
-  console.log(buyfixedOST);
+ 
 
   $(window).scroll(function () {
-    //처음 스크롤할 때
-    buyfixed.css({
+    // 중간
+    infoBox.css({
       position: "fixed",
       top: "2%",
-      right: "43%",
-      marginRight: "-640px",
-      zIndex: 100,
     });
 
-    //멈추는 구간
-    if ($(this).scrollTop() > buyfixed02) {
-      buyfixed.css({
-        position: "absolute",
-        top: "340%",
-        marginRight: "-650px",
-        zIndex: 100,
+    //footer에 닿았을 때
+    if ($(this).scrollTop() > infoBox02) {
+      infoBox.css({
+        top: "-11%"
       });
-    } else if ($(this).scrollTop() <= articleOst) {
-      buyfixed.css({
-        right: "43%",
-        position: "absolute",
-        marginRight: "-658px",
-      });
-    } else {
-    }
+    } //위로 스크롤했을 때
+    else if ($(this).scrollTop() <= articleOst) {
+        infoBox.css({
+          right: "10.3%",
+          top: "37%",
+        });
+      }
+
+
+
+
+    // // 처음 스크롤할 때
+    // infoBox.css({
+    //   position: "fixed",
+    //   top: "2%",
+    //   right: "43%",
+    //   marginRight: "-640px",
+    //   zIndex: 100,
+    // });
+
+    // //멈추는 구간
+    // if ($(this).scrollTop() > infoBox02) {
+    //   infoBox.css({
+    //     position: "absolute",
+    //     top: "340%",
+    //     marginRight: "-650px",
+    //     zIndex: 100,
+    //   });
+    // } else if ($(this).scrollTop() <= articleOst) {
+    //   infoBox.css({
+    //     right: "43%",
+    //     position: "absolute",
+    //     marginRight: "-658px",
+    //   });
+    // } else {
+    // }
   });
 
   //review page clone

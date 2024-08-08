@@ -211,11 +211,13 @@ body {
   font-size: 1.0625rem;
   font-weight: 500;
 }
-.P_info3 .buy .b_num,
-.p_sta,
-.p_deli,
-.P_info3 .buy .b_opt {
+.P_info3 .buy .b_num, .P_info3 .buy .b_opt{
   justify-content: space-between;
+}
+.p_sta,
+.p_deli
+ {
+  gap: 50%;
 }
 
 .P_info3 {
@@ -249,11 +251,11 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 /* add */
 article .section02 {
-  top: 1%;
-  right: 43%;
+  /* top: 0%; */
+  right: 5%;
   position: absolute;
-  margin-right: -658px;
 }
+
 article .section02 .p_info {
   right: 10%;
   gap: 1.875rem;
