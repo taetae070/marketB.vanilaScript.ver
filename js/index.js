@@ -148,46 +148,72 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   //coupon -> 문제점: 페이지로드하자마자 쿠폰섹션으로 가면 이미지 로드가 늦어서 작동이 안됌
-  const section5 = document.querySelector(".random_coupon"),
+    const section5 = document.querySelector(".random_coupon"),
     couponCon = section5.querySelector(".notice"), //coupon Container
     couponGrey = document.querySelector(".cp_before"), //긁기 전 회색박스
     couponGreyWidth = couponGrey.offsetWidth,
-    couponGreyHeight = couponGrey.offsetHeight,
-    couponOff = couponCon.getBoundingClientRect();
+    couponGreyHeight = couponGrey.offsetHeight;
 
-  function event_Sketch() {
-    const couponDiv = `<div class="scratch"></div>`.repeat(32);
-    document.querySelector(".grid").innerHTML = couponDiv;
-    const scratchs = document.querySelectorAll(".scratch");
-    if (scratchs.length > 0) {
+
+    function event_Sketch() {
+      const couponDiv = `<div class="scratch"></div>`.repeat(32);
+      document.querySelector(".grid").innerHTML = couponDiv;
+      const scratchs = document.querySelectorAll(".scratch");
       const randomImg = Math.floor(Math.random() * 3) + 1;
 
-      function imgChange() {
-        scratchs.forEach((scratch, i) => {
-          scratch.style.backgroundImage = `url("img/main/coupon${randomImg}.png")`;
+        console.log(scratchs);
 
+        scratchs.forEach((scratch) => {
+          scratch.style.backgroundImage = `url("img/main/coupon${randomImg}.png")`;
+  
           const scratchOff = scratch.getBoundingClientRect();
+          const couponOff = couponCon.getBoundingClientRect();
+  
           scratch.style.backgroundSize = `${couponGreyWidth}px ${couponGreyHeight}px`;
           scratch.style.backgroundPositionX = `-${
-            scratchOff.left - couponOff.left + window.scrollX
+            scratchOff.left - couponOff.left
           }px`;
           scratch.style.backgroundPositionY = `-${
-            scratchOff.top - couponOff.top + window.scrollY
+            scratchOff.top - couponOff.top 
           }px`;
-
-          // console.log("Mouseover event triggered");
+  
           scratch.addEventListener("mouseover", function () {
             this.classList.add("drawing");
             checkOpacity();
           });
         });
-      }
+      
     }
-    imgChange();
-    // console.log("imgChange function called");
-  }
+    event_Sketch();
 
-  event_Sketch();
+    // function event_Sketch() {
+    //   const couponDiv = `<div class="scratch"></div>`.repeat(32);
+    //   document.querySelector(".grid").innerHTML = couponDiv;
+    //   const scratchs = document.querySelectorAll(".scratch");
+    //   const randomImg = Math.floor(Math.random() * 3) + 1;
+  
+    //     scratchs.forEach((scratch) => {
+    //       scratch.style.backgroundImage = `url("img/main/coupon${randomImg}.png")`;
+  
+    //       const scratchOff = scratch.getBoundingClientRect();
+    //       const couponOff = couponCon.getBoundingClientRect();
+  
+    //       scratch.style.backgroundSize = `${couponGreyWidth}px ${couponGreyHeight}px`;
+    //       scratch.style.backgroundPositionX = `-${
+    //         scratchOff.left - couponOff.left
+    //       }px`;
+    //       scratch.style.backgroundPositionY = `-${
+    //         scratchOff.top - couponOff.top 
+    //       }px`;
+  
+    //       scratch.addEventListener("mouseover", function () {
+    //         this.classList.add("drawing");
+    //         checkOpacity();
+    //       });
+    //     });
+    // }
+    // event_Sketch();
+   
 
   // a태그 넣어주기
   function checkOpacity() {

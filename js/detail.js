@@ -96,10 +96,8 @@ $(document).ready(function () {
 
   //scroll fix event
   let infoBox = $("article .section02");
-  // let infoBoxOst = infoBox.offset().top;
   let footerOst = $("footer").offset().top;
   let infoBox02 = footerOst - infoBox.outerHeight();  
-  // let articleOst = $(".Pd_title").offset().top - 40 - 18;
   let articleOst = $(".Pd_title").offset().top ; //주방가구 위높이
   console.log(articleOst);
  
