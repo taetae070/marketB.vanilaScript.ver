@@ -76,11 +76,6 @@ document.addEventListener("DOMContentLoaded", function () {
     storeElements.forEach((storeElement) => {
       if (storeElement.getAttribute("value") === selectedValue) {
         storeElement.style.display = "block";
-
-        // const listChildren = storeElement.children;
-        // for (let i = 0; i < listChildren.length; i++) {
-        //   listChildren.classList.add("marginB");
-        // }
       }
     });
   });
