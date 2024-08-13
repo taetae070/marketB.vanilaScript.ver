@@ -96,31 +96,48 @@ $(document).ready(function () {
 
   //scroll fix event
   let infoBox = $("article .section02");
-  let footerOst = $("footer").offset().top;
-  let infoBox02 = footerOst - infoBox.outerHeight();  
-  let articleOst = $(".Pd_title").offset().top ; //주방가구 위높이
-  console.log(articleOst);
+  let footer = $("footer");
+  let articleOst = $(".Pd_title").offset().top; // 주방가구 위높이
+  let infoBoxTop = infoBox.offset().top;  
+  let infoBoxHeight = infoBox.innerHeight();
+  let footerTop = footer.offset().top;   
+
+$(window).scroll(function () {
+    let scrollTop = $(this).scrollTop();
  
+    console.log("footerTop", footerTop);
+    console.log("scrollTop + infoBoxHeight",scrollTop + infoBoxHeight);
+    console.log("infoBoxHeight",infoBoxHeight);
 
-  $(window).scroll(function () {
-    // 중간
-    infoBox.css({
-      position: "fixed",
-      top: "2%",
-    });
 
-    //footer에 닿았을 때
-    if ($(this).scrollTop() > infoBox02) {
-      infoBox.css({
-        top: "-11%"
-      });
-    } //위로 스크롤했을 때
-    else if ($(this).scrollTop() <= articleOst) {
+    // footer에 닿았을 때
+    if (footerTop < scrollTop + infoBoxHeight) {
         infoBox.css({
-          right: "10.3%",
-          top: "37%",
+          position: "absolute",
+          top: "339%",
+          right: "-9%",
+          "z-index": "9999"
+            // position: "fixed",
+            // top: "-3%",
+            // right: "0%"
         });
-      }
+    }
+    // 스크롤을 위로 올릴 때, article 위치까지
+    else if (scrollTop <= articleOst) {
+        infoBox.css({
+            position: "absolute",
+            top: "0%",
+            right: "-9%"
+        });
+    }
+    // 스크롤을 처음 내릴 때
+    else {
+        infoBox.css({
+            position: "fixed",
+            top: "2%",
+            right: "0%"
+        });
+    }
 
 
 
@@ -255,7 +272,7 @@ $(document).ready(function () {
     let $this = $(this);
     let scoreNum = $this.attr("data-rate");
     let scoreArr = scoreNum.split(".");
-    console.log(scoreArr);
+    // console.log(scoreArr);
     if (scoreArr.length > 1) {
       for (let i = 0; i < scoreArr[0]; i++) {
         $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
@@ -433,7 +450,7 @@ $(document).ready(function () {
       tableBody.append(matchingTR);
     });
   });
-  console.log(sortedDates);
+  // console.log(sortedDates);
 
   //평점높은순
   rateHighBtn.click(function () {
