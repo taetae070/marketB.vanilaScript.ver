@@ -11,6 +11,7 @@ header .container {
 h4 {
   margin-bottom: 1rem;
   line-height: 1.35rem;
+  color:rgb(246, 56, 56);
 }
 
 .first_alert {

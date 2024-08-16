@@ -104,10 +104,12 @@ $(document).ready(function () {
 
 $(window).scroll(function () {
     let scrollTop = $(this).scrollTop();
- 
-    console.log("footerTop", footerTop);
-    console.log("scrollTop + infoBoxHeight",scrollTop + infoBoxHeight);
-    console.log("infoBoxHeight",infoBoxHeight);
+    let windowWidth = $(this).width();
+    let rightValue = windowWidth <= 1049 ? "5%" : "0%";
+
+    // console.log("footerTop", footerTop);
+    // console.log("scrollTop + infoBoxHeight",scrollTop + infoBoxHeight);
+    // console.log("infoBoxHeight",infoBoxHeight);
 
 
     // footer에 닿았을 때
@@ -127,7 +129,7 @@ $(window).scroll(function () {
         infoBox.css({
             position: "absolute",
             top: "0%",
-            right: "-9%"
+            right: rightValue
         });
     }
     // 스크롤을 처음 내릴 때
