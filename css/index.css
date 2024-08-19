@@ -8,68 +8,6 @@ body {
 header .container {
   margin-top: 0;
 }
-/* h4 {
-  margin-bottom: 1rem;
-  line-height: 1.35rem;
-  color:rgb(246, 56, 56);
-}
-
-.first_alert {
-  top: 25%;
-  left: 10%;
-  z-index: 9999;
-  background: #fff;
-  border: 3.5px solid var(--Y);
-  border-radius: 4px;
-  box-shadow: 6px -6px 2px var(--S);
-  padding: 1.5rem;
-}
-.desc_pf {
-  gap: 1.3rem;
-}
-
-.desc_pf div {
-  font-weight: 500;
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-.desc_pf div span {
-  font-weight: 500;
-}
-.desc_pf div p {
-  color: var(--G);
-  font-weight: 300;
-}
-.desc_pf div a {
-  color: var(--Gg);
-}
-.desc_pf div i {
-  margin: 0 5px;
-}
-.contact {
-  margin-right: 1rem;
-}
-.desc_click {
-  padding-left: 5.8125rem;
-  font-size: 0.75rem;
-  color: var(--Gg);
-  font-weight: 300;
-}
-.desc_pf a:hover {
-  color: var(--Y);
-}
-.close {
-  top: 3%;
-  right: 1%;
-  border: none;
-  background: #fff;
-  font-size: 1.1875rem;
-  cursor: pointer;
-}
-.modalHidden {
-  display: none;
-} */
 
 /* -----------------------------------notice */
 .notice_board {

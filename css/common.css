@@ -33,7 +33,7 @@ body {
 }
 
 /* modal */
-h4 {
+modal > p {
   margin-bottom: 1rem;
   line-height: 1.35rem;
   color:rgb(246, 56, 56);
