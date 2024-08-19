@@ -63,49 +63,67 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 지역 filter
-  const selectElement = document.getElementById("regionSelect");
-  const storeElements = document.querySelectorAll(".store_name");
-
-  selectElement.addEventListener("change", (event) => {
-    const selectedValue = event.target.value;
-    storeElements.forEach((storeElement) => {
-      storeElement.style.display = "none";
-    });
-
-    storeElements.forEach((storeElement) => {
-      if (storeElement.getAttribute("value") === selectedValue) {
-        storeElement.style.display = "block";
-      }
-    });
-  });
-
   //display
-  var info_Top = document.querySelectorAll(".store_info").parentNode;
+ // `.info_panel`에 해당하는 부모 요소의 스타일을 조작하는 부분
+let info_Top = document.querySelector(".info_panel");
+if (info_Top) {
   info_Top.style.left = "-1px";
   info_Top.style.top = "-1px";
+}
 
-  var info_setA =
-    document.querySelectorAll(".store_info").parentNode.parentNode;
+let info_setA = document.querySelector(".info_panel").parentNode;
+if (info_setA) {
   info_setA.style.width = "0";
   info_setA.style.height = "0";
   info_setA.style.top = "137px";
+}
 
-  var map_btn = document.getElementById("map");
-  map_btn.addEventListener("click", function (event) {
-    if (event.target.tagName === "BUTTON") {
-      let target = "#info_panel" + this.getAttribute("data-id");
-      document.querySelector(target).style.display = "block";
+// `info_panel`을 보여주는 이벤트 리스너
+// 이벤트 리스너 추가
+const infoBtns = document.querySelectorAll(".store_info .infoBtn");
+infoBtns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    let target = document.querySelector(".info_panel");
+    if (target) {
+      target.style.display = "block";
     }
   });
+});
 
-  var closBtn = document.querySelectorAll(".info_first .close");
-  closBtn.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      let target = this.closest(".info_panel");
+var closBtns = document.querySelectorAll(".info_first .close");
+closBtns.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    let target = this.closest(".info_panel");
+    if (target) {
       target.style.display = "none";
-    });
+    }
   });
+});
+
+// if (map_btn) {
+//   map_btn.addEventListener("click", function (event) {
+//     if (event.target.tagName === "BUTTON") {
+//       let dataId = event.target.getAttribute("data-id");
+//       let target = "#info_panel" + dataId;
+//       let panel = document.querySelector(target);
+//       if (panel) {
+//         panel.style.display = "block";
+//       }
+//     }
+//   });
+// }
+
+// `close` 버튼 클릭 시 해당 `info_panel`을 숨기는 이벤트 리스너
+var closBtn = document.querySelectorAll(".info_first .close");
+closBtn.forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    let target = this.closest(".info_panel");
+    if (target) {
+      target.style.display = "none";
+    }
+  });
+});
+
 
   var regionTap = document.querySelectorAll(".form-select .region");
   //   var town_Tap = document.querySelectorAll(".form-select .town");
