@@ -105,7 +105,7 @@ $(document).ready(function () {
 $(window).scroll(function () {
     let scrollTop = $(this).scrollTop();
     let windowWidth = $(this).width();
-    let rightValue = windowWidth <= 1049 ? "5%" : "0%";
+    let rightValue = windowWidth <= 1049 ? "5%" : "-6%";
 
     // console.log("footerTop", footerTop);
     // console.log("scrollTop + infoBoxHeight",scrollTop + infoBoxHeight);
@@ -117,7 +117,7 @@ $(window).scroll(function () {
         infoBox.css({
           position: "absolute",
           top: "339%",
-          right: "-9%",
+          right: "-6%",
           "z-index": "9999"
             // position: "fixed",
             // top: "-3%",
@@ -137,7 +137,7 @@ $(window).scroll(function () {
         infoBox.css({
             position: "fixed",
             top: "2%",
-            right: "0%"
+            right: "2%"
         });
     }
 
