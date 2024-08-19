@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // nav
+    //x 버튼 
+    const modalPop = document.querySelector("modal");
+    const closeBtn = modalPop.querySelector(".close");
+  
+    closeBtn.addEventListener("click", function () {
+      modalPop.classList.toggle("modalHidden");
+    });
+
+    
   //메뉴버튼
   const menuBtn = document.querySelector(".mainNAV .menu_btn");
   const cateHead = document.querySelector(".category_list");
@@ -44,6 +52,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   hoverEvent();
+
+
 
   // wish, cart btn
   const wishBtns = document.querySelectorAll(".wish_Btn");

@@ -1,4 +1,11 @@
 $(document).ready(function () {
+  //x버튼
+  const $modalPop = $(".modal");
+    const $closeBtn = $modalPop.find(".close");
+
+    $closeBtn.on("click", function() {
+        $modalPop.toggleClass("modalHidden");
+    });
   //zoom slide
   $(".slider-single").slick({
     slidesToShow: 1,
