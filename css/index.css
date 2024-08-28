@@ -31,11 +31,12 @@ header .container {
   color: #fff;
   font-size: 0.875rem;
 }
-.notice_board .notice_content a i {
+.notice_board .notice_content i {
   margin-right: 0.625rem;
+  color: #fff;
+  font-size: 0.875rem;
 }
-.notice_board .notice_content i:hover,
-.notice_board .notice_content a:hover {
+.notice_board .notice_item a:hover, .notice_board .notice_item a:hover i {
   color: var(--Y);
 }
 /* ------------------------------------subNav */
@@ -279,7 +280,6 @@ aside {
 }
 .icon a span {
   font-size: 0.8125rem;
-  color: var(--G);
 }
 .icon :hover {
   animation: colorChange 0.4s 0.1s 1 ease forwards;
@@ -287,7 +287,6 @@ aside {
 .icon-text {
   color: var(--G);
   width: 330%;
-
   right: -92%;
   top: 0%;
   border: 1px solid var(--Gg);
@@ -299,8 +298,6 @@ aside {
 
 .icon:hover .icon-text {
   display: block;
-
-  /* color: var(--B); */
 }
 
 /* -----------------------------------------------section 01 */

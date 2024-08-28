@@ -127,11 +127,28 @@ document.addEventListener("DOMContentLoaded", function () {
     percentage.style.height = `${scrPercent * 1.2}%`;
   }
 
-  window.addEventListener("scroll", function () {
+  //throttle 추가
+  function throttle(fn, wait) {
+    let lastTime = 0;
+    return function() {
+      const now = new Date().getTime();
+      if (now - lastTime >= wait) {
+        fn.apply(this, arguments);
+        lastTime = now;
+      }
+    };
+  }
+
+  window.addEventListener("scroll", throttle(function () {
     scrOffset = window.scrollY;
     scrPercent = calculateScrPercent();
     btnTopPosition();
-  });
+  }, 200));
+  // window.addEventListener("scroll", function () {
+  //   scrOffset = window.scrollY;
+  //   scrPercent = calculateScrPercent();
+  //   btnTopPosition();
+  // });
 
   //맨 위로 이동
   btnTop.addEventListener("click", function (e) {

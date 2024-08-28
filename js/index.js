@@ -1,15 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  //x 버튼 
-  const modalPop = document.querySelector("modal");
-  const closeBtn = modalPop.querySelector(".close");
-
-  closeBtn.addEventListener("click", function () {
-    modalPop.classList.toggle("modalHidden");
-  });
-
-  
-
-
   //슬라이드 좌우 버튼 
   const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
@@ -107,10 +96,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // 윈도우 리사이즈 이벤트 처리
-  window.addEventListener("resize", function () {
+  let resizeTimeout;
+window.addEventListener("resize", function () {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(function () {
     var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
     moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
-  });
+  }, 200);
+});
+  // window.addEventListener("resize", function () {
+  //   var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
+  //   moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
+  // });
 
 
   //magazine 
@@ -147,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  //coupon -> 문제점: 페이지로드하자마자 쿠폰섹션으로 가면 이미지 로드가 늦어서 작동이 안됌
+  //coupon 
     const section5 = document.querySelector(".random_coupon"),
     couponCon = section5.querySelector(".notice"), //coupon Container
     couponGrey = document.querySelector(".cp_before"), //긁기 전 회색박스
@@ -185,35 +182,6 @@ document.addEventListener("DOMContentLoaded", function () {
       
     }
     event_Sketch();
-
-    // function event_Sketch() {
-    //   const couponDiv = `<div class="scratch"></div>`.repeat(32);
-    //   document.querySelector(".grid").innerHTML = couponDiv;
-    //   const scratchs = document.querySelectorAll(".scratch");
-    //   const randomImg = Math.floor(Math.random() * 3) + 1;
-  
-    //     scratchs.forEach((scratch) => {
-    //       scratch.style.backgroundImage = `url("img/main/coupon${randomImg}.png")`;
-  
-    //       const scratchOff = scratch.getBoundingClientRect();
-    //       const couponOff = couponCon.getBoundingClientRect();
-  
-    //       scratch.style.backgroundSize = `${couponGreyWidth}px ${couponGreyHeight}px`;
-    //       scratch.style.backgroundPositionX = `-${
-    //         scratchOff.left - couponOff.left
-    //       }px`;
-    //       scratch.style.backgroundPositionY = `-${
-    //         scratchOff.top - couponOff.top 
-    //       }px`;
-  
-    //       scratch.addEventListener("mouseover", function () {
-    //         this.classList.add("drawing");
-    //         checkOpacity();
-    //       });
-    //     });
-    // }
-    // event_Sketch();
-   
 
   // a태그 넣어주기
   function checkOpacity() {
