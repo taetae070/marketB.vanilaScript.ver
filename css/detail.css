@@ -365,7 +365,7 @@ article .section02 .p_info {
 .review01_wrap .review_photo_3ndwrap.on {
   display: block;
   display: flex;
-  gap: 1.25rem;
+  gap: 2.25rem;
 }
 /* filter */
 .review01_wrap .review_photo_wrap,
@@ -670,7 +670,10 @@ article .img2 {
   background-color: #fff;
   color: #333;
 }
-
+.review_photo{
+  width: 9.3125rem;
+  height: 9.3125rem;
+}
 .P_info3 .buy .b_opt .btn {
   background-color: #fff;
 }

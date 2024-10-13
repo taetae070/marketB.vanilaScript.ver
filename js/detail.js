@@ -470,36 +470,52 @@ $(window).scroll(function () {
 
   //filter 버튼 (텍스트, 사진 후기)
   let text_only_Btn = $(".review_text");
-  let photo_only_Btn = $(".review_photobtn");
-  let photoGroup = $(".review_photo_wrap");
-  let textGroup = $(".review03_wrap");
-  let clickCount = 0;
+let photo_only_Btn = $(".review_photobtn");
+let photoGroup = $(".review_photo_wrap");
+let textGroup = $(".review03_wrap");
 
-  photo_only_Btn.on("click", function () {
-    clickCount++;
+photo_only_Btn.on("click", function () {
+  // 사진 후기만 보여줍니다.
+  photoGroup.removeClass("hide");
+  textGroup.addClass("hide");
+});
 
-    if (clickCount % 2 === 0) {
-      photoGroup.removeClass("hide");
-      textGroup.removeClass("hide");
-    } else {
-      photoGroup.removeClass("hide");
-      textGroup.addClass("hide");
-      clickCount = 1;
-    }
-  });
+text_only_Btn.on("click", function () {
+  // 텍스트 후기만 보여줍니다.
+  photoGroup.addClass("hide");
+  textGroup.removeClass("hide");
+});
+  // let text_only_Btn = $(".review_text");
+  // let photo_only_Btn = $(".review_photobtn");
+  // let photoGroup = $(".review_photo_wrap");
+  // let textGroup = $(".review03_wrap");
+  // let clickCount = 0;
 
-  text_only_Btn.on("click", function () {
-    clickCount++;
+  // photo_only_Btn.on("click", function () {
+  //   clickCount++;
 
-    if (clickCount % 2 === 0) {
-      photoGroup.removeClass("hide");
-      textGroup.removeClass("hide");
-    } else {
-      photoGroup.addClass("hide");
-      textGroup.removeClass("hide");
-      clickCount = 1;
-    }
-  });
+  //   if (clickCount % 2 === 0) {
+  //     photoGroup.removeClass("hide");
+  //     textGroup.removeClass("hide");
+  //   } else {
+  //     photoGroup.removeClass("hide");
+  //     textGroup.addClass("hide");
+  //     clickCount = 1;
+  //   }
+  // });
+
+  // text_only_Btn.on("click", function () {
+  //   clickCount++;
+
+  //   if (clickCount % 2 === 0) {
+  //     photoGroup.removeClass("hide");
+  //     textGroup.removeClass("hide");
+  //   } else {
+  //     photoGroup.addClass("hide");
+  //     textGroup.removeClass("hide");
+  //     clickCount = 1;
+  //   }
+  // });
 
   // 추천상품
   let slide_start = $(".slider_wrapper");
