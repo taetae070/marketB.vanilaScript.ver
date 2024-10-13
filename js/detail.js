@@ -148,34 +148,6 @@ $(window).scroll(function () {
         });
     }
 
-
-
-
-    // // 처음 스크롤할 때
-    // infoBox.css({
-    //   position: "fixed",
-    //   top: "2%",
-    //   right: "43%",
-    //   marginRight: "-640px",
-    //   zIndex: 100,
-    // });
-
-    // //멈추는 구간
-    // if ($(this).scrollTop() > infoBox02) {
-    //   infoBox.css({
-    //     position: "absolute",
-    //     top: "340%",
-    //     marginRight: "-650px",
-    //     zIndex: 100,
-    //   });
-    // } else if ($(this).scrollTop() <= articleOst) {
-    //   infoBox.css({
-    //     right: "43%",
-    //     position: "absolute",
-    //     marginRight: "-658px",
-    //   });
-    // } else {
-    // }
   });
 
   //review page clone
