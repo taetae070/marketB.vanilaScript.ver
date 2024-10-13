@@ -755,6 +755,26 @@ a.link {
     width: 66%;
   }
 }
+@media (max-width: 1430px) {
+  .slider-single img {
+    width: 26.25rem;
+    height: 26.25rem;
+}
+.element_to_magnify img {
+  width: 83%;}
+
+.slider-nav img {
+  width: 4.875rem;
+  height: 4.875rem;
+}
+.slider-nav {
+  width: 42%;
+}
+.slider-nav .slick-list {
+  padding-left: 0;
+}
+}
+/*  */
 @media (max-width: 1298px) {
   .magnify_glass{
     width: 10.625rem;

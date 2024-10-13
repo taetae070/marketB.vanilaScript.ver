@@ -1,11 +1,11 @@
 $(document).ready(function () {
   //x버튼
   const $modalPop = $(".modal");
-    const $closeBtn = $modalPop.find(".close");
+  const $closeBtn = $modalPop.find(".close");
 
-    $closeBtn.on("click", function() {
-        $modalPop.toggleClass("modalHidden");
-    });
+  $closeBtn.on("click", function() {
+      $modalPop.toggleClass("modalHidden");
+  });
   //zoom slide
   $(".slider-single").slick({
     slidesToShow: 1,
@@ -113,12 +113,6 @@ $(window).scroll(function () {
     let scrollTop = $(this).scrollTop();
     let windowWidth = $(this).width();
     let rightValue = windowWidth <= 1049 ? "5%" : "-6%";
-
-    // console.log("footerTop", footerTop);
-    // console.log("scrollTop + infoBoxHeight",scrollTop + infoBoxHeight);
-    // console.log("infoBoxHeight",infoBoxHeight);
-
-
     // footer에 닿았을 때
     if (footerTop < scrollTop + infoBoxHeight) {
         infoBox.css({
@@ -485,37 +479,6 @@ text_only_Btn.on("click", function () {
   photoGroup.addClass("hide");
   textGroup.removeClass("hide");
 });
-  // let text_only_Btn = $(".review_text");
-  // let photo_only_Btn = $(".review_photobtn");
-  // let photoGroup = $(".review_photo_wrap");
-  // let textGroup = $(".review03_wrap");
-  // let clickCount = 0;
-
-  // photo_only_Btn.on("click", function () {
-  //   clickCount++;
-
-  //   if (clickCount % 2 === 0) {
-  //     photoGroup.removeClass("hide");
-  //     textGroup.removeClass("hide");
-  //   } else {
-  //     photoGroup.removeClass("hide");
-  //     textGroup.addClass("hide");
-  //     clickCount = 1;
-  //   }
-  // });
-
-  // text_only_Btn.on("click", function () {
-  //   clickCount++;
-
-  //   if (clickCount % 2 === 0) {
-  //     photoGroup.removeClass("hide");
-  //     textGroup.removeClass("hide");
-  //   } else {
-  //     photoGroup.addClass("hide");
-  //     textGroup.removeClass("hide");
-  //     clickCount = 1;
-  //   }
-  // });
 
   // 추천상품
   let slide_start = $(".slider_wrapper");
