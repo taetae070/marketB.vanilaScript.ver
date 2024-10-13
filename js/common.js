@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     //x 버튼 
-    const modalPop = document.querySelector("modal");
+    const modalPop = document.querySelector(".first_modal");
     const closeBtn = modalPop.querySelector(".close");
   
     closeBtn.addEventListener("click", function () {
@@ -139,16 +139,34 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
+  // 각 li 요소에 클릭 이벤트를 추가
+  const items = document.querySelectorAll('.bestList');
+
+  items.forEach((item) => {
+    const img = item.querySelector('img');
+    const title = item.querySelector('h6');
+    if (img) {
+      img.addEventListener('click', (event) => {
+        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
+        window.location.href = url;
+      });
+    }
+
+    if (title) {
+      title.addEventListener('click', (event) => {
+        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
+        window.location.href = url;
+      });
+    }
+  });
+
   window.addEventListener("scroll", throttle(function () {
     scrOffset = window.scrollY;
     scrPercent = calculateScrPercent();
     btnTopPosition();
   }, 200));
-  // window.addEventListener("scroll", function () {
-  //   scrOffset = window.scrollY;
-  //   scrPercent = calculateScrPercent();
-  //   btnTopPosition();
-  // });
 
   //맨 위로 이동
   btnTop.addEventListener("click", function (e) {

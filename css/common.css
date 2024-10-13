@@ -33,13 +33,13 @@ body {
 }
 
 /* modal */
-modal > p {
+.first_modal > p {
   margin-bottom: 1rem;
   line-height: 1.35rem;
   color:rgb(246, 56, 56);
 }
 
-.first_alert {
+.first_modal {
   top: 25%;
   left: 10%;
   z-index: 9999;
@@ -84,13 +84,14 @@ modal > p {
 .desc_pf a:hover {
   color: var(--Y);
 }
-.close {
+.first_modal .close {
   top: 3%;
   right: 1%;
   border: none;
   background: #fff;
   font-size: 1.1875rem;
   cursor: pointer;
+  color: #333;
 }
 .modalHidden {
   display: none;
@@ -495,6 +496,8 @@ nav ul {
   bottom: 10px;
   left: 0%;
 }
+
+
 
 /* ---------------------------------------footer */
 

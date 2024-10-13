@@ -88,7 +88,7 @@
   .subNav_content {
     grid-template: 2.5rem / repeat(8, 1fr);
   }
-  .bestList a > img {
+  .bestList  img {
     width: 18.5rem;
   }
   .magazine .magaImg img {
@@ -120,7 +120,7 @@
     right: 7%;
   }
 
-  .bestList a > img {
+  .bestList img {
     width: 16.5rem;
   }
 

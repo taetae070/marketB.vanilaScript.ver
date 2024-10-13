@@ -30,19 +30,33 @@ header {
   line-height: 3.75rem;
   margin-bottom: 6.25rem;
 }
-.store_Wrap {
-  height: 80vh;
-}
+
 .store_Wrap .store_formWrap {
   width: 100%;
 }
+.store_Wrap {
+  width: 22%;
+}
 .store_form {
-  height: auto;
+  /* height: auto; */
   border: 1px #333 solid;
   padding: 1.875rem 1.875rem 0 1.875rem;
   overflow: auto;
   width: 18.75rem;
   cursor: pointer;
+}
+@media (max-width: 1055px) {
+  html {
+    font-size: 14px; 
+  }
+}
+@media (max-width: 950px) {
+  html {
+    font-size: 13px; 
+  }
+  .address{
+    display: none;
+  }
 }
 
 .city {
@@ -83,9 +97,9 @@ header {
 }
 
 #map {
-  margin-left: 6.5rem;
-  width: 65.625rem;
-  height: 42.5rem;
+  margin-left: 2.5rem;
+  width: 70%;
+  /* width: 65.625rem; */
 }
 .P {
   padding-bottom: 1.25rem;
@@ -131,7 +145,7 @@ header {
   border: none;
 }
 /* 모달창 */
-.info_panel {
+.infoPopup {
   width: 100%;
   position: fixed;
   left: 0;
@@ -209,7 +223,7 @@ header {
   gap: 20.75rem;
 }
 
-/* .x {
-  width: 3rem;
-  height: 2.5rem;
-} */
+.mapallWrap {
+  width: 100% !important; 
+  height: 50rem !important; 
+}

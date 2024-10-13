@@ -104,10 +104,33 @@ window.addEventListener("resize", function () {
     moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
   }, 200);
 });
-  // window.addEventListener("resize", function () {
-  //   var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
-  //   moveSlide(currentIdx, slideWidth, slideMargin); // 현재 위치를 유지하면서 슬라이드 이동
-  // });
+
+  // 각 li 요소에 클릭 이벤트를 추가
+  const items = document.querySelectorAll('.bestList');
+
+  items.forEach((item) => {
+    const img = item.querySelector('img');
+    const title = item.querySelector('h6');
+  
+    // img 클릭 이벤트 추가
+    if (img) {
+      img.addEventListener('click', (event) => {
+        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
+        window.location.href = url;
+      });
+    }
+  
+    // h6 클릭 이벤트 추가
+    if (title) {
+      title.addEventListener('click', (event) => {
+        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
+        window.location.href = url;
+      });
+    }
+  });
+ 
 
 
   //magazine 
@@ -158,8 +181,6 @@ window.addEventListener("resize", function () {
       const scratchs = document.querySelectorAll(".scratch");
       const randomImg = Math.floor(Math.random() * 3) + 1;
 
-        console.log(scratchs);
-
         scratchs.forEach((scratch) => {
           scratch.style.backgroundImage = `url("img/main/coupon${randomImg}.png")`;
   
@@ -178,6 +199,9 @@ window.addEventListener("resize", function () {
             this.classList.add("drawing");
             checkOpacity();
           });
+
+          console.log(scratchOff.left);
+          console.log(couponOff.left);
         });
       
     }
