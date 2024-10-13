@@ -740,7 +740,7 @@ a.link {
     width: 66%;
   }
   .addGap{
-    gap: 50px;
+    gap: 3.125rem;
   }
 }
 @media (max-width: 1536px) {
@@ -760,8 +760,8 @@ a.link {
     width: 26.25rem;
     height: 26.25rem;
 }
-.element_to_magnify img {
-  width: 83%;}
+/* .element_to_magnify img {
+  width: 83%;} */
 
 .slider-nav img {
   width: 4.875rem;
@@ -773,6 +773,9 @@ a.link {
 .slider-nav .slick-list {
   padding-left: 0;
 }
+/* .addGap {
+  gap: 30px;
+} */
 }
 /*  */
 @media (max-width: 1298px) {
