@@ -161,7 +161,7 @@ $(document).ready(function () {
 
   $(window).scroll(throttle(function () {
     console.log("throttle excuted");
-    if ($(window).width() <= 620) {
+    if ($(window).width() <= 610) {
       return;
     }
 
@@ -201,13 +201,13 @@ $(document).ready(function () {
     }
   }, 300));
 
-  $(window).on('resize', function(){
-    if(windowWidth < 900){
-      infoBox.css({
-        left: "76%",
-      });
-    }
-  })
+  // $(window).on('resize', function(){
+  //   if(windowWidth < 900){
+  //     infoBox.css({
+  //       left: "76%",
+  //     });
+  //   }
+  // })
   
 
 
