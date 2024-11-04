@@ -1,4 +1,28 @@
 $(document).ready(function () {
+  // 확대이미지 크기 조절
+  function magnifyImgResize(){
+    const magnifyElement = $(".magnify");
+    const baseWidth = 1920;
+    const baseRight = 25; 
+    let currentWidth = $(window).width();
+  
+    if (currentWidth < baseWidth) {
+      let difference = baseWidth - currentWidth;
+      let reduction = Math.floor(difference / 10) * 0.15;
+      let newRight = baseRight + reduction;
+
+      if (newRight < 0) newRight = 0;
+      magnifyElement.css('right', `${newRight}%`);
+    } else {
+      magnifyElement.css('right', `${baseRight}%`);
+    }
+  }
+  magnifyImgResize();
+
+  $(window).resize(function() {
+    location.reload(); 
+  });
+  
   //x버튼
   const $modalPop = $(".modal");
   const $closeBtn = $modalPop.find(".close");
@@ -7,6 +31,10 @@ $(document).ready(function () {
       $modalPop.toggleClass("modalHidden");
   });
   //zoom slide
+  // $(".slider-single").on('setPosition', function() {
+  //   $('.slick-track').css('width', '100%');
+  // });
+
   $(".slider-single").slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -14,6 +42,7 @@ $(document).ready(function () {
     fade: true,
     useTransform: true,
     asNavFor: ".slider-nav",
+    adaptiveHeight: true,
   });
   $(".slider-nav").slick({
     slidesToShow: 4,
@@ -102,47 +131,85 @@ $(document).ready(function () {
   });
 
   //scroll fix event
-  let infoBox = $("article .section02");
-  let footer = $("footer");
-  let articleOst = $(".Pd_title").offset().top; // 주방가구 위높이
-  let infoBoxTop = infoBox.offset().top;  
-  let infoBoxHeight = infoBox.innerHeight();
-  let footerTop = footer.offset().top;   
+  function throttle(func, limit){
+    /* inThrottle
+    -함수 실행 막는 역할
+    -한 번 함수가 실행되고 나면, inThrottle을 true로 설정하고, limit 시간이 지나기 전까지는 함수가 실행을 막는다.
+    */
+    let inThrottle; 
+    return function(){
+      const args = arguments;
+      const context = this;
+      if(!inThrottle){
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(()=> inThrottle = false, limit); // 일정 시간 후 다시 호출 가능 상태로 변경
+      }
+    }
+  };
+  
+  const windowHeight = $(window).height(),
+      windowWidth = $(window).width(),
+      docHeight = $(document).height(),
+      infoBox = $("article aside"),
+      infoBoxRect = infoBox[0].getBoundingClientRect(),
+      infoBoxLeft = infoBoxRect.left,
+      infoBoxTopFixed = infoBoxRect.top;
+      //고정해줄 위치
+      leftPercentage = (infoBoxLeft / windowWidth) * 100 + 0.5,
+      topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
-$(window).scroll(function () {
-    let scrollTop = $(this).scrollTop();
-    let windowWidth = $(this).width();
-    let rightValue = windowWidth <= 1049 ? "5%" : "-6%";
-    // footer에 닿았을 때
-    if (footerTop < scrollTop + infoBoxHeight) {
-        infoBox.css({
-          position: "absolute",
-          top: "339%",
-          right: "-6%",
-          "z-index": "9999"
-            // position: "fixed",
-            // top: "-3%",
-            // right: "0%"
-        });
-    }
-    // 스크롤을 위로 올릴 때, article 위치까지
-    else if (scrollTop <= articleOst) {
-        infoBox.css({
-            position: "absolute",
-            top: "0%",
-            right: rightValue
-        });
-    }
-    // 스크롤을 처음 내릴 때
-    else {
-        infoBox.css({
-            position: "fixed",
-            top: "2%",
-            right: "2%"
-        });
+  $(window).scroll(throttle(function () {
+    console.log("throttle excuted");
+    if ($(window).width() <= 620) {
+      return;
     }
 
-  });
+    let footer = $("footer"),
+    footerOffsetTop = footer.offset().top,
+    infoBoxRect = infoBox[0].getBoundingClientRect(),
+    infoBoxHeight = infoBox.height();
+    let infoBoxTop = infoBoxRect.top;
+    let scrollTop = $(window).scrollTop();
+
+    if (scrollTop > infoBoxTopFixed && footerOffsetTop > infoBoxTop + infoBoxHeight + 15 && scrollTop <= footerOffsetTop - infoBoxHeight) {
+      // 처음 스크롤 내릴 때, 푸터에 아직 안 닿았을 때, 푸터찍고 스크롤 업할때
+      console.log("Condition: Fix infoBox");
+      infoBox.css({
+        position: "fixed",
+        left: `${leftPercentage - 4}%`,
+        top: `${topPercentage}%`,
+      });
+    } else if ( scrollTop + windowHeight >= footerOffsetTop ) {
+      // 푸터에 닿았을 때
+      console.log("Condition: infoBox touches footer");
+      let footerHeight = footer.height();
+      let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -90 );
+      infoBox.css({
+        position: "absolute",
+        left: "80%",
+        top: `${topValue}px`,
+      });
+    }else if (scrollTop < infoBoxTopFixed + 20) {
+      // 푸터 찍고, 상단 도착했을 때
+      console.log("Condition: Scroll back above infoBox");
+      infoBox.css({
+        position: "absolute",
+        left: "80%",
+        top: "0%"
+      });
+    }
+  }, 300));
+
+  $(window).on('resize', function(){
+    if(windowWidth < 900){
+      infoBox.css({
+        left: "76%",
+      });
+    }
+  })
+  
+
 
   //review page clone
   let reviewTD = $("table tbody tr td");
@@ -245,22 +312,18 @@ $(window).scroll(function () {
   let rating = $(".rating");
   rating.each(function () {
     let $this = $(this);
-    let scoreNum = $this.attr("data-rate");
-    let scoreArr = scoreNum.split(".");
-    // console.log(scoreArr);
-    if (scoreArr.length > 1) {
-      for (let i = 0; i < scoreArr[0]; i++) {
-        $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
-      }
-      $this
-        .find(".star-wrap")
-        .eq(scoreArr[0])
-        .find(".star")
-        .css({ width: scoreArr[1] + "0%" });
-    } else {
-      for (let i = 0; i < scoreNum; i++) {
-        $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
-      }
+    let scoreNum = parseFloat($this.attr("data-rate"));
+    let fullStars = Math.floor(scoreNum); 
+    let halfStar = (scoreNum % 1) * 100;  //나머지
+
+    $this.find(".star-wrap .star").css({ width: "0%" });
+    for(let i = 0; i < fullStars; i++){
+      $this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
+    }
+    
+    if(halfStar > 0){
+      let halfStarIndex = fullStars;
+      $this.find(".star-wrap").eq(halfStarIndex).find(".star").css({ width: halfStar + "%" });
     }
   });
 
@@ -491,14 +554,14 @@ text_only_Btn.on("click", function () {
       currentIdx = 0,
       slideCount = slides.length,
       slideWidth = imgWidth.width(),
-      slideToShow = 3,
+      slideToShow = 4,
       prevBtn = $(this).find(".prev_btn"),
       nextBtn = $(this).find(".next_btn");
 
     // ul 너비지정
-    slide_UL.width(slideWidth * slideCount + rowgap_value * (slideCount - 1));
+    // slide_UL.width(slideWidth * slideCount + rowgap_value * (slideCount - 1));
+    slide_UL.css("width, 80%");
 
-    // 슬라이드 이동함수
     function moveSlide(idx) {
       slide_UL.css("left", -idx * (slideWidth + rowgap_value));
       currentIdx = idx;

@@ -97,48 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // btn top
-  let allHeight = document.documentElement.scrollHeight;
-  let scrOffset = window.scrollY; //사용자가 페이지에서 스크롤한 양
-  const btnTop = document.getElementById("btn_top");
-  const footer = document.querySelector("footer");
-  let footerOffset = footer.offsetTop;
-  let footerHeight = footer.offsetHeight;
-  let scrPercent = calculateScrPercent();
-  const percentage = document.querySelector("#btn_top .percentage");
-
-  function calculateScrPercent() {
-    let windowHeight = window.innerHeight; //사용자가 보고 있는 브라우저 창의 높이
-    let scrAbleHeight = allHeight - footerHeight; //스크롤 가능한 높이
-
-    if (scrAbleHeight <= 0) {
-      return 100;
-    }
-    return ((scrOffset + windowHeight) / scrAbleHeight) * 100;
-    //현재 창의 하단 위치가 스크롤 가능한 높이에 대해 얼마나 비율을 차지하는지
-  }
-
-  function btnTopPosition() {
-    if (scrOffset > 100) {
-      btnTop.classList.add("on");
-    } else {
-      btnTop.classList.remove("on");
-    }
-    percentage.style.height = `${scrPercent * 1.2}%`;
-  }
-
-  //throttle 추가
-  function throttle(fn, wait) {
-    let lastTime = 0;
-    return function() {
-      const now = new Date().getTime();
-      if (now - lastTime >= wait) {
-        fn.apply(this, arguments);
-        lastTime = now;
-      }
-    };
-  }
-
   // 각 li 요소에 클릭 이벤트를 추가
   const items = document.querySelectorAll('.bestList');
 
@@ -147,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const title = item.querySelector('h6');
     if (img) {
       img.addEventListener('click', (event) => {
-        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        event.stopPropagation(); 
         const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
         window.location.href = url;
       });
@@ -155,45 +113,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (title) {
       title.addEventListener('click', (event) => {
-        event.stopPropagation(); // 다른 요소로 이벤트 전파 막기
+        event.stopPropagation(); 
         const url = "https://taetae070.github.io/marketB.vanilaScript.ver/detail.html";
         window.location.href = url;
       });
     }
-  });
-
-  window.addEventListener("scroll", throttle(function () {
-    scrOffset = window.scrollY;
-    scrPercent = calculateScrPercent();
-    btnTopPosition();
-  }, 200));
-
-  //맨 위로 이동
-  btnTop.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    setTimeout(function () {
-      scrOffset = window.scrollY;
-      scrPercent = calculateScrPercent();
-      btnTopPosition();
-    }, 300);
-    //스크롤이 완료되기 전에 스크롤 위치와 관련된 값을 업데이트하면 잘못된 값을 가져올 수 있음
-  });
-
-  function commonResizeEvent() {
-    let allHeight = document.documentElement.scrollHeight;
-    let scrOffset = window.scrollY;
-    let footerOffset = footer.offsetTop;
-    let footerHeight = footer.offsetHeight;
-    scrPercent = calculateScrPercent();
-  }
-
-  window.addEventListener("resize", function () {
-    setTimeout(function () {
-      commonResizeEvent();
-      scrPercent = calculateScrPercent();
-      btnTopPosition();
-    }, 500);
   });
 
   const slide_start = document.querySelectorAll(".slider_wrapper");

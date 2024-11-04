@@ -36,10 +36,82 @@ document.addEventListener("DOMContentLoaded", function () {
   const gnb = document.querySelector(".gnb_search"),
     SearchInput = document.querySelector(".gnb_search input"),
     SearchBtn = document.querySelector(".icon_search > button");
-  SearchBtn.addEventListener("click", function () {
+    SearchBtn.addEventListener("click", function () {
     gnb.classList.toggle("on");
     SearchInput.classList.toggle("on");
   });
+
+  // btn top
+  const btnTop = document.getElementById("btn_top");
+    if (btnTop) {
+      let allHeight = document.documentElement.scrollHeight;
+      const footer = document.querySelector("footer");
+      let footerHeight = footer.offsetHeight;
+      let scrPercent = calculateScrPercent();
+      const percentage = document.querySelector("#btn_top .percentage");
+    
+      function calculateScrPercent() {
+        let windowHeight = window.innerHeight;
+        let scrAbleHeight = allHeight - footerHeight;
+  
+        if (scrAbleHeight <= 0) {
+          return 100;
+        }
+        return ((window.scrollY + windowHeight) / scrAbleHeight) * 100;
+      }
+    
+      function btnTopPosition() {
+        if (window.scrollY > 100) {
+          btnTop.classList.add("on");
+        } else {
+          btnTop.classList.remove("on");
+        }
+        percentage.style.height = `${scrPercent * 1.25}%`;
+      }
+    
+      function throttle(fn, wait) {
+        let lastTime = 0;
+        return function() {
+          const now = new Date().getTime();
+          if (now - lastTime >= wait) {
+            fn.apply(this, arguments);
+            lastTime = now;
+          }
+        };
+      }
+    
+      btnTop.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        setTimeout(function () {
+          scrPercent = calculateScrPercent();
+          btnTopPosition();
+        }, 300);
+      });
+    
+      function commonResizeEvent() {
+        allHeight = document.documentElement.scrollHeight;
+        footerHeight = footer.offsetHeight;
+        scrPercent = calculateScrPercent();
+      }
+    
+      window.addEventListener("resize", function () {
+        setTimeout(function () {
+          commonResizeEvent();
+          scrPercent = calculateScrPercent();
+          btnTopPosition();
+        }, 500);
+      });
+  
+      window.addEventListener("scroll", throttle(function() {
+        scrPercent = calculateScrPercent();
+        btnTopPosition();
+      }, 200));
+    }
+   
+   
+ 
+ 
 
   //section01 슬라이드 
   //상품 슬라이드
@@ -199,9 +271,6 @@ window.addEventListener("resize", function () {
             this.classList.add("drawing");
             checkOpacity();
           });
-
-          console.log(scratchOff.left);
-          console.log(couponOff.left);
         });
       
     }
@@ -248,10 +317,15 @@ window.addEventListener("resize", function () {
   });
 
   //상품 슬라이드 button (세일) 
-  const saleButton = document.querySelector(".saleButton");
-    const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
+  // const saleButton = document.querySelector(".saleButton");
+  //   const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
 
-    saleButton.addEventListener("click", function() {
-      location.href =saleUrl;
-    });
+  //   saleButton.addEventListener("click", function() {
+  //     location.href =saleUrl;
+  //   });
+
+   
+
+
+
 });
