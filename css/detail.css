@@ -1,6 +1,4 @@
-header {
-  overflow-x: unset;
-}
+
 .lnb {
   margin-top: 0.875rem;
 }
@@ -12,7 +10,7 @@ header {
 
 .container_D {
   margin: 0 auto;
-  width: 85%;
+  width: 84%;
 }
 
 .title_Wrap h2 {
@@ -255,7 +253,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 /* add */
 article .section02 {
-  left: 80%;
+  left: 84%;
   position: absolute;
   top: 0%; 
 }
@@ -498,7 +496,7 @@ article .section02 .p_info {
 
 .slider_wrapper {
   overflow-x: hidden;
-  width: 59%;
+  width: 61%;
   margin-left: 7.5%;
 }
 /* ul */
@@ -637,7 +635,7 @@ article .img2 {
   margin-bottom: 7%
 }
 .section03 #accordionPanelsStayOpenExample {
-  width: 70.5%;
+  width: 72%;
 }
 
 #allreview {

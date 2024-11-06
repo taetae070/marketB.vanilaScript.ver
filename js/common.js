@@ -127,8 +127,8 @@ document.addEventListener("DOMContentLoaded", function () {
   );
 
   slide_start.forEach(function (slider) {
-    const slide_UL = slider.querySelector("ul");
-    const slides = slide_UL.querySelectorAll("li");
+    const slideUl = slider.querySelector("ul");
+    const slides = slideUl.querySelectorAll("li");
     let currentIdx = 0;
     const slideCount = slides.length;
     const slideWidth = imgWidth;
@@ -137,12 +137,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const nextBtn = slider.querySelector(".next_btn");
 
     // ul 너비지정
-    slide_UL.style.width =
+    slideUl.style.width =
       slideWidth * slideCount + rowgap_value * (slideCount - 1) + "px";
 
     // 슬라이드 이동함수
     function moveSlide(idx) {
-      slide_UL.style.left = -idx * (slideWidth + rowgap_value) + "px";
+      slideUl.style.left = -idx * (slideWidth + rowgap_value) + "px";
       currentIdx = idx;
     }
     moveSlide(currentIdx);

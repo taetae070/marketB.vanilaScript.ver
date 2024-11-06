@@ -26,13 +26,20 @@ $(document).ready(function () {
   //x버튼
   const $modalPop = $(".modal");
   const $closeBtn = $modalPop.find(".close");
-
   $closeBtn.on("click", function() {
       $modalPop.toggleClass("modalHidden");
   });
-  //zoom slide
-  // $(".slider-single").on('setPosition', function() {
-  //   $('.slick-track').css('width', '100%');
+
+
+  // zoom slide 너비조정 (여백발생 해결용)
+  // $(".slider-single").on('init reInit setPosition', function() {
+  //   const slickTrack = $('.slick-track');
+  //   let leftValue = slickTrack.offset().left;
+  //   let windowWidth = $(window).width();
+  //   // const $slickSlides = $('.slick-slide');
+  
+  //   slickTrack.css('width', `${windowWidth - leftValue}px` );
+  //   // console.log("trackWidth",trackWidth);
   // });
 
   $(".slider-single").slick({
@@ -43,6 +50,8 @@ $(document).ready(function () {
     useTransform: true,
     asNavFor: ".slider-nav",
     adaptiveHeight: true,
+    infinite: false,
+    variableWidth: false,
   });
   $(".slider-nav").slick({
     slidesToShow: 4,
@@ -50,6 +59,7 @@ $(document).ready(function () {
     asNavFor: ".slider-single",
     dots: false,
     focusOnSelect: true,
+    infinite: false,
   });
 
   //zoom magnify
@@ -156,7 +166,7 @@ $(document).ready(function () {
       infoBoxLeft = infoBoxRect.left,
       infoBoxTopFixed = infoBoxRect.top;
       //고정해줄 위치
-      leftPercentage = (infoBoxLeft / windowWidth) * 100 + 0.5,
+      leftPercentage = (infoBoxLeft / windowWidth) * 100,
       topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
   $(window).scroll(throttle(function () {
@@ -177,7 +187,7 @@ $(document).ready(function () {
       console.log("Condition: Fix infoBox");
       infoBox.css({
         position: "fixed",
-        left: `${leftPercentage - 4}%`,
+        left: `${leftPercentage}%`,
         top: `${topPercentage}%`,
       });
     } else if ( scrollTop + windowHeight >= footerOffsetTop ) {
@@ -187,15 +197,15 @@ $(document).ready(function () {
       let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -90 );
       infoBox.css({
         position: "absolute",
-        left: "80%",
+        left: "84%",
         top: `${topValue}px`,
       });
-    }else if (scrollTop < infoBoxTopFixed + 20) {
+    }else if (scrollTop < infoBoxTopFixed + 30) {
       // 푸터 찍고, 상단 도착했을 때
       console.log("Condition: Scroll back above infoBox");
       infoBox.css({
         position: "absolute",
-        left: "80%",
+        left: "84%",
         top: "0%"
       });
     }
