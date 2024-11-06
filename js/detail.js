@@ -1,4 +1,10 @@
 $(function () {
+  //x버튼
+  const $modalPop = $(".modal");
+  const $closeBtn = $modalPop.find(".close");
+  $closeBtn.on("click", function() {
+      $modalPop.toggleClass("modalHidden");
+  });
   // 확대이미지 크기 조절
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
@@ -8,7 +14,7 @@ $(function () {
   
     if (currentWidth < baseWidth) {
       let difference = baseWidth - currentWidth;
-      let reduction = Math.floor(difference / 10) * 0.15;
+      let reduction = Math.floor(difference / 10) * 0.2;
       let newRight = baseRight + reduction;
 
       if (newRight < 0) newRight = 0;
@@ -23,24 +29,6 @@ $(function () {
     location.reload(); 
   });
   
-  //x버튼
-  const $modalPop = $(".modal");
-  const $closeBtn = $modalPop.find(".close");
-  $closeBtn.on("click", function() {
-      $modalPop.toggleClass("modalHidden");
-  });
-
-
-  // zoom slide 너비조정 (여백발생 해결용)
-  // $(".slider-single").on('init reInit setPosition', function() {
-  //   const slickTrack = $('.slick-track');
-  //   let leftValue = slickTrack.offset().left;
-  //   let windowWidth = $(window).width();
-  //   // const $slickSlides = $('.slick-slide');
-  
-  //   slickTrack.css('width', `${windowWidth - leftValue}px` );
-  //   // console.log("trackWidth",trackWidth);
-  // });
 
   $(".slider-single").slick({
     slidesToShow: 1,
@@ -64,6 +52,13 @@ $(function () {
 
   //zoom magnify
   $(".magnify").jfMagnify({ scale: "2.5" });
+  let magnifyImg = $(".element_to_magnify img");
+  let sliderHeight = $(".slider-single img").height();
+  let sliderWidth = $(".slider-single img").width();
+  magnifyImg.css({
+    height: `${sliderHeight}px`,
+    width: `${sliderWidth}px`
+  });
 
   //모달
   let modalPop = $(".modal");
@@ -169,18 +164,19 @@ $(function () {
       leftPercentage = (infoBoxLeft / windowWidth) * 100,
       topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
-    $(window).on('scroll', _.throttle(function () {
+  $(window).on('scroll', _.throttle(function () {
     console.log("throttle excuted");
-    if ($(window).width() <= 610) {
-      return;
-    }
-
     let footer = $("footer"),
     footerOffsetTop = footer.offset().top,
     infoBoxRect = infoBox[0].getBoundingClientRect(),
     infoBoxHeight = infoBox.height();
     let infoBoxTop = infoBoxRect.top;
     let scrollTop = $(window).scrollTop();
+
+    if (windowWidth <= 1255) {
+      return;
+    }
+
 
     if (scrollTop > infoBoxTopFixed && footerOffsetTop > infoBoxTop + infoBoxHeight + 15 && scrollTop <= footerOffsetTop - infoBoxHeight) {
       // 처음 스크롤 내릴 때, 푸터에 아직 안 닿았을 때, 푸터찍고 스크롤 업할때
