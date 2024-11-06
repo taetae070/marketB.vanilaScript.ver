@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
   // 확대이미지 크기 조절
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
@@ -19,7 +19,7 @@ $(document).ready(function () {
   }
   magnifyImgResize();
 
-  $(window).resize(function() {
+  $(window).on('resize', function() {
     location.reload(); 
   });
   
@@ -89,7 +89,7 @@ $(document).ready(function () {
     buy_price = buy_priceText.replace(/\D/g, ""),
     i = buy_number.val();
 
-  buy_number.change(function () {
+  buy_number.on('change', function () {
     i = buy_number.val();
     buyTotal = i * buy_price;
     totalcost.text("￦" + buyTotal.toLocaleString());
@@ -128,7 +128,7 @@ $(document).ready(function () {
   let opt02_btn = $(".btn_opt2");
   let opt_btn = $(".color button");
 
-  opt_btn.click(function () {
+  opt_btn.on('click', function () {
     buyTotal = buy_priceText;
     totalcost.text("￦" + buyTotal.toLocaleString());
     if ($(this).hasClass("btn_opt1")) {
@@ -169,7 +169,7 @@ $(document).ready(function () {
       leftPercentage = (infoBoxLeft / windowWidth) * 100,
       topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
-  $(window).scroll(throttle(function () {
+    $(window).on('scroll', _.throttle(function () {
     console.log("throttle excuted");
     if ($(window).width() <= 610) {
       return;
@@ -210,14 +210,6 @@ $(document).ready(function () {
       });
     }
   }, 300));
-
-  // $(window).on('resize', function(){
-  //   if(windowWidth < 900){
-  //     infoBox.css({
-  //       left: "76%",
-  //     });
-  //   }
-  // })
   
 
 
@@ -529,7 +521,7 @@ $(document).ready(function () {
   });
 
   //review more버튼
-  let moreButton = $(".review_photo_wrap .more_btn_wrap");
+  let moreButton = $(".more_btn_wrap");
   moreButton.on("click", function () {
     let review_img = $(".review_photo_3ndwrap");
     review_img.toggleClass("on");

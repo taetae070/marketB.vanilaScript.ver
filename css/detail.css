@@ -400,7 +400,7 @@ article .section02 .p_info {
   padding: 1.5rem 2.5rem;
 } */
 .review01_wrap .more_btn_wrap button {
-  gap: 1rem;
+  gap: .5rem;
   align-items: center;
   justify-content: center;
 }
@@ -743,6 +743,14 @@ button:focus,
 a.link {
   pointer-events: none;
   cursor: default;
+}
+
+.more_btn_wrap button{
+  background-color: #fff;
+  border: 1px solid var(--G);
+  border-radius: 6px;
+  color: #333;
+  padding: 10px;
 }
 
 
