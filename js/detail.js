@@ -8,8 +8,8 @@ $(function () {
   // 확대이미지 크기 조절
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
-    const baseWidth = 1920;
-    const baseRight = 25; 
+    const baseWidth = 2200;
+    const baseRight = 17; 
     let currentWidth = $(window).width();
   
     if (currentWidth < baseWidth) {
@@ -17,11 +17,13 @@ $(function () {
       let reduction = Math.floor(difference / 10) * 0.2;
       let newRight = baseRight + reduction;
 
-      if (newRight < 0) newRight = 0;
+      newRight = Math.max(newRight, 0);
       magnifyElement.css('right', `${newRight}%`);
-    } else {
-      magnifyElement.css('right', `${baseRight}%`);
-    }
+      }else if(currentWidth < 1505){
+
+      } {
+        magnifyElement.css('right', `${baseRight}%`);
+      }
   }
   magnifyImgResize();
 
@@ -164,8 +166,18 @@ $(function () {
       leftPercentage = (infoBoxLeft / windowWidth) * 100,
       topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
+  //중간에서 새로고침한 경우    
+  // if (sessionStorage.getItem("isReloaded")) {
+  //   infoBox.css({
+  //     position: "fixed",
+  //     top: `12%`,
+  //     left: `${leftPercentage}%`
+  //   });
+  // }
+
   $(window).on('scroll', _.throttle(function () {
-    console.log("throttle excuted");
+    // console.log("throttle excuted");
+    let infoOffsetTop = infoBox.offset().top;
     let footer = $("footer"),
     footerOffsetTop = footer.offset().top,
     infoBoxRect = infoBox[0].getBoundingClientRect(),
@@ -173,14 +185,15 @@ $(function () {
     let infoBoxTop = infoBoxRect.top;
     let scrollTop = $(window).scrollTop();
 
+    console.log("infoOffsetTop", infoOffsetTop);
+
     if (windowWidth <= 1255) {
       return;
-    }
-
+    };
 
     if (scrollTop > infoBoxTopFixed && footerOffsetTop > infoBoxTop + infoBoxHeight + 15 && scrollTop <= footerOffsetTop - infoBoxHeight) {
       // 처음 스크롤 내릴 때, 푸터에 아직 안 닿았을 때, 푸터찍고 스크롤 업할때
-      console.log("Condition: Fix infoBox");
+      // console.log("Condition: Fix infoBox");
       infoBox.css({
         position: "fixed",
         left: `${leftPercentage}%`,
@@ -188,9 +201,9 @@ $(function () {
       });
     } else if ( scrollTop + windowHeight >= footerOffsetTop ) {
       // 푸터에 닿았을 때
-      console.log("Condition: infoBox touches footer");
+      // console.log("Condition: infoBox touches footer");
       let footerHeight = footer.height();
-      let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -90 );
+      let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -150 );
       infoBox.css({
         position: "absolute",
         left: "84%",
