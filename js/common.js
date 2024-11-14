@@ -55,46 +55,46 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   // wish, cart btn의 로직: on -> active -> 알람뜸
-  const slidesContainer = document.querySelector(".slider_wrapper");
-  slidesContainer.addEventListener('click', (e) => {
-    const target = e.target.closest(".wish_Btn, .cart_Btn");
-    
-    if(target){
-      target.classList.toggle("on");
-      console.log("toggle on");
+  const slidesContainers = document.querySelectorAll(".slider_wrapper");
+  slidesContainers.forEach((slidesContainer) => {
+    slidesContainer.addEventListener('click', (e) => {
+      const target = e.target.closest(".wish_Btn, .cart_Btn");
+      
+      if(target){
+        target.classList.toggle("on");
+      
+        //alert 종류를 객체로 저장
+        const alertObject = {
+          wish:{
+            on: slidesContainer.querySelector(".wish_alert01"),
+            off: slidesContainer.querySelector(".wish_alert02"),
+          },
+          cart:{
+            on: slidesContainer.querySelector(".cart_alert01"),
+            off: slidesContainer.querySelector(".cart_alert02"),
+          }
+        };
 
-      //alert 종류를 객체로 저장
-      const alertObject = {
-        wish:{
-          on: slidesContainer.querySelector(".wish_alert01"),
-          off: slidesContainer.querySelector(".wish_alert02"),
-        },
-        cart:{
-          on: slidesContainer.querySelector(".cart_alert01"),
-          off: slidesContainer.querySelector(".cart_alert02"),
+        //클릭한 버튼에 따라 알람 활성화
+        const alertType = target.classList.contains("wish_Btn") ? "wish" : "cart";
+        const alertOn = alertObject[alertType].on;
+        const alertOff = alertObject[alertType].off;
+
+        if (target.classList.contains("on")) {
+          alertOn.classList.add("active");
+          alertOff.classList.remove("active");
+        } else {
+          alertOn.classList.remove("active");
+          alertOff.classList.add("active");
         }
-      };
 
-      //클릭한 버튼에 따라 알람 활성화
-      const alertType = target.classList.contains("wish_Btn") ? "wish" : "cart";
-      const alertOn = alertObject[alertType].on;
-      const alertOff = alertObject[alertType].off;
-
-      if (target.classList.contains("on")) {
-        alertOn.classList.add("active");
-        alertOff.classList.remove("active");
-      } else {
-        alertOn.classList.remove("active");
-        alertOff.classList.add("active");
+        setTimeout(() => {
+          alertOn.classList.remove("active");
+          alertOff.classList.remove("active");
+        }, 4000);
       }
-
-      setTimeout(() => {
-        alertOn.classList.remove("active");
-        alertOff.classList.remove("active");
-      }, 4000);
-    }
+    })
   })
-
   // 각 li 요소에 클릭 이벤트를 추가
   const items = document.querySelectorAll('.bestList');
 
