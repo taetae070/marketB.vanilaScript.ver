@@ -1,6 +1,4 @@
-/* .lnb {
-  z-index: 1;
-} */
+
 body {
   font-size: 1rem;
   color: var(--B);
@@ -55,14 +53,14 @@ header .container {
   text-align: center;
   color: var(--B);
 }
-.subNav::after {
+.subNav_content::after {
   content: "";
   display: inline-block;
   position: absolute;
   background: #f2f2f2;
-  width: 90.625rem;
+  width: 100%;
   height: 2px;
-  top: 100%;
+  bottom: 0%;
   z-index: -2;
 }
 
@@ -88,7 +86,7 @@ header .container {
   content: "";
   position: absolute;
   border-radius: 24px;
-  height: 3.5rem;
+  height: 100%;
   background: #f2f2f2;
   z-index: -1;
 }
@@ -97,17 +95,18 @@ header .container {
 }
 
 .gnb_search input {
+  height: 50%;
+  left: 3%;
+  padding: 3%;
   opacity: 0;
   outline: none;
-  /* padding: 3px 0 0 0; */
-  /* display: block; */
   border: none;
   background: none;
 }
 .gnb_search input.on {
-  left: -6%;
   opacity: 1;
 }
+
 
 .gnb_search > input:before {
   /* left: 0; */
@@ -115,7 +114,7 @@ header .container {
   position: absolute;
   border-radius: 20px;
   transition: 0.3s all;
-  height: 3rem;
+  height: 90%;
   background: #f2f2f2;
 }
 
@@ -150,15 +149,16 @@ header .container {
 
 .slide_start {
   margin-top: 2.5rem;
-  height: 38.75rem;
+  height: 40.75rem;
 }
 
 .mainImg_wrapper .slide-wrapper {
   display: flex;
+  /* height: 39.75rem; */
 }
 .slide-wrapper .imgWrap {
-  height: 35.75rem;
-  width: 100%;
+  /* height: 35.75rem; */
+  width: 95%;
 }
 
 .imgWrap > img {
@@ -172,7 +172,7 @@ header .container {
   align-items: center;
   text-align: center;
   gap: 5rem;
-  width: 20%;
+  width: 30%;
   /* width: 20rem; */
   padding: 0 10px;
 }
@@ -191,7 +191,7 @@ header .container {
 }
 
 h2 {
-  font-size: 2.25rem;
+  font-size: 3.25rem;
   font-weight: 400;
   line-height: 2.375rem;
 }
@@ -203,8 +203,8 @@ h2 {
 
 .imgDesc {
   font-weight: 400;
-  font-size: 1.125rem;
-  line-height: 1.875rem;
+  font-size: 1.5rem;
+  line-height: 2.125rem;
 }
 
 .imgPrice {
@@ -214,48 +214,48 @@ h2 {
 
 /* 슬라이드 버튼 */
 
-.slide_start .swiper-button-next {
-  top: 97%;
-  right: 8%;
-}
-.slide_start .swiper-button-prev {
-  top: 97%;
-  left: 82.7%;
+.slide_start .swiper-button-next,.slide_start .swiper-button-prev {
+  position: relative;
 }
 
 .slide_start .btn {
-  color: var(--G);
-  margin-top: -1.875rem;
+  color: #fff;
+  padding: 0;
+  margin: 0;
 }
 .slide_start .swiper-button-next::after,
 .slide_start .swiper-button-prev::after {
-  font-size: 1.5rem;
-  position: absolute;
+  padding: 0;
+  font-size: 1.625rem;
   width: auto;
+  margin: 0;
 }
-.slide_start .play {
+.slide_start .pause, .slide_start .play {
+  padding: 0;
+  font-size: 1.875rem;
   transition: all 0.1s ease-in-out;
   right: 12.6%;
   bottom: 5.5%;
   z-index: 100000;
-  font-size: 1.375rem;
+  font-size: 1.625rem;
 }
-.slide_start .pause {
-  transition: all 0.1s ease-in-out;
-  right: 12.6%;
-  bottom: 5.5%;
-  z-index: 100000;
-  font-size: 1.375rem;
+.mainSection #controls{
+  gap: 3.75rem;
+  justify-content: flex-end;
+  position: absolute;
+  left: 0%;
+  bottom: 1%;
+  z-index: 10000;
 }
 
 /* ---------------------------------------------aside */
 aside {
   flex-direction: column;
   justify-content: center;
-  gap: 2.375rem;
+  gap: 3.375rem;
   z-index: 10;
   right: 0;
-  top: 30%;
+  top: 0%;
 }
 @keyframes colorChange {
   0% {
@@ -273,6 +273,7 @@ aside {
   flex-direction: column;
   gap: 0.625rem;
   text-align: center;
+  color: var(--G);
 }
 
 .icon a i {
@@ -284,21 +285,9 @@ aside {
 .icon :hover {
   animation: colorChange 0.4s 0.1s 1 ease forwards;
 }
-.icon-text {
-  color: var(--G);
-  width: 330%;
-  right: -92%;
-  top: 0%;
-  border: 1px solid var(--Gg);
-  border-radius: 3px;
-  padding: 1px;
-  background-color: #fff;
-  display: none;
-}
-
-.icon:hover .icon-text {
+/* .icon:hover .icon-text {
   display: block;
-}
+}  */
 
 /* -----------------------------------------------section 01 */
 .best h3 {
@@ -332,7 +321,7 @@ h6 {
   z-index: 50;
   bottom: -1%;
   left: 45%;
-  width: 14%;
+  width: 25%;
   background: var(--G);
   border: 1px solid var(--G);
   border-radius: 4px;
@@ -355,7 +344,7 @@ h6 {
 
 /* ul */
 .slider_wrapper ul {
-  margin-left: 6.188rem;
+  /* margin-left: 6.188rem; */
   position: absolute;
   transition: left 0.5s ease-in-out;
   left: 0;
@@ -413,9 +402,11 @@ h6 {
 }
 
 /* --------------------------------------section02 */
+.magazine{
+  margin-top: 12.5rem;
+}
 .magazine .maga > p {
   margin-bottom: 4.375rem;
-  /* margin: 1.563rem 0 2.5rem 0; */
 }
 .magazine article {
   justify-content: space-between;
@@ -506,7 +497,12 @@ h6 {
 }
 
 /* ---------------------------------------section03 */
-
+.promo{
+  margin-top: 12.5rem;
+}
+.promo article:nth-child(2){
+  margin-top: 12.5rem;
+}
 .promo article > img {
   box-shadow: 5px 5px 4px #ededed;
   width: 70.375rem;

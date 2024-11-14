@@ -756,21 +756,27 @@ a.link {
   .container_D {
     width: 75%;
   }
+  .section03 #accordionPanelsStayOpenExample {
+    width: 73%;
+  }
   .slider_wrapper {
     margin-left: 12.5%;
-    width: 54%;
+    width: 55%;
   }
   footer {
     padding: 5rem 17rem;
   }
 }
 @media (max-width: 1930px) {
-  .slider_wrapper {
+  body .slider_wrapper {
     margin-left: 7.5%;
-    width: 61% !important;
+    width: 62%;
   }
   .container_D {
     width: 85%;
+  }
+  footer {
+    padding: 5rem 8rem;
   }
 }
 
@@ -791,23 +797,30 @@ a.link {
     margin: 0;
   }   
 }
-@media (max-width: 1500px) {
- /* .magnify{
-  right: 34% !important;
- } */
+@media (max-width: 1300px) {
+  .section03 #accordionPanelsStayOpenExample {
+    width: 78%;
+  }
+  body .slider_wrapper {
+    width: 66%;
+  }
 }
 
 @media (max-width: 1255px) {
   .section03 #accordionPanelsStayOpenExample {
     width: 100%;
   }
+  body .slider_wrapper {
+    width: 90%;
+    margin-left: 5.5%;
+    margin-top: 10%;
+  }
+  article .section02 .p_info {
+    gap: 2.875rem;
+  }
   .P_info2 .color {
     gap: 1.25rem;
     align-items: center;
-  }
-  .slider_wrapper {
-    margin-left: 5%;
-    margin-top: 10%;
   }
   .section03 {
     margin-top: 26%;
@@ -815,6 +828,7 @@ a.link {
   article .section02 {
     left: 76%;
     width: 18.75rem;
+    top: -1%;
   }
   .container_D {
     width: 90%;
@@ -843,6 +857,11 @@ a.link {
     font-size: 2rem;
   }
 }
+@media(max-width: 1050px){
+  .slider-single img {
+    width: 50.25rem;
+  } 
+}
 @media (max-width: 1000px) {
   article .section02 {
     left: 73%;
@@ -861,7 +880,10 @@ a.link {
     margin: 0;
   }
 }
-@media(max-width: 800px){
+@media(max-width: 840px){
+  footer {
+    padding: 4rem 3rem;
+  }
   .slider-single img {
     width: 34.25rem;
   }
@@ -880,10 +902,6 @@ a.link {
   .section03 #accordionPanelsStayOpenExample {
     width: 94%;
   }
-  .container_D {
-    width: 98%;
-    margin: 2%;
-  }
   article .section02 {
     width: auto;
     left: 65%;
@@ -894,9 +912,8 @@ a.link {
   .slider-nav {
     bottom: -24%;
   }
-  .slider_wrapper{
-    width: 92%;
-    margin-top: 10%;
+  body .slider_wrapper {
+    width: 86%;
   }
 }
 @media (max-width: 500px) {
@@ -927,6 +944,10 @@ a.link {
   }
   .P_info3 {
     gap: 1.5rem;}
+}
+@media (max-width: 428px) {
+  article .section02 {
+    width: 28%;}
 }
 
 @media (max-width: 410px) {

@@ -57,51 +57,43 @@
     <link rel="stylesheet" href="./css/indexResponsive.css" />
 </head>
 
- <body>
-    <div class="first_modal A">
-                <p>본 사이트는 클론사이트가 아닙니다.<br />
-                   공식웹사이트를 새롭게 기획하여 리뉴얼한 사이트입니다.<br />
-                    (본사이트는 개인 포트폴리오 용입니다. )</p>
-                    <button type="button" class="close A">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                <div class="desc_pf FC">                                  
-                    <div>
-                        <span> 구현페이지 :</span>
-                        <a href="https://taetae070.github.io/marketB.vanilaScript.ver/">메인페이지(반응형, VanilaScript)</a>,
-                        <a href="http://taetaeky.dothome.co.kr/detail.html">상품설명페이지(jquery)</a>,<br>
-                        <a href="http://taetaeky.dothome.co.kr/store.html">오프라인 매장안내페이지(map api)</a>
-                    </div>
-                    <p class="desc_click">(클릭 시, 해당 페이지로 이동합니다.)</p>
-                    <div><span>기획안:</span> <a href="https://fluffy-idea-e06.notion.site/Market-B-IKEA-dd6759613bef4bf19570bb11b1946af0">노션링크로 이동하기</a></div>
-                    <div><span>기획, 디자인, 구현 :</span> <p>이태경<a href=""></a></p></div>
-                    <div><span>연락처 :</span><p contenteditable="true"><i class="fa-regular fa-envelope"></i>taetaeky07@gmail.com</div>
+<modal class="first_modal A">
+            <p>본 사이트는 클론사이트가 아닙니다.<br />
+               공식웹사이트를 새롭게 기획하여 리뉴얼한 사이트입니다.<br />
+                (본사이트는 개인 포트폴리오 용입니다. )</p>
+                <button type="button" class="close A">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            <div class="desc_pf FC">                                  
+                <div>
+                    <span> 구현페이지 :</span>
+                    <a href="https://taetae070.github.io/marketB.vanilaScript.ver/">메인페이지(반응형, VanilaScript)</a>,
+                    <a href="http://taetaeky.dothome.co.kr/detail.html">상품설명페이지(jquery)</a>,<br>
+                    <a href="http://taetaeky.dothome.co.kr/store.html">오프라인 매장안내페이지(map api)</a>
                 </div>
-    </div>
-        <header>
-            
-            <div class="notice_board R">
-                    <div class="notice_content A F">
-                        <div class="notice_item"><a href="/"><i class="fa-regular fa-user"></i>카카오톡 친구추가 할인</a></div>
-                        <div class="notice_item"><a href="/"><i class="fa-regular fa-money-bill-1"></i>만원의 행복</a></div>
-                        <div class="notice_item"><a href="/"><i class="fa-solid fa-gift"></i>클리어런스 빅세일</a></div>
-                    </div>
+                <p class="desc_click">(클릭 시, 해당 페이지로 이동합니다.)</p>
+                <div><span>기획안:</span> <a href="https://fluffy-idea-e06.notion.site/Market-B-IKEA-dd6759613bef4bf19570bb11b1946af0">노션링크로 이동하기</a></div>
+                <div><span>기획, 디자인, 구현 :</span> <p>이태경<a href=""></a></p></div>
+                <div><span>연락처 :</span><p contenteditable="true"><i class="fa-regular fa-envelope"></i>taetaeky07@gmail.com</div>
             </div>
-
-            <!-- 메뉴버튼+카테고리 시작 -->
-            <div class="container R">           
-                <div class="mainNAV R F">                  
-                    <!-- <div class="gnb_btns R F"> -->
-                        <button class="menu_btn">
-                            <img src="img/bars-solid.svg" alt="menu" class="menu_img">
-                        </button>
-                        
-                        <h1>
-                            <a href="index.html" class="logo blind">마켓비</a>
-                        </h1>                                          
-                    <!-- </div> -->
-                    <nav class="lnb A">
-                        <ul class="category_list ">
+</modal>
+ <body>
+        <div class="notice_board R">
+                <div class="notice_content A F">
+                    <div class="notice_item"><a href="/"><i class="fa-regular fa-user"></i>카카오톡 친구추가 할인</a></div>
+                    <div class="notice_item"><a href="/"><i class="fa-regular fa-money-bill-1"></i>만원의 행복</a></div>
+                    <div class="notice_item"><a href="/"><i class="fa-solid fa-gift"></i>클리어런스 빅세일</a></div>
+                </div>
+        </div>
+        <nav class="mainNAV R F container">                  
+            <button class="menu_btn">
+                <img src="img/bars-solid.svg" alt="menu" class="menu_img">
+            </button>
+            <h1>
+                <a href="index.html" class="logo blind">마켓비</a>
+            </h1>                                          
+            <div class="lnb A">
+                        <ul class="category_list A">
                             <li>
                                 <h4>침실가구</h4>
                                 <ul class="catebox_1 R" >
@@ -178,7 +170,7 @@
                                             <li>리프트업테이블</li>
                                         </ul>
                                     </li>
-                                   
+                                
                                 </ul>   
                             </li>  
                             <li>
@@ -199,7 +191,7 @@
                                         <ul class="catebox_2">
                                             <li>책상의자</li>
                                             <li>디자인체어</li>
-                                 
+                                
                                         </ul>
                                     </li>
                                 </ul>   
@@ -237,146 +229,152 @@
                                 </ul>   
                             </li>  
                         </ul>
-                    </nav>                    
-                </div>
-                <div class="subNav F R">
-                    <div class="subNav_content">
-                        <a>모든 제품</a>
-                        <a>온라인 집들이</a>
-                        <a>특별한 가격</a>
-                        <a>고객센터</a>
-                        <div class="gnb_search">
-                            <input type="text" id="write" class="R"/>
-                            <div class="icon_search">
-                                <button type="button" class="magn A">
-                                    <span class="">검색</span>
-                                </button>
-                            </div>
+            </div>                    
+        </nav>
+
+        <header class="container">            
+            <div class="subNav F R">
+                <div class="subNav_content">
+                    <a>모든 제품</a>
+                    <a>온라인 집들이</a>
+                    <a>특별한 가격</a>
+                    <a>고객센터</a>
+                    <div class="gnb_search">
+                        <input type="text" id="write" autocomplete="off" class="A"/>
+                        <div class="icon_search">
+                            <button type="button" class="magn A">
+                                <!-- <span class="">검색</span> -->
+                            </button>
                         </div>
                     </div>
                 </div>
-                   
-                <!-- slide  slide-wrapper -->
-                <div class="slide_start swiper mySwiper custom-controller R">
-                     <div class="mainImg_wrapper swiper-wrapper">
-                        <div class="slide-wrapper F clearfix swiper-slide">
-                            <div class="imgWrap F">
-                                <img src="img/main/1.png" alt="marketb module" />
-                                <div class="imgRight Y">
-                                    <h2 id="imgTit">simple series</h2>
-                                    <p class="imgDesc">
-                                        미드 모던 센추리 감성의<br />
-                                        가장 트렌디한 가구
-                                    </p>
-                                    <p class="imgPrice M">69,000~</p>
-                                    <button class="red_Btn_big"><span>쇼핑하기</span></button>                  
-                                        
-                                    
-                                
-                                </div>
-                            </div>                       
-                        </div>
-                        <div class="slide-wrapper swiper-slide">
-                            <div class="imgWrap F">
-                                <img src="img/main/2.png" alt="아웃도어 상품" />
-                                <div class="imgRight B">
-                                    <h2 >고프코어 특별전</h2>
-                                    <p class="imgDesc">
-                                        일상에 찾아온 아웃도어
-                                    </p>
-                                    <p class="imgPrice M">4,900~</p>
-                                    <button class="red_Btn_big"><span>쇼핑하기</span></button> 
-                                </div>
-                            </div>
-                            
-                        </div>        
-                        <div class="slide-wrapper swiper-slide">
-                            <div class="imgWrap F">
-                                <img src="img/main/3.png" alt="침대 큐레이션" />
-                                <div class="imgRight Br">
-                                    <h2 >침대 큐레이션</h2>
-                                    <p class="imgDesc">
-                                        온전한 나만의 휴식처를 만들어줄<br />
-                                        마켓비의 침대/매트리스 추천
-                                    </p>
-                                    <p class="imgPrice M">99,000~</p>
-                                    <button class="red_Btn_big"><span>쇼핑하기</span></button> 
-                                </div>
-                            </div>
-                            
-                        </div>        
-                        <div class="slide-wrapper swiper-slide">
-                            <div class="imgWrap F">
-                                <img src="img/main/4.png" alt="marketb module" />
-                                <div class="imgRight Gr">
-                                    <h2>최신 트렌드 신상품</h2>
-                                    <p class="imgDesc">
-                                        트렌드도 가구도<br />
-                                        앞서 가는 당신을 위해
-                                    </p>
-                                    <p class="imgPrice M">5,900~</p>
-                                    <button class="red_Btn_big"><span>쇼핑하기</span></button> 
-                                </div>
-                            </div>
-                            
-                        </div>                            
-                    </div>
-                    <!-- <div class="controls "> -->
-                        <button class="swiper-button-prev btn A"> 
-                        </button>
-                        <button class="swiper-button-next btn A">
-                        </button>    
-                        <button class="pause btn A" type="button" >
-                            <i class="fa-solid fa-pause A" ></i>
-                        </button> 
-                        <button class="play btn A hidden" type="button">
-                            <i class="fa-solid fa-play A"></i>
-                        </button> 
-                    <!-- </div> -->
-                </div>
-                        
- 
-                <aside class="A F">
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-user"></i>
-                            <span>로그인</span>
-                        </a>
-                    </div>
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-pen-nib"></i>
-                            <span>회원가입</span>
-                        </a>
-                    </div>
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-cart-shopping"></i>
-                            <span>장바구니</span>
-                        </a>
-                    </div>
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-comment"></i>
-                            <span>챗봇</span>
-                        </a>
-                    </div>
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-headset"></i>
-                            <span>고객센터</span>
-                        </a>
-                    </div>
-                    <div class="icon  ">
-                        <a><i class="fa-solid fa-map-location-dot"></i>
-                            <span>매장위치</span>
-                        </a>
-                    </div>
-                </aside>     
             </div>
         </header>
-
-                
         <button href="" id="btn_top">
             <div class="percentage"></div>
             <i class="fa-solid fa-arrow-up"></i>
         </button>
         
+        <section class="mainSection container R">           
+               
+            <!-- slide  slide-wrapper -->
+            <div class="slide_start swiper mySwiper custom-controller R">
+                 <div class="mainImg_wrapper swiper-wrapper">
+                    <div class="slide-wrapper F clearfix swiper-slide">
+                        <div class="imgWrap F">
+                            <img src="img/main/1.png" alt="marketb module" />
+                            <div class="imgRight Y">
+                                <h2 id="imgTit">simple series</h2>
+                                <p class="imgDesc">
+                                    미드 모던 센추리 감성의<br />
+                                    가장 트렌디한 가구
+                                </p>
+                                <p class="imgPrice M">69,000~</p>
+                                <button class="red_Btn_big"><span>쇼핑하기</span></button>                  
+                                    
+                                
+                            
+                            </div>
+                        </div>                       
+                    </div>
+                    <div class="slide-wrapper swiper-slide">
+                        <div class="imgWrap F">
+                            <img src="img/main/2.png" alt="아웃도어 상품" />
+                            <div class="imgRight B">
+                                <h2 >고프코어 특별전</h2>
+                                <p class="imgDesc">
+                                    일상에 찾아온 아웃도어
+                                </p>
+                                <p class="imgPrice M">4,900~</p>
+                                <button class="red_Btn_big"><span>쇼핑하기</span></button> 
+                            </div>
+                        </div>
+                        
+                    </div>        
+                    <div class="slide-wrapper swiper-slide">
+                        <div class="imgWrap F">
+                            <img src="img/main/3.png" alt="침대 큐레이션" />
+                            <div class="imgRight Br">
+                                <h2 >침대 큐레이션</h2>
+                                <p class="imgDesc">
+                                    온전한 나만의 휴식처를 만들어줄<br />
+                                    마켓비의 침대/매트리스 추천
+                                </p>
+                                <p class="imgPrice M">99,000~</p>
+                                <button class="red_Btn_big"><span>쇼핑하기</span></button> 
+                            </div>
+                        </div>
+                        
+                    </div>        
+                    <div class="slide-wrapper swiper-slide">
+                        <div class="imgWrap F">
+                            <img src="img/main/4.png" alt="marketb module" />
+                            <div class="imgRight Gr">
+                                <h2>최신 트렌드 신상품</h2>
+                                <p class="imgDesc">
+                                    트렌드도 가구도<br />
+                                    앞서 가는 당신을 위해
+                                </p>
+                                <p class="imgPrice M">5,900~</p>
+                                <button class="red_Btn_big"><span>쇼핑하기</span></button> 
+                            </div>
+                        </div>
+                        
+                    </div>                            
+                </div>
+                <div id="controls" class="F">
+                    <button class="swiper-button-prev btn"> 
+                    </button>
+
+                    <button class="pause btn" type="button" >
+                        <i class="fa-solid fa-pause" ></i>
+                    </button> 
+                    <button class="play btn hidden" type="button">
+                        <i class="fa-solid fa-play"></i>
+                    </button> 
+
+                    <button class="swiper-button-next btn">
+                    </button>    
+                </div>
+            </div>
+                    
+
+            <aside class="A F">
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-user"></i>
+                        <span>로그인</span>
+                    </a>
+                </div>
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-pen-nib"></i>
+                        <span>회원가입</span>
+                    </a>
+                </div>
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-cart-shopping"></i>
+                        <span>장바구니</span>
+                    </a>
+                </div>
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-comment"></i>
+                        <span>챗봇</span>
+                    </a>
+                </div>
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-headset"></i>
+                        <span>고객센터</span>
+                    </a>
+                </div>
+                <div class="icon  ">
+                    <a><i class="fa-solid fa-map-location-dot"></i>
+                        <span>매장위치</span>
+                    </a>
+                </div>
+            </aside>     
+        </section>
+
+                
+       
         
         <!-- section start -->
         <section class="best containerSlide">
@@ -946,8 +944,8 @@
             </figure>
         </section>
 
-        <section class="promo ">
-            <article class="R container">
+        <section class="promo container">
+            <article class="R">
                 <img src="./img/main/new.png" alt="">
                     <div class="se3_desc FC A">
                         <h3>New product</h3>
@@ -958,7 +956,7 @@
                         <button type="button" class="y_Btn2">쇼핑하기</button>
                     </div>
             </article>
-            <article class="R container">
+            <article class="R">
                 <img src="./img/main/sale.png" alt="">
                     <div class="se3_desc sale_inner FC A">
                         <h3>Clearance

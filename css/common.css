@@ -26,10 +26,10 @@ body {
   font-family: "Noto Sans KR", sans-serif !important;
   color: var(--B);
   overflow-x: hidden;
-  /* max-width: 1920px; 
-  min-width: 320px;  */
-  /* margin: 0 auto;    */
-}
+  max-width: 2300px; 
+  min-width: 320px; 
+  margin: 0 auto;   
+} 
 
 .M {
   font-family: "Montserrat", sans-serif;
@@ -43,7 +43,7 @@ body {
 }
 
 .first_modal {
-  top: 25%;
+  top: 20%;
   left: 10%;
   z-index: 99999999999;
   background: #fff;
@@ -51,6 +51,7 @@ body {
   border-radius: 4px;
   box-shadow: 6px -6px 2px var(--S);
   padding: 1.5rem;
+  min-width: 100px;
 }
 .desc_pf {
   gap: 1.3rem;
@@ -106,15 +107,16 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #b73131;
-  width: 14.125rem;
-  height: 4.125rem;
+  width: 80%;
+  height: auto;
+  padding: 1.5rem;
   margin: 0 auto;
   border: none;
   
 }
 .red_Btn_big span{
   color: #fff;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 
@@ -401,7 +403,7 @@ header {
 .menu_btn {
   background: transparent;
   border: none;
-  padding: 12px 0 0 0;
+  padding: .75rem 0 0 0;
   cursor: pointer;
 }
 
@@ -431,9 +433,9 @@ h3 {
 }
 
 .container {
-  max-width: 90.625rem;
+  width: 90%;
   margin: 0 auto;
-  margin-top: 12.5rem;
+  /* margin-top: 12.5rem; */
 }
 .containerSlide {
   margin-top: 12.5rem;
@@ -467,7 +469,7 @@ article ul {
 .cart_wish_BtnWrapper button {
   padding: 0;
 }
-nav ul {
+.lnb ul {
   margin-left: 0 !important;
 }
 
@@ -491,7 +493,7 @@ nav ul {
 
 .cart_Btn.on i {
   color: var(--Y);
-}
+}£
 /* hover */
 .cart_wish_BtnWrapper .wish_Btn::after {
   content: "";
@@ -500,16 +502,22 @@ nav ul {
   left: 0%;
 }
 
+.slider_wrapper .bestList {
+  box-shadow: 4px 4px 3px #ededed;
+}
+
 
 
 /* ---------------------------------------footer */
 
 footer {
-  margin-top: 21.875rem;
-  padding: 5rem 6rem;
+  box-sizing: border-box;
+  margin-top: 16.875rem;
+  padding: 3% 5%;
   display: flex;
   color: var(--G);
   background-color: var(--S);
+  width: 100%;
 }
 
 footer h1 {
@@ -555,7 +563,7 @@ footer .f_wrapper01 .third {
   line-height: 1.25rem;
 }
 
-footer .f_wrapper02 {
+  footer .f_wrapper02 {
   margin-top: 5rem;
 }
 footer .f_wrapper02 > ul {

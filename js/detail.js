@@ -5,25 +5,35 @@ $(function () {
   $closeBtn.on("click", function() {
       $modalPop.toggleClass("modalHidden");
   });
-  // 확대이미지 크기 조절
+  // 확대이미지 right값 조절
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
     const baseWidth = 2200;
-    const baseRight = 17; 
+    const breakpoint = 1930;
     let currentWidth = $(window).width();
-  
-    if (currentWidth < baseWidth) {
-      let difference = baseWidth - currentWidth;
-      let reduction = Math.floor(difference / 10) * 0.2;
-      let newRight = baseRight + reduction;
 
-      newRight = Math.max(newRight, 0);
-      magnifyElement.css('right', `${newRight}%`);
-      }else if(currentWidth < 1505){
+    // 화면 너비가 1930 이상 2200 이하인 경우
+    if (currentWidth >= breakpoint && currentWidth <= baseWidth) {
+        let baseRight = 17;
+        let difference = baseWidth - currentWidth;
+        let reduction = Math.floor(difference / 10) * 0.2;
+        let newRight = baseRight + reduction;
 
-      } {
-        magnifyElement.css('right', `${baseRight}%`);
-      }
+        magnifyElement.css('right', `${newRight}%`);
+
+    //1600 이상 1930 이하인 경우
+    } else if (currentWidth > 1600 && currentWidth < breakpoint) {
+        let baseRight = 18;
+        let difference = breakpoint - currentWidth;
+        let reduction = Math.floor(difference / 10) * 0.5;
+        let newRight = baseRight + reduction;
+
+        magnifyElement.css('right', `${newRight}%`);
+    
+    //1600 이하인 경우
+    } else if (currentWidth <= 1600) {
+        magnifyElement.css('right', `34.5%`);
+    }
   }
   magnifyImgResize();
 
@@ -166,15 +176,6 @@ $(function () {
       leftPercentage = (infoBoxLeft / windowWidth) * 100,
       topPercentage = (infoBoxTopFixed / docHeight) * 100 ;
 
-  //중간에서 새로고침한 경우    
-  // if (sessionStorage.getItem("isReloaded")) {
-  //   infoBox.css({
-  //     position: "fixed",
-  //     top: `12%`,
-  //     left: `${leftPercentage}%`
-  //   });
-  // }
-
   $(window).on('scroll', _.throttle(function () {
     // console.log("throttle excuted");
     let infoOffsetTop = infoBox.offset().top;
@@ -215,7 +216,7 @@ $(function () {
       infoBox.css({
         position: "absolute",
         left: "84%",
-        top: "0%"
+        top: "-3%"
       });
     }
   }, 300));

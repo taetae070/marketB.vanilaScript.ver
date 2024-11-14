@@ -1,4 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener('resize', function() {
+    location.reload();
+  });
+
   //슬라이드 좌우 버튼 
   const swiper = new Swiper(".mySwiper", {
     spaceBetween: 30,
@@ -36,11 +40,21 @@ document.addEventListener("DOMContentLoaded", function () {
   const gnb = document.querySelector(".gnb_search"),
     SearchInput = document.querySelector(".gnb_search input"),
     SearchBtn = document.querySelector(".icon_search > button");
-    SearchBtn.addEventListener("click", function () {
+
+  function handleSearchClick() {
     gnb.classList.toggle("on");
     SearchInput.classList.toggle("on");
-  });
-
+  }
+  function updateEventListener() {
+    let screenWidth = window.innerWidth;
+    if (screenWidth > 470) {
+      SearchBtn.addEventListener("click", handleSearchClick);
+    } else {
+      SearchBtn.removeEventListener("click", handleSearchClick);
+    }
+  }
+  updateEventListener();
+  
   // btn top
   const btnTop = document.getElementById("btn_top");
     if (btnTop) {
@@ -110,8 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
    
    
- 
- 
 
   //section01 슬라이드 
   //상품 슬라이드
@@ -127,8 +139,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 슬라이드 너비 설정
   function setSlideWidth() {
-    // var slideWidth = slides[0].offsetWidth;
-    // var slideMargin = parseInt(window.getComputedStyle(slides[0]).marginRight);
     sliderUl.style.width =
       slideWidth * slideCount + slideMargin * (slideCount - 1) + "px";
     return { slideWidth, slideMargin };
@@ -142,7 +152,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 초기값
   var { slideWidth, slideMargin } = setSlideWidth();
-
   nextBtn.addEventListener("click", function () {
     if (
       currentIdx ===
@@ -169,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 윈도우 리사이즈 이벤트 처리
   let resizeTimeout;
-window.addEventListener("resize", function () {
+  window.addEventListener("resize", function () {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(function () {
     var { slideWidth, slideMargin } = setSlideWidth(); // 슬라이드 크기 재설정
@@ -298,16 +307,6 @@ window.addEventListener("resize", function () {
     aside_spans = document.querySelectorAll("aside span"),
     promo_ps = document.querySelectorAll(".sec3_p03");
 
-  if (screenWidth <= 500) {
-    aside_spans.forEach((span) => {
-      span.classList.add("icon-text", "A");
-    });
-
-    promo_ps.forEach((p) => {
-      p.style.display = "none";
-    });
-  }
-
   //메인 슬라이드 button (쇼핑하기) 
   const mainEventUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
   const shopBtn = document.querySelector(".red_Btn_big");
@@ -315,17 +314,5 @@ window.addEventListener("resize", function () {
   shopBtn.addEventListener("click", function() {
     location.href = mainEventUrl;
   });
-
-  //상품 슬라이드 button (세일) 
-  // const saleButton = document.querySelector(".saleButton");
-  //   const saleUrl = "https://brand.naver.com/marketb/category/2242980862094ed0b89ce6d953f6f180?cp=2";
-
-  //   saleButton.addEventListener("click", function() {
-  //     location.href =saleUrl;
-  //   });
-
-   
-
-
 
 });
