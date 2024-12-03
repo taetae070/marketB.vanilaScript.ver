@@ -43,13 +43,14 @@ body {
 }
 
 .first_modal {
-  top: 20%;
-  left: 10%;
+  width: 70%;
+  top: 25%;
+  left: 5%;
   z-index: 99999999999;
   background: #fff;
-  border: 3.5px solid var(--Y);
-  border-radius: 4px;
-  box-shadow: 6px -6px 2px var(--S);
+  border: 3px solid var(--Y);
+  border-radius: .25rem;
+  box-shadow: 6px 5px 6px var(--S);
   padding: 1.5rem;
   min-width: 100px;
 }
@@ -66,7 +67,7 @@ body {
 .desc_pf div span {
   font-weight: 500;
 }
-.desc_pf div p {
+.desc_pf div p, .neverShowAgain {
   color: var(--G);
   font-weight: 300;
 }
@@ -100,6 +101,9 @@ body {
 .modalHidden {
   display: none;
 }
+.neverShowAgain{
+  justify-content: flex-end;
+}
 
 /* buttons */
 .red_Btn_big {
@@ -112,6 +116,7 @@ body {
   padding: 1.5rem;
   margin: 0 auto;
   border: none;
+  border-radius: .625rem;
   
 }
 .red_Btn_big span{
@@ -143,8 +148,11 @@ body {
 .y_Btn2 {
   background-color: var(--Y);
   height: 3.75rem;
-  width: 17.5rem;
+  width: 80%;
   border: none;
+  border-radius: .1875rem;
+  font-weight: 500;
+  font-size: 1.3rem;
 }
 .y_Btn2 button:hover {
   background-color: var(--Y) !important;
@@ -184,7 +192,7 @@ body {
   text-align: center;
   /* line-height: 45px; */
   font-size: 1.5625rem;
-  border-radius: 10px;
+  border-radius: .625rem;
   position: fixed;
   transform: rotate(45deg);
   right: 5%;
@@ -217,11 +225,8 @@ header {
   box-sizing: border-box;
   overflow-x: hidden;
 }
-.m_t {
-  margin-top: 12.5rem;
-}
 .mt {
-  margin-top: 12.5rem;
+  margin-top: 12rem ;
 }
 .m_auto {
   margin: 0px 12.25rem;
@@ -270,7 +275,7 @@ header {
   z-index: -10;
   top: -52%;
   width: 100%;
-  height: 25.75rem;
+  height: 19.75rem;
 }
 .title_Wrap {
   background: #dcdbd9;
@@ -279,8 +284,6 @@ header {
 
 .sub_header img {
   width: 30%;
-  /* height: 33.3vh; */
-  /* object-fit: cover; */
 }
 .home {
   padding-left: 1.5625rem;
@@ -289,10 +292,11 @@ header {
 .category_list {
   text-align: left;
   background-color: #fff;
-  border: 1px solid #504f4f;
+  border: 2px solid var(--S);
   margin-top: 10px;
   width: 100%;
   display: none;
+  border-radius: 5px;
 }
 
 .category_list li {
@@ -413,6 +417,7 @@ header {
 }
 .mainNAV {
   top: 1.8rem;
+  /* left: 5%; */
 }
 
 h1 > .logo {
@@ -437,10 +442,7 @@ h3 {
   margin: 0 auto;
   /* margin-top: 12.5rem; */
 }
-.containerSlide {
-  margin-top: 12.5rem;
-  margin-left: 4.0746rem;
-}
+
 /* common design */
 article ul {
   gap: 50px;
@@ -502,9 +504,9 @@ article ul {
   left: 0%;
 }
 
-.slider_wrapper .bestList {
+/* .slider_wrapper .bestList {
   box-shadow: 4px 4px 3px #ededed;
-}
+} */
 
 
 
@@ -513,7 +515,7 @@ article ul {
 footer {
   box-sizing: border-box;
   margin-top: 16.875rem;
-  padding: 3% 5%;
+  padding: 3% 0;
   display: flex;
   color: var(--G);
   background-color: var(--S);
@@ -533,7 +535,7 @@ footer section {
 
 footer .f_wrapper01 {
   margin-left: 1rem;
-  margin-top: 5rem;
+  /* margin-top: 5rem; */
 }
 footer .f_wrapper01 .ul_wrap01 {
   flex-direction: column;
@@ -563,9 +565,6 @@ footer .f_wrapper01 .third {
   line-height: 1.25rem;
 }
 
-  footer .f_wrapper02 {
-  margin-top: 5rem;
-}
 footer .f_wrapper02 > ul {
   flex-direction: column;
   gap: 1.563rem;
@@ -603,3 +602,272 @@ footer .f_wrapper02 li:nth-child(3) {
 .opacity1 {
   opacity: 1;
 }
+
+@media (max-width: 2300px) {
+  .container {
+    width: 70%;
+  }
+}
+@media (max-width: 1921px) {
+  html {
+    font-size: 1.0625rem;
+  }
+  .container {
+    width: 90%;
+  }
+}
+  @media (max-width: 1707px) {
+    html {
+      font-size: 1rem;
+    }
+  }
+  @media (max-width: 1600px) {
+    footer .f_wrapper01 .third {
+      font-size: 0.9375rem;
+    }
+  }
+  @media (max-width: 1500px) {
+    html {
+      font-size: 0.9375rem;
+    }
+  }
+  @media (max-width: 1400px) {
+    h2 {
+      font-size: 2.5rem;
+    }
+    html {
+      font-size: 0.875rem;
+    }
+    .bestList  img {
+      width: 18.5rem;
+    }
+  }
+  @media (max-width: 1300px) {
+    .bestList img {
+      width: 16.5rem;
+    }
+    footer section {
+      gap: 10.625rem;
+    }
+  }
+  @media (max-width: 1200px) {
+    html {
+      font-size: 0.8125rem;
+    }
+    footer{
+      margin-top: 2rem;
+    }
+    .first_modal{
+      top: 15%;
+    }
+    
+    .slide_start {
+      height: 32.75rem;
+    }
+    .slide-wrapper .imgRight {
+      gap: 3rem;
+    }
+  }
+  @media (max-width: 960px) {
+    html {
+      font-size: 0.75rem;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+    /* footer {
+        padding: 3rem 0;
+    } */
+
+  }
+  @media (max-width: 834px) {
+    h2 {
+      font-size: 1.75rem;
+    }
+    footer .f_wrapper01 .third {
+      font-size: 0.7375rem;
+    }
+    footer section {
+      gap: 8.625rem;
+    }
+    .mainSection #controls{
+      bottom: 7%;
+    }
+  }
+  @media (max-width: 770px) {
+    .menu_img {
+      height: 2rem;
+    }
+    .first_modal {
+      top: 15%;
+      left: 5%;
+      border: 1.5px solid var(--Y);
+      box-shadow:none;
+      font-size: 0.9rem;
+    }
+    html {
+      font-size: 0.625rem;
+    }
+  }
+  @media (max-width: 690px) {
+    html {
+      font-size: 0.5625rem;
+    }
+    .red_Btn_big span {
+      font-size: 1.2rem;
+    }
+  }
+  @media (max-width: 551px) {
+    html {
+      font-size: 0.5rem;
+    }
+    footer .f_wrapper02 li:nth-child(3) {
+      line-height: 1.8rem;
+    }
+    footer .f_wrapper01 .third {
+      line-height: 1.9rem;
+    }
+  }
+    @media (max-width: 500px) {
+      .menu_img {
+        height: 2.4rem;
+      }
+      .best_desc p, .wish_Btn i, .cart_Btn i {
+        font-size: 0.8rem;
+      }
+      .best_desc .cart_wish_BtnWrapper {
+        gap: 0.5rem;
+      }
+      .best_desc .price {
+        font-size: 1rem;
+      }
+      footer section {
+        gap: 2.625rem;
+      }
+      .bestList img {
+        width: 14.5rem;
+      }
+      .best_desc {
+        padding: 1rem
+      }
+      .best .prev_btn, .next_btn{
+        font-size: 2.3rem;
+      }
+      .best_desc .review_num {
+        margin-right: 0;
+      }
+      .y_Btn2 {
+        height: 2.75rem;
+      }
+      .slider_wrapper ul {
+        gap: 1.5rem;
+      }
+    }
+    @media (max-width: 431px) {
+      .red_Btn_big {
+        padding: 1rem;
+      }
+      .red_Btn_big span {
+        font-size: 1rem;
+      }
+      .bestList img {
+        width: 13.5rem;
+      }
+      .wish_Btn i, .cart_Btn i {
+        font-size: 0.8rem;
+      }
+      .etc{
+        font-size: 0.8rem;
+      }
+      .best_desc .review_num {
+        margin-right: 0;
+      }
+      .best_desc {
+        gap: 0.9rem;
+        padding: 0.9rem;
+      }
+      footer h1 > .logo {
+        display: inline-block;
+        width: 15rem;
+        height: 2.375rem;
+        background: url(../img/logo.png) 0 0 no-repeat;
+        background-size: contain;
+      }
+      .first_modal {
+        border: 1px solid var(--Y);
+        box-shadow:none;
+      }
+      html {
+        font-size: 0.4375rem;
+      }
+      h2 {
+        font-weight: 500;
+      }
+      footer section {
+        gap: 2.625rem;
+      }
+      footer .f_wrapper01 .third {
+        gap: 1rem;
+        line-height: 1rem;
+      }
+      footer .f_wrapper02 li:nth-child(3) {
+        line-height: 2.25rem;
+      }
+      .sub_header {
+        height: 13.75rem;
+      }
+      .y_Btn2 {
+        font-size: 0.9rem;
+        height: 2rem;
+      }
+      footer .f_wrapper01 .ul_wrap01 ul, footer .f_wrapper02 > ul, footer .f_wrapper01 .third {
+        font-size: 0.7rem;
+      }
+      footer .f_wrapper01 .second {
+        margin-bottom: 1.813rem;
+      }
+      footer .f_wrapper02 > ul {
+        gap: 1.2rem;
+      }
+    }
+    @media (max-width: 391px) {
+      footer section {
+        gap: 0.625rem;
+      }
+      footer .f_wrapper01 .ul_wrap01 ul, footer .f_wrapper02 > ul, footer .f_wrapper01 .third {
+        font-size: 0.6rem;
+      }
+      footer .f_wrapper01 .second {
+        margin-bottom: 0.813rem;
+      }
+      footer .f_wrapper01 .third {
+        gap: 0.9rem;
+        line-height: 1.2rem;
+      }
+      footer .f_wrapper02 > ul {
+        gap: 0.563rem;
+      }
+      h1 > .logo {
+        width: 13rem;
+        height: 2.375rem;
+      }
+      footer .f_wrapper01 .ul_wrap01 {
+        gap: 0.9rem;
+      }  
+      .y_Btn2 {
+        height: 2.75rem;
+      }
+
+    .promo article:nth-child(2) {
+      margin-bottom: 12.5rem;
+    }
+    footer h1 > .logo {
+      width: 11rem;
+    }
+    footer section {
+      gap: 1.7rem;
+    }
+    .bestList img {
+      width: 11.5rem;
+    }
+  }

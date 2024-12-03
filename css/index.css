@@ -6,6 +6,9 @@ body {
 header .container {
   margin-top: 0;
 }
+/* .containerSlide {
+  margin-left: 5.0746rem;
+} */
 
 /* -----------------------------------notice */
 .notice_board {
@@ -76,8 +79,6 @@ header .container {
   transition: 0.3s all;
 }
 
-/* 클릭 후 검색창 */
-
 .gnb_search::before {
   left: 100%;
   right: 0;
@@ -85,7 +86,7 @@ header .container {
   transition: 0.3s all;
   content: "";
   position: absolute;
-  border-radius: 24px;
+  border-radius: 1.5rem;
   height: 100%;
   background: #f2f2f2;
   z-index: -1;
@@ -112,7 +113,7 @@ header .container {
   /* left: 0; */
   content: "";
   position: absolute;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   transition: 0.3s all;
   height: 90%;
   background: #f2f2f2;
@@ -150,20 +151,19 @@ header .container {
 .slide_start {
   margin-top: 2.5rem;
   height: 40.75rem;
+  /* border-radius: 1.25rem; */
 }
 
 .mainImg_wrapper .slide-wrapper {
   display: flex;
-  /* height: 39.75rem; */
 }
 .slide-wrapper .imgWrap {
-  /* height: 35.75rem; */
   width: 95%;
 }
 
 .imgWrap > img {
-  /* width: 65.625rem; */
   width: 70%;
+  border-radius: 1.25rem 0 0 1.25rem;
 }
 .slide-wrapper .imgRight {
   display: flex;
@@ -173,8 +173,8 @@ header .container {
   text-align: center;
   gap: 5rem;
   width: 30%;
-  /* width: 20rem; */
   padding: 0 10px;
+  border-radius: 0 1.25rem 1.25rem 0;
 }
 
 .slide-wrapper .Y {
@@ -190,15 +190,15 @@ header .container {
   background-color: #a5e7c3;
 }
 
-h2 {
-  font-size: 3.25rem;
-  font-weight: 400;
-  line-height: 2.375rem;
-}
 
 #imgTit {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+}
+.imgWrap .imgRight h2 {
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: auto;
 }
 
 .imgDesc {
@@ -219,7 +219,7 @@ h2 {
 }
 
 .slide_start .btn {
-  color: #fff;
+  color: var(--G);
   padding: 0;
   margin: 0;
 }
@@ -255,7 +255,7 @@ aside {
   gap: 3.375rem;
   z-index: 10;
   right: 0;
-  top: 0%;
+  top: 5%;
 }
 @keyframes colorChange {
   0% {
@@ -285,20 +285,16 @@ aside {
 .icon :hover {
   animation: colorChange 0.4s 0.1s 1 ease forwards;
 }
-/* .icon:hover .icon-text {
-  display: block;
-}  */
 
 /* -----------------------------------------------section 01 */
 .best h3 {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 3.125rem;
-  /* margin: 12.5rem 0 3.125rem 12.188rem; */
 }
 h6 {
-  font-weight: 500;
-  font-size: 1.125rem;
+  font-weight: 500  !important;
+  font-size: 1.125rem ;
 }
 
 .best_desc {
@@ -319,12 +315,12 @@ h6 {
 .slider_wrapper .cart_alert02 {
   text-align: center;
   z-index: 50;
-  bottom: -1%;
+  top: 40%;
   left: 45%;
   width: 25%;
   background: var(--G);
   border: 1px solid var(--G);
-  border-radius: 4px;
+  border-radius: .25rem;
   padding: 1% 1%;
   color: #fff;
   transition: all 0.5s ease-in-out;
@@ -338,7 +334,7 @@ h6 {
   opacity: 1;
 }
 .slider_wrapper {
-  height: 35.625rem;
+  height: 30.625rem;
   overflow: hidden;
 }
 
@@ -365,13 +361,14 @@ h6 {
   right: 0%;
 }
 
-.bestList {
+/* .bestList {
   box-shadow: 4px 4px 3px #ededed;
-}
+} */
 
 .bestList img {
   width: 21.5rem;
   height: auto;
+  border-radius: 1.875rem;
 }
 
 .yellow_Btn {
@@ -403,7 +400,7 @@ h6 {
 
 /* --------------------------------------section02 */
 .magazine{
-  margin-top: 12.5rem;
+  margin-top: 12.5rem !important;
 }
 .magazine .maga > p {
   margin-bottom: 4.375rem;
@@ -425,18 +422,20 @@ h6 {
 .magazine article figure .magaInner {
   padding: 1.563rem 2.188rem;
   background: #fff;
-  border: 1px #333 solid;
+  border: 1.5px var(--S) solid;
   display: inline-block;
   text-align: center;
   z-index: 5;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+  border-radius: .25rem;
 }
 
 .magazine .magaImg img {
   width: 41.75rem;
-  height: 50.0625rem;
+  height: auto;
   box-shadow: 5px 5px 4px #ededed;
+  border-radius: .625rem;
 }
 .magazine article figure .circle {
   width: 2.125rem;
@@ -497,16 +496,17 @@ h6 {
 }
 
 /* ---------------------------------------section03 */
-.promo{
-  margin-top: 12.5rem;
+body .promo, body .best{
+  margin-top: 12rem;
 }
 .promo article:nth-child(2){
   margin-top: 12.5rem;
 }
 .promo article > img {
   box-shadow: 5px 5px 4px #ededed;
-  width: 70.375rem;
+  width: 80%;
   height: auto;
+  border-radius: .375rem;
 }
 
 .promo article h3 {
@@ -517,22 +517,22 @@ h6 {
 .promo .se3_desc {
   z-index: 40;
   left: 70%;
-  top: 8%;
+  top: 11%;
   background: #fff;
   gap: 2.5rem;
   align-items: center;
   text-align: center;
-  /* width: 23rem; */
   width: 20.5vw;
   height: auto;
   box-shadow: 5px 5px 4px #ededed;
   transition: all 0.3s ease-in-out;
   transform: scale(1);
   padding: 2.5rem 3.75rem;
+  border-radius: .375rem;
 }
 .promo .se3_desc:hover {
   transform: scale(1.1);
-  box-shadow: 10px 10px 10px #56b983;
+  box-shadow: .625rem .625rem .625rem #56b983;
 }
 .sec3_inner .y_Btn2 a {
   font-size: 1.25rem;
@@ -540,7 +540,7 @@ h6 {
 }
 
 .sec3_p {
-  line-height: 1.625rem;
+  line-height: 2rem;
   font-size: 1.25rem;
 }
 .sec3_p02 {
@@ -552,12 +552,12 @@ h6 {
 }
 .promo .sale_inner:hover {
   transform: scale(1.1);
-  box-shadow: 10px 10px 16px rgb(246, 56, 56);
+  box-shadow: .625rem .625rem 1rem rgb(246, 56, 56);
 }
 
 /* random_coupon*/
 .random_coupon {
-  margin-top: 12.5rem;
+  margin-top: 12.5rem !important;
 }
 .random_coupon .cp_desc {
   font-weight: 400;
@@ -589,13 +589,14 @@ h6 {
 }
 .random_coupon .notice {
   margin: 0 auto;
-  width: 55rem;
-  height: 21.75rem;
+  width: 70%;
+  height: 22rem;
 }
 .random_coupon .notice .cp_before {
   width: 100%;
   height: 100%;
   background: var(--S);
+  border-radius: .625rem;
 }
 .random_coupon figure .grid {
   position: absolute;
@@ -608,6 +609,19 @@ h6 {
   grid-template-rows: repeat(4, 1fr);
   grid-auto-flow: row;
 }
+.random_coupon figure .grid :nth-child(1){
+  border-radius: .625rem 0 0 0;
+}
+.random_coupon figure .grid :nth-child(8){
+  border-radius: 0 .625rem 0 0;
+}
+.random_coupon figure .grid :nth-child(25){
+  border-radius: 0 0 0 .625rem;
+}
+.random_coupon figure .grid > :last-child {
+  border-radius: 0 0 .625rem 0;
+}
+
 /* 긁으면 보이는거 */
 .random_coupon .notice .scratch {
   display: block;

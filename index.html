@@ -52,29 +52,33 @@
     />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/index.css" />       	
     <link rel="stylesheet" href="./css/indexResponsive.css" />
+    <link rel="stylesheet" href="./css/common.css" />
 </head>
 
 <modal class="first_modal A">
             <p>본 사이트는 클론사이트가 아닙니다.<br />
                공식웹사이트를 새롭게 기획하여 리뉴얼한 사이트입니다.<br />
                 (본사이트는 개인 포트폴리오 용입니다. )</p>
-                <button type="button" class="close A">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
+            <button type="button" class="close A">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
             <div class="desc_pf FC">                                  
                 <div>
                     <span> 구현페이지 :</span>
-                    <a href="https://taetae070.github.io/marketB.vanilaScript.ver/">메인페이지(반응형, VanilaScript)</a>,
-                    <a href="http://taetaeky.dothome.co.kr/detail.html">상품설명페이지(jquery)</a>,<br>
-                    <a href="http://taetaeky.dothome.co.kr/store.html">오프라인 매장안내페이지(map api)</a>
+                    <a href="https://taetae070.github.io/marketB.vanilaScript.ver/" target="_blank">메인페이지(VanilaScript)</a>,
+                    <a href="http://taetaeky.dothome.co.kr/detail.html" target="_blank">상품설명페이지(jquery)</a>,<br>
+                    <a href="http://taetaeky.dothome.co.kr/store.html" target="_blank">매장안내페이지(map api)</a>
                 </div>
                 <p class="desc_click">(클릭 시, 해당 페이지로 이동합니다.)</p>
-                <div><span>기획안:</span> <a href="https://fluffy-idea-e06.notion.site/Market-B-IKEA-dd6759613bef4bf19570bb11b1946af0">노션링크로 이동하기</a></div>
+                <div><span>기획안:</span> <a href="https://fluffy-idea-e06.notion.site/Market-B-IKEA-dd6759613bef4bf19570bb11b1946af0" target="_blank">노션링크로 이동하기</a></div>
                 <div><span>기획, 디자인, 구현 :</span> <p>이태경<a href=""></a></p></div>
                 <div><span>연락처 :</span><p contenteditable="true"><i class="fa-regular fa-envelope"></i>taetaeky07@gmail.com</div>
+                <!-- <div class="neverShowAgain">
+                    <input type="checkbox" id="neverShowAgain"> <label for="neverShowAgain">팝업 다시 안보기</label>
+                </div> -->
             </div>
 </modal>
  <body>
@@ -373,11 +377,8 @@
             </aside>     
         </section>
 
-                
-       
-        
-        <!-- section start -->
-        <section class="best containerSlide">
+
+        <section class="best container mt">
             <h3>best seller</h3>
             <article class="slider_wrapper R F">
                 <p class="alerts wish_alert01 A">위시리스트에 추가했습니다.</p>
@@ -848,7 +849,7 @@
         </section>
 
        
-        <section  class="magazine container">
+        <section  class="magazine container mt">
             <div class="maga">
                 <h3>Magazine B</h3>
                 <p>마켓비와 고객님이 직접 추천하는 인테리어 아이디어</p>
@@ -944,7 +945,7 @@
             </figure>
         </section>
 
-        <section class="promo container">
+        <section class="promo container mt">
             <article class="R">
                 <img src="./img/main/new.png" alt="">
                     <div class="se3_desc FC A">
@@ -952,7 +953,7 @@
                         <p class="sec3_p">언제나 트렌드를 앞서 나가는 당신에게<br>
                             자신있게 선보이는 이번 달의 신제품
                         </p class="sec3_p02">
-                        <p class="sec3_p03">카테고리별 신제품을 만나보세요</p>
+                        <!-- <p class="sec3_p03">카테고리별 신제품을 만나보세요</p> -->
                         <button type="button" class="y_Btn2">쇼핑하기</button>
                     </div>
             </article>
@@ -964,13 +965,13 @@
                             <p class="sec3_p">Market B 제품을 <br>
                                 더 합리적인 가격으로 만나보세요!
                             </p >
-                        <p class="sec3_p03">카테고리별 신제품을 만나보세요</p>
+                        <!-- <p class="sec3_p03">카테고리별 신제품을 만나보세요</p> -->
                         <button type="button" class="y_Btn2">쇼핑하기</button>
                     </div>
             </article>     
         </section>
              
-        <section class="best containerSlide">
+        <section class="best container mt">
             <h3>Special offer</h3>
             <article class="slider_wrapper R F">
                 <p class="alerts wish_alert01 A">위시리스트에 추가했습니다.</p>
@@ -1434,48 +1435,50 @@
         
 
         <footer>
-            <h1>
-                <a href="index.html" class="logo blind">마켓비</a>
-            </h1> 
-            <section>
-                <div class="f_wrapper01">
-                    <div class="ul_wrap01 F">
-                        <ul class="F first">
-                            <li>회사소개</li>
-                            <li>이용약관</li>
-                            <li>개인정보처리방침</li>
-                            <li>품질보증기준</li>
-                            <li>에스크로 서비스 가입확인</li>
-                        </ul>
-                        <ul class="second">
-                            <li>입점문의</li>
-                            <li>대량/제휴문의</li>
-                            <li>대리점/위탁문의</li>
+            <div class="footerWrapper container">
+                <h1>
+                    <a href="index.html" class="logo blind">마켓비</a>
+                </h1>
+                <section>
+                    <div class="f_wrapper01">
+                        <div class="ul_wrap01 F">
+                            <ul class="F first">
+                                <li>회사소개</li>
+                                <li>이용약관</li>
+                                <li>개인정보처리방침</li>
+                                <li>품질보증기준</li>
+                                <li>에스크로 서비스 가입확인</li>
+                            </ul>
+                            <ul class="second">
+                                <li>입점문의</li>
+                                <li>대량/제휴문의</li>
+                                <li>대리점/위탁문의</li>
+                            </ul>
+                        </div>
+                
+                        <ul class="third">
+                            <li>대표(주)마켓비 | 대표 남지희 | 주소 경기도 파주시 책향기로836 아름터타워8층 | 대표번호 031-943-8307</li>
+                            <li>사업자등록번호 141-81-15759 | 통신판매업신고 2009-경기파주-1943호 | 개인정보보호책임자 이효정 marketb@nate.com</li>
+                            <li>COPYRIGHT ⓒ MARKETB ALL RIGHTS RESERVED.</li>
                         </ul>
                     </div>
-                    
-                    <ul class="third">
-                        <li>대표(주)마켓비 | 대표 남지희 | 주소 경기도 파주시 책향기로836 아름터타워8층 | 대표번호 031-943-8307</li>
-                        <li>사업자등록번호 141-81-15759 | 통신판매업신고 2009-경기파주-1943호 | 개인정보보호책임자 이효정 marketb@nate.com</li>
-                        <li>COPYRIGHT ⓒ MARKETB ALL RIGHTS RESERVED.</li>
-                    </ul>
-                </div> 
-                <div class="f_wrapper02">
-                    <ul class="last">
-                        <li>고객문의 대표전화</li>
-                        <li>031-943-8307</li>
-                        <li>
-                            <p>평일 09:00 ~ 17:30 / 점심 12:30 ~ 13:30 </p>
-                             <p>   (주말 및 공휴일 휴무)     </p> 
-                        <li class="sns_wrapper F">
-                            <i class="fa-brands fa-instagram"></i>
-                           <i class="fa-brands fa-youtube"></i>
-                           <i class="fa-brands fa-square-facebook"></i>
-                           <i class="fa-brands fa-square-twitter"></i>
-                        </li>
-                    </ul>        
-                </div>
-            </section>     
+                    <div class="f_wrapper02">
+                        <ul class="last">
+                            <li>고객문의 대표전화</li>
+                            <li>031-943-8307</li>
+                            <li>
+                                <p>평일 09:00 ~ 17:30 / 점심 12:30 ~ 13:30 </p>
+                                 <p>   (주말 및 공휴일 휴무)     </p>
+                            <li class="sns_wrapper F">
+                                <i class="fa-brands fa-instagram"></i>
+                               <i class="fa-brands fa-youtube"></i>
+                               <i class="fa-brands fa-square-facebook"></i>
+                               <i class="fa-brands fa-square-twitter"></i>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </div>   
         </footer>
 
       
