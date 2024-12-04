@@ -38,11 +38,12 @@ header {
 }
 .store_form {
   /* height: auto; */
-  border: 1px #333 solid;
+  border: 1px var(--Gg) solid;
   padding: 1.875rem 1.875rem 0 1.875rem;
   overflow: auto;
   width: 18.75rem;
   cursor: pointer;
+  border-radius: 1rem;
 }
 @media (max-width: 1055px) {
   html {
@@ -96,9 +97,8 @@ header {
 }
 
 #map {
-  /* margin-left: 2.5rem; */
   width: 70%;
-  /* width: 65.625rem; */
+  border-radius: .875rem;
 }
 .P {
   padding-bottom: 1.25rem;

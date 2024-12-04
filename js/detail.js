@@ -131,21 +131,30 @@ $(function () {
   });
 
   //컬러 선택
-  let opt01_btn = $(".btn_opt1");
-  let opt02_btn = $(".btn_opt2");
-  let opt_btn = $(".color button");
+  const optBtns = $(".color");
+  const imgOptBtns = $(".c_img");
 
-  opt_btn.on('click', function () {
-    buyTotal = buy_priceText;
-    totalcost.text("￦" + buyTotal.toLocaleString());
-    if ($(this).hasClass("btn_opt1")) {
-      opt01_btn.toggleClass("on");
-      opt02_btn.removeClass("on");
-    } else {
-      opt02_btn.toggleClass("on");
-      opt01_btn.removeClass("on");
-    }
+  function toggleActive(buttonClass) {
+    const colorButton = $(`.color .${buttonClass}`);
+    const imageButton = $(`.c_img .${buttonClass}`);
+    const otherButtons = $(".btn_opt1, .btn_opt2").not(`.${buttonClass}`);
+
+    colorButton.addClass("on");
+    imageButton.addClass("on");
+    otherButtons.removeClass("on");
+  }
+
+  optBtns.on("click", "button", function (e) {
+    const clickedClass = $(this).attr("class").split(" ")[0];
+    toggleActive(clickedClass);
   });
+
+  imgOptBtns.on("click", "button", function (e) {
+    const clickedClass = $(this).attr("class").split(" ")[0];
+    toggleActive(clickedClass);
+  });
+
+  
 
   //scroll fix event
   function throttle(func, limit){
@@ -221,6 +230,44 @@ $(function () {
     }
   }, 300));
   
+
+  //   $(this).on("click", function (e) {
+  //     const $target = $(e.target).closest(".wish_Btn, .cart_Btn");
+
+  //     if ($target.length) {
+  //       $target.toggleClass("on");
+  //       const $sliderWrapper = $(this);
+  //       const alertObject = {
+  //         wish: {
+  //           on: $sliderWrapper.find(".wish_alert01"),
+  //           off: $sliderWrapper.find(".wish_alert02"),
+  //         },
+  //         cart: {
+  //           on: $sliderWrapper.find(".cart_alert01"),
+  //           off: $sliderWrapper.find(".cart_alert02"),
+  //         },
+  //       };
+
+  //       // 클릭한 버튼에 따라 알람 활성화
+  //       const alertType = $target.hasClass("wish_Btn") ? "wish" : "cart";
+  //       const alertOn = alertObject[alertType].on;
+  //       const alertOff = alertObject[alertType].off;
+
+  //       if ($target.hasClass("on")) {
+  //         alertOn.addClass("active");
+  //         alertOff.removeClass("active");
+  //       } else {
+  //         alertOn.removeClass("active");
+  //         alertOff.addClass("active");
+  //       }
+
+  //       setTimeout(() => {
+  //         alertOn.removeClass("active");
+  //         alertOff.removeClass("active");
+  //       }, 4000);
+  //     }
+  //   });
+  // });
 
 
   //review page clone
@@ -415,11 +462,11 @@ $(function () {
 
   let numberBtn = numbers.find("a");
 
-  numberBtn.click((e) => {
+  numberBtn.on('click',((e) => {
     e.preventDefault();
     $(this).toggleClass("clicked");
     displayRow($(e.target).parent().index()); //li index
-  });
+  }));
 
   function displayRow(num) {
     let reviewTR = $("table tbody tr td");
@@ -455,23 +502,24 @@ $(function () {
     }
   }
 
-  nextPageBtn.click(() => {
+  nextPageBtn.on("click", () => {
     ++pageActiveIdx;
     displayRow(pageActiveIdx * maxPageNum);
     displayPage(pageActiveIdx);
   });
-
-  prevPageBtn.click(() => {
+  
+  prevPageBtn.on("click", () => {
     --pageActiveIdx;
     displayRow(pageActiveIdx * maxPageNum);
     displayPage(pageActiveIdx);
   });
+  
   displayPage(0);
 
   //filter btn
-  let recentBtn = $(".recent_btn button");
-  let rateHighBtn = $(".rateH_btn button");
-  let rateRowBtn = $(".rateL_btn button");
+  let recentBtn = $(".recent_btnbutton");
+  let rateHighBtn = $(".rateH_btnbutton");
+  let rateRowBtn = $(".rateL_btnbutton");
   let sortedDates = [];
   let tableBody = $("table tbody");
 
@@ -489,7 +537,7 @@ $(function () {
   });
 
   //최신순
-  recentBtn.click(function () {
+  recentBtn.on('click', function () {
     sortedDates.sort(function (a, b) {
       return b.date.localeCompare(a.date);
     });
@@ -503,7 +551,7 @@ $(function () {
   // console.log(sortedDates);
 
   //평점높은순
-  rateHighBtn.click(function () {
+  rateHighBtn.on('click', function () {
     sortedDates.sort(function (a, b) {
       return b.star.localeCompare(a.star);
     });
@@ -517,7 +565,7 @@ $(function () {
   });
 
   //평점낮은순
-  rateRowBtn.click(function () {
+  rateRowBtn.on('click', function () {
     sortedDates.sort(function (a, b) {
       return a.star.localeCompare(b.star);
     });
@@ -539,21 +587,19 @@ $(function () {
 
   //filter 버튼 (텍스트, 사진 후기)
   let text_only_Btn = $(".review_text");
-let photo_only_Btn = $(".review_photobtn");
-let photoGroup = $(".review_photo_wrap");
-let textGroup = $(".review03_wrap");
+  let photo_only_Btn = $(".review_photobtn");
+  let photoGroup = $(".review_photo_wrap");
+  let textGroup = $(".review03_wrap");
 
-photo_only_Btn.on("click", function () {
-  // 사진 후기만 보여줍니다.
-  photoGroup.removeClass("hide");
-  textGroup.addClass("hide");
-});
+  photo_only_Btn.on("click", function () {
+    photoGroup.removeClass("hide");
+    textGroup.addClass("hide");
+  });
 
-text_only_Btn.on("click", function () {
-  // 텍스트 후기만 보여줍니다.
-  photoGroup.addClass("hide");
-  textGroup.removeClass("hide");
-});
+  text_only_Btn.on("click", function () {
+    photoGroup.addClass("hide");
+    textGroup.removeClass("hide");
+  });
 
   // 추천상품
   let slide_start = $(".slider_wrapper");
@@ -571,7 +617,6 @@ text_only_Btn.on("click", function () {
       nextBtn = $(this).find(".next_btn");
 
     // ul 너비지정
-    // slide_UL.width(slideWidth * slideCount + rowgap_value * (slideCount - 1));
     slide_UL.css("width, 80%");
 
     function moveSlide(idx) {
@@ -597,4 +642,36 @@ text_only_Btn.on("click", function () {
       }
     });
   });
+
+
+  $(".cart_wish_BtnWrapper .wish_Btn, .cart_wish_BtnWrapper .cart_Btn").on("click", function () {
+    const button = $(this);
+    let btnParent = button.parents().eq(4);
+  
+    if (!btnParent.hasClass("section02")) {
+      btnParent = $(".slider_wrapper");
+    }
+  
+    const isWishButton = button.hasClass("wish_Btn");
+    const alertType = isWishButton ? "wish" : "cart";
+  
+    const alertOn = btnParent.find(`.alerts.${alertType}_alert01`);
+    const alertOff = btnParent.find(`.alerts.${alertType}_alert02`);
+  
+    button.toggleClass("on");
+  
+    if (button.hasClass("on")) {
+      alertOn.addClass("active");
+      alertOff.removeClass("active");
+    } else {
+      alertOn.removeClass("active");
+      alertOff.addClass("active");
+    }
+  
+    setTimeout(() => {
+      alertOn.removeClass("active");
+      alertOff.removeClass("active");
+    }, 4000);
+  });
+  
 });

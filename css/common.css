@@ -292,11 +292,11 @@ header {
 .category_list {
   text-align: left;
   background-color: #fff;
-  border: 2px solid var(--S);
+  border: .125rem solid var(--S);
   margin-top: 10px;
   width: 100%;
   display: none;
-  border-radius: 5px;
+  border-radius: .3125rem;
 }
 
 .category_list li {
@@ -459,9 +459,9 @@ article ul {
   align-items: center;
   gap: 0.625rem;
 }
-.best_desc .price {
+/* .best_desc .price {
   font-size: 1.25rem;
-}
+} */
 .best_desc .review_num {
   margin-right: 1.125rem;
 }
@@ -503,13 +503,6 @@ article ul {
   bottom: 10px;
   left: 0%;
 }
-
-/* .slider_wrapper .bestList {
-  box-shadow: 4px 4px 3px #ededed;
-} */
-
-
-
 /* ---------------------------------------footer */
 
 footer {
@@ -530,7 +523,8 @@ footer ul {
 }
 footer section {
   display: flex;
-  gap: 27.625rem;
+  /* gap: 27.625rem; */
+  justify-content: space-between;
 }
 
 footer .f_wrapper01 {
@@ -607,6 +601,11 @@ footer .f_wrapper02 li:nth-child(3) {
   .container {
     width: 70%;
   }
+  .first_modal {
+    width: 50%;
+    top: 15%;
+    left: 15%;
+  }
 }
 @media (max-width: 1921px) {
   html {
@@ -646,9 +645,9 @@ footer .f_wrapper02 li:nth-child(3) {
     .bestList img {
       width: 16.5rem;
     }
-    footer section {
+    /* footer section {
       gap: 10.625rem;
-    }
+    } */
   }
   @media (max-width: 1200px) {
     html {
@@ -687,9 +686,9 @@ footer .f_wrapper02 li:nth-child(3) {
     footer .f_wrapper01 .third {
       font-size: 0.7375rem;
     }
-    footer section {
+    /* footer section {
       gap: 8.625rem;
-    }
+    } */
     .mainSection #controls{
       bottom: 7%;
     }
@@ -716,6 +715,9 @@ footer .f_wrapper02 li:nth-child(3) {
     .red_Btn_big span {
       font-size: 1.2rem;
     }
+    /* footer section {
+      gap: 5.625rem;
+    } */
   }
   @media (max-width: 551px) {
     html {
@@ -741,9 +743,9 @@ footer .f_wrapper02 li:nth-child(3) {
       .best_desc .price {
         font-size: 1rem;
       }
-      footer section {
+      /* footer section {
         gap: 2.625rem;
-      }
+      } */
       .bestList img {
         width: 14.5rem;
       }
@@ -803,9 +805,9 @@ footer .f_wrapper02 li:nth-child(3) {
       h2 {
         font-weight: 500;
       }
-      footer section {
+      /* footer section {
         gap: 2.625rem;
-      }
+      } */
       footer .f_wrapper01 .third {
         gap: 1rem;
         line-height: 1rem;
@@ -831,9 +833,9 @@ footer .f_wrapper02 li:nth-child(3) {
       }
     }
     @media (max-width: 391px) {
-      footer section {
+      /* footer section {
         gap: 0.625rem;
-      }
+      } */
       footer .f_wrapper01 .ul_wrap01 ul, footer .f_wrapper02 > ul, footer .f_wrapper01 .third {
         font-size: 0.6rem;
       }
@@ -864,10 +866,110 @@ footer .f_wrapper02 li:nth-child(3) {
     footer h1 > .logo {
       width: 11rem;
     }
-    footer section {
+    /* footer section {
       gap: 1.7rem;
-    }
+    } */
     .bestList img {
       width: 11.5rem;
     }
   }
+
+/* ----------------slide */
+.wish_alert01,
+.wish_alert02,
+.cart_alert01,
+.cart_alert02 {
+  text-align: center;
+  z-index: 50;
+  top: 40%;
+  left: 45%;
+  width: 25%;
+  background: var(--G);
+  border: .0625rem solid var(--G);
+  border-radius: .25rem;
+  padding: 1% 1%;
+  color: #fff;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.wish_alert01.active,
+.wish_alert02.active,
+.cart_alert01.active,
+.cart_alert02.active {
+  transform: translateY(-10px);
+  opacity: 1;
+}
+.slider_wrapper {
+  height: 30.625rem;
+  overflow: hidden;
+}
+
+/* ul */
+.slider_wrapper ul {
+  /* margin-left: 6.188rem; */
+  position: absolute;
+  transition: left 0.5s ease-in-out;
+  left: 0;
+  gap: 3.75rem;
+}
+
+.slides li {
+  width: 28.125rem;
+  height: 25rem;
+  background: #ccc;
+  line-height: 36.8125rem;
+}
+.slides li:last-child {
+  gap: 0;
+}
+.bestList .bestItem > button {
+  z-index: 10;
+  right: 0%;
+}
+.bestList img {
+  width: 16.5rem;
+  height: auto;
+  border-radius: 1.875rem;
+}
+
+.yellow_Btn {
+  position: absolute;
+  z-index: 10;
+  right: 75.4%;
+}
+
+.best .prev_btn,
+.next_btn {
+  color: var(--G);
+  font-size: 3.125rem;
+  z-index: 10;
+  top: 36%;
+}
+
+.best .next_btn {
+  right: 1%;
+}
+.best .prev_btn {
+  left: 0;
+}
+/* wish, cart btn */
+.wish_Btn i,
+.cart_Btn i {
+  font-size: 1.125rem;
+}
+.best_desc {
+  text-align: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.25rem;
+}
+h6 {
+  font-weight: 500 !important;
+}
+.best_desc p {
+  font-size: 1rem;
+}
+.bestList .bestItem > button {
+  z-index: 10;
+  right: 0%;
+}
