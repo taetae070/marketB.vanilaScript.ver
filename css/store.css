@@ -34,20 +34,11 @@ header {
   border: 1px var(--Gg) solid;
   padding: 1.875rem 1.875rem 0 1.875rem;
   overflow: auto;
-  width: 18.75rem;
+  /* width: 18.75rem; */
   cursor: pointer;
   border-radius: 1rem;
 }
-@media (max-width: 1055px) {
-  html {
-    font-size: 14px; 
-  }
-}
-@media (max-width: 950px) {
-  html {
-    font-size: 13px; 
-  }
-}
+
 
 .city {
   width: 100%;
@@ -121,7 +112,7 @@ header {
 
 .store_info > h3 {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 20px;
   color: var(--B);
   margin-bottom: 1.25rem;
@@ -220,12 +211,16 @@ header {
   justify-content: space-between;
 }
 
-
-@media (max-width: 924px) {
-  .store_Wrap .store_name > h3 {
-    font-size: 1rem;
-  }
+.store_Wrap .store_name > h3 {
+  font-size: 1rem;
 }
+
+/* #map img{
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+} */
+
+
 @media (max-width: 768px) {
   #map {
     width: 55%;
@@ -233,12 +228,25 @@ header {
   .store_Wrap {
     width: 35%;
   } 
-  .store_desc{
-    font-size: 1rem;
+}
+@media (max-width: 690px) {
+  .info_content {
+    width: 60%;
   }
 }
 @media (max-width: 565px) {
   .mapallWrap {
     height: 40rem !important;
+  }
+}
+@media (max-width: 391px) {
+  h1 > .logo {
+    height: 2.3rem;
+  } 
+  .menu_img {
+    height: 1.5625rem;
+  }
+  .store_desc {
+    font-size: 1.2rem;
   }
 }

@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-  window.addEventListener('resize', function() {
-    location.reload();
-  });
+  // window.addEventListener('resize', function() {
+  //   location.reload();
+  // });
 
   //슬라이드 좌우 버튼 
   const swiper = new Swiper(".mySwiper", {

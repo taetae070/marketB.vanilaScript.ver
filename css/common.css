@@ -604,7 +604,7 @@ footer .f_wrapper02 li:nth-child(3) {
   .first_modal {
     width: 50%;
     top: 15%;
-    left: 15%;
+    /* left: 15%; */
   }
 }
 @media (max-width: 1921px) {
