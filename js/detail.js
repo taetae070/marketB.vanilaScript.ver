@@ -9,33 +9,28 @@ $(function () {
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
     const baseWidth = 2300;
-    const breakpoint = 1920;
+    const breakpoint = 1921;
     let currentWidth = $(window).width();
-    let rightValue = magnifyElement.css("right");
+
+    function calculateRightValue(baseRight, times){
+        let difference = baseWidth - currentWidth;
+        let reduction = Math.floor(difference / 10) * times;
+        let newRight = baseRight + reduction;
+        magnifyElement.css('right', `${newRight}%`);
+    }
 
     // 화면 너비가 1920 이상 2300 이하인 경우
     if (currentWidth >= breakpoint && currentWidth <= baseWidth) {
-        let baseRight = 13;
-        let difference = baseWidth - currentWidth;
-        let reduction = Math.floor(difference / 10) * 0.4;
-        let newRight = baseRight + reduction;
+        calculateRightValue(12.5, 0.4);
 
-        magnifyElement.css('right', `${newRight}%`);
-
-        console.log("reduction",reduction);
-
-    //1600 이상 1920 이하인 경우
-    } else if (currentWidth > 1600 && currentWidth < breakpoint) {
-        // let baseRight = 18.5;
-        let difference = breakpoint - currentWidth;
-        let reduction = Math.floor(difference / 10) * 0.1;
-        let newRight = rightValue + reduction;
-
-        magnifyElement.css('right', `${newRight}%`);
+    //1400 이상 1920 이하인 경우
+    } else if (currentWidth > 1330 && currentWidth <= breakpoint) {
+      // magnifyElement.css('right', `18.5%`);
+      calculateRightValue(9, 0.25);
     
-    //1600 이하인 경우
-    } else if (currentWidth <= 1600) {
-        magnifyElement.css('right', `34.5%`);
+    //1700 이하인 경우
+    } else {
+      calculateRightValue(6, 0.3); 
     }
   }
   magnifyImgResize();

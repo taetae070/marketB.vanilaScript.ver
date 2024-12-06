@@ -109,6 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.error("map element not found");
   }
 
+  //css
+  const storeInfo = document.querySelector('.store_info');
+  const parentOfParent = storeInfo.parentElement.parentElement;
+
+  parentOfParent.style.background = 'none'; 
+  parentOfParent.style.border = 'none';    
+  parentOfParent.style.width = 'auto';   
+
   // Close popup
   document.body.addEventListener("click", (event) => {
     const closeBtn = event.target.closest(".close");
