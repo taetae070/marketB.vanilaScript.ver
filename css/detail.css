@@ -74,6 +74,7 @@ main{
   width: 31.25rem;
   height: auto;
   max-width: 84.25rem;
+  border-radius: .625rem;
 }
 
 .magnify_glass {
@@ -757,7 +758,7 @@ a.link {
   padding: .625rem;
 }
 
-@media (max-width: 2200px) {
+@media (max-width: 2300px) {
   .container_D {
     width: 75%;
   }
@@ -766,14 +767,17 @@ a.link {
   }
   .slider_wrapper {
     margin-left: 12.5%;
-    width: 55%;
+    width: 54.5%;
     margin-bottom: 10%;
   }
 }
 @media (max-width: 1930px) {
+  .section03 #accordionPanelsStayOpenExample {
+    width: 77.5%;
+  }
   body .slider_wrapper {
     margin-left: 7.5%;
-    width: 62%;
+    width: 66%;
   }
   .container_D {
     width: 85%;

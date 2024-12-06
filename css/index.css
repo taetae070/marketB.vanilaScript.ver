@@ -308,61 +308,10 @@ h6 {
   font-size: 1rem;
 }
 /* ----------------slide */
-/* .slider_wrapper .wish_alert01,
-.slider_wrapper .wish_alert02,
-.slider_wrapper .cart_alert01,
-.slider_wrapper .cart_alert02 {
-  text-align: center;
-  z-index: 50;
-  top: 40%;
-  left: 45%;
-  width: 25%;
-  background: var(--G);
-  border: 1px solid var(--G);
-  border-radius: .25rem;
-  padding: 1% 1%;
-  color: #fff;
-  transition: all 0.5s ease-in-out;
-  opacity: 0;
-}
-.slider_wrapper .wish_alert01.active,
-.slider_wrapper .wish_alert02.active,
-.slider_wrapper .cart_alert01.active,
-.slider_wrapper .cart_alert02.active {
-  transform: translateY(-10px);
-  opacity: 1;
-}
-.slider_wrapper {
-  height: 30.625rem;
-  overflow: hidden;
-} */
-
-/* ul */
-/* .slider_wrapper ul {
-  position: absolute;
-  transition: left 0.5s ease-in-out;
-  left: 0;
-  gap: 3.75rem;
-} */
-
-/* .slides li {
-  width: 28.125rem;
-  height: 25rem;
-  background: #ccc;
-  line-height: 36.8125rem;
-}
-.slides li:last-child {
-  gap: 0;
-} */
 .bestList .bestItem > button {
   z-index: 10;
   right: 0%;
 }
-
-/* .bestList {
-  box-shadow: 4px 4px 3px #ededed;
-} */
-
 .bestList img {
   width: 21.5rem;
   height: auto;
@@ -420,7 +369,7 @@ h6 {
 .magazine article figure .magaInner {
   padding: 1.563rem 2.188rem;
   background: #fff;
-  border: 1px #333 solid;
+  border: 1px var(--G) solid;
   display: inline-block;
   text-align: center;
   z-index: 5;

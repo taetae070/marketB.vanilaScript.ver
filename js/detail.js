@@ -8,25 +8,28 @@ $(function () {
   // 확대이미지 right값 조절
   function magnifyImgResize(){
     const magnifyElement = $(".magnify");
-    const baseWidth = 2200;
-    const breakpoint = 1930;
+    const baseWidth = 2300;
+    const breakpoint = 1920;
     let currentWidth = $(window).width();
+    let rightValue = magnifyElement.css("right");
 
-    // 화면 너비가 1930 이상 2200 이하인 경우
+    // 화면 너비가 1920 이상 2300 이하인 경우
     if (currentWidth >= breakpoint && currentWidth <= baseWidth) {
-        let baseRight = 17;
+        let baseRight = 13;
         let difference = baseWidth - currentWidth;
-        let reduction = Math.floor(difference / 10) * 0.2;
+        let reduction = Math.floor(difference / 10) * 0.4;
         let newRight = baseRight + reduction;
 
         magnifyElement.css('right', `${newRight}%`);
 
-    //1600 이상 1930 이하인 경우
+        console.log("reduction",reduction);
+
+    //1600 이상 1920 이하인 경우
     } else if (currentWidth > 1600 && currentWidth < breakpoint) {
-        let baseRight = 18;
+        // let baseRight = 18.5;
         let difference = breakpoint - currentWidth;
-        let reduction = Math.floor(difference / 10) * 0.5;
-        let newRight = baseRight + reduction;
+        let reduction = Math.floor(difference / 10) * 0.1;
+        let newRight = rightValue + reduction;
 
         magnifyElement.css('right', `${newRight}%`);
     
@@ -213,7 +216,7 @@ $(function () {
       // 푸터에 닿았을 때
       // console.log("Condition: infoBox touches footer");
       let footerHeight = footer.height();
-      let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -150 );
+      let topValue = (footerOffsetTop - infoBoxHeight - footerHeight -200 );
       infoBox.css({
         position: "absolute",
         left: "84%",
@@ -230,46 +233,6 @@ $(function () {
     }
   }, 300));
   
-
-  //   $(this).on("click", function (e) {
-  //     const $target = $(e.target).closest(".wish_Btn, .cart_Btn");
-
-  //     if ($target.length) {
-  //       $target.toggleClass("on");
-  //       const $sliderWrapper = $(this);
-  //       const alertObject = {
-  //         wish: {
-  //           on: $sliderWrapper.find(".wish_alert01"),
-  //           off: $sliderWrapper.find(".wish_alert02"),
-  //         },
-  //         cart: {
-  //           on: $sliderWrapper.find(".cart_alert01"),
-  //           off: $sliderWrapper.find(".cart_alert02"),
-  //         },
-  //       };
-
-  //       // 클릭한 버튼에 따라 알람 활성화
-  //       const alertType = $target.hasClass("wish_Btn") ? "wish" : "cart";
-  //       const alertOn = alertObject[alertType].on;
-  //       const alertOff = alertObject[alertType].off;
-
-  //       if ($target.hasClass("on")) {
-  //         alertOn.addClass("active");
-  //         alertOff.removeClass("active");
-  //       } else {
-  //         alertOn.removeClass("active");
-  //         alertOff.addClass("active");
-  //       }
-
-  //       setTimeout(() => {
-  //         alertOn.removeClass("active");
-  //         alertOff.removeClass("active");
-  //       }, 4000);
-  //     }
-  //   });
-  // });
-
-
   //review page clone
   let reviewTD = $("table tbody tr td");
   function put_reviews() {
@@ -517,9 +480,9 @@ $(function () {
   displayPage(0);
 
   //filter btn
-  let recentBtn = $(".recent_btnbutton");
-  let rateHighBtn = $(".rateH_btnbutton");
-  let rateRowBtn = $(".rateL_btnbutton");
+  let recentBtn = $(".recent_btn button");
+  let rateHighBtn = $(".rateH_btn button");
+  let rateRowBtn = $(".rateL_btn button");
   let sortedDates = [];
   let tableBody = $("table tbody");
 
