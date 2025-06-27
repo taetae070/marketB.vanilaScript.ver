@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let scrAbleHeight = allHeight - footerHeight;
   
         if (scrAbleHeight <= 0) {
-          return 100;
+          return 100; //전부 스크롤했을 때
         }
         return ((window.scrollY + windowHeight) / scrAbleHeight) * 100;
       }
