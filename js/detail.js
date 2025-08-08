@@ -435,7 +435,7 @@ $(function () {
 	});
 
 	function displayRow(num) {
-		let reviewTR = $("table tbody tr td");
+		let reviewTR = $("table tbody tr");
 		reviewTR.hide();
 
 		let start = num * rowsPerPage;
@@ -482,67 +482,188 @@ $(function () {
 
 	displayPage(0);
 
-	//filter btn
-	let recentBtn = $(".recent_btn button");
-	let rateHighBtn = $(".rateH_btn button");
-	let rateRowBtn = $(".rateL_btn button");
-	let sortedDates = [];
-	let tableBody = $("table tbody");
+	//filter btn - SOLID 원칙 적용한 후기 관리 시스템
+	class ReviewManager {
+		constructor() {
+			this.originalData = []; // 원본 데이터 보존
+			this.currentData = []; // 현재 표시할 데이터
+			this.sortType = "recent"; // 현재 정렬 타입
+			this.init();
+		}
 
-	newrowTR.each(function (index) {
-		$(this).attr("data-index", index);
+		// 초기화 (Single Responsibility Principle)
+		init() {
+			this.collectReviewData();
+			this.bindSortEvents();
+			this.renderReviews();
+		}
 
-		let dateValues = $(this).find(".review_random_date").text();
-		let rateValues = $(this).find(".rating").attr("data-rate");
+		// 후기 데이터 수집 및 저장
+		collectReviewData() {
+			const newrowTR = $("table tbody tr");
+			this.originalData = [];
 
-		sortedDates.push({
-			index: index,
-			date: dateValues,
-			star: rateValues,
-		});
-	});
+			newrowTR.each((index, element) => {
+				const $element = $(element);
+				const dateText = $element.find(".review_random_date").text();
+				const rateValue = parseFloat(
+					$element.find(".rating").attr("data-rate")
+				);
+				const reviewText = $element.find(".review_second_wrap p").text();
+				const userId = $element.find(".review_random_id span").text();
 
-	//최신순
-	recentBtn.on("click", function () {
-		sortedDates.sort(function (a, b) {
-			return b.date.localeCompare(a.date);
-		});
-		tableBody.empty();
+				// HTML 구조를 데이터로 저장
+				this.originalData.push({
+					index: index,
+					date: dateText,
+					dateObj: new Date(dateText),
+					star: rateValue,
+					text: reviewText,
+					userId: userId,
+					// HTML 템플릿 데이터
+					htmlData: {
+						reviewText: reviewText,
+						userId: userId,
+						date: dateText,
+						star: rateValue,
+					},
+				});
+			});
 
-		sortedDates.forEach(function (item) {
-			let matchingTR = newrowTR.filter(`[data-index="${item.index}"]`);
-			tableBody.append(matchingTR);
-		});
-	});
-	// console.log(sortedDates);
+			// 초기 데이터를 현재 데이터로 복사
+			this.currentData = [...this.originalData];
+			console.log("Review data collected:", this.originalData.length, "items");
+		}
 
-	//평점높은순
-	rateHighBtn.on("click", function () {
-		sortedDates.sort(function (a, b) {
-			return b.star.localeCompare(a.star);
-		});
+		// 정렬 이벤트 바인딩 (Open-Closed Principle)
+		bindSortEvents() {
+			const recentBtn = $(".recent_btn button");
+			const rateHighBtn = $(".rateH_btn button");
+			const rateLowBtn = $(".rateL_btn button");
 
-		tableBody.empty();
+			recentBtn.on("click", () => this.sortReviews("recent"));
+			rateHighBtn.on("click", () => this.sortReviews("rateHigh"));
+			rateLowBtn.on("click", () => this.sortReviews("rateLow"));
+		}
 
-		sortedDates.forEach(function (item) {
-			let matchingTR = newrowTR.filter(`[data-index="${item.index}"]`);
-			tableBody.append(matchingTR);
-		});
-	});
+		// 통합 정렬 메서드 (DRY 원칙)
+		sortReviews(type) {
+			this.sortType = type;
 
-	//평점낮은순
-	rateRowBtn.on("click", function () {
-		sortedDates.sort(function (a, b) {
-			return a.star.localeCompare(b.star);
-		});
+			// 원본 데이터를 복사하여 정렬 (원본 데이터 보존)
+			this.currentData = [...this.originalData];
 
-		tableBody.empty();
+			switch (type) {
+				case "recent":
+					this.currentData.sort((a, b) => b.dateObj - a.dateObj);
+					break;
+				case "rateHigh":
+					this.currentData.sort((a, b) => b.star - a.star);
+					break;
+				case "rateLow":
+					this.currentData.sort((a, b) => a.star - b.star);
+					break;
+			}
 
-		sortedDates.forEach(function (item) {
-			let matchingTR = newrowTR.filter(`[data-index="${item.index}"]`);
-			tableBody.append(matchingTR);
-		});
-	});
+			console.log(`Sorted by ${type}:`, this.currentData.slice(0, 3));
+			this.renderReviews();
+		}
+
+		// 후기 렌더링 (Single Responsibility Principle)
+		renderReviews() {
+			const tableBody = $("table tbody");
+			tableBody.empty();
+
+			// 정렬된 순서대로 HTML 생성하여 추가
+			this.currentData.forEach((item, newIndex) => {
+				const reviewHTML = this.generateReviewHTML(item, newIndex);
+				tableBody.append(reviewHTML);
+			});
+
+			console.log("Rendered reviews:", this.currentData.length, "items");
+
+			// 별점 다시 적용
+			this.applyStarRatings();
+
+			// 페이지네이션 초기화
+			this.resetPagination();
+		}
+
+		// 후기 HTML 생성
+		generateReviewHTML(item, index) {
+			return `
+				<tr data-sorted-index="${index}">
+					<td class="review_first_wrap FC">
+						<div class="review_first F">
+							<div class="rating_wrap F">
+								<div class="rating F" data-rate="${item.star}">                               
+									<div class="star-wrap"><div class="star"><i class="fas fa-star"></i></div></div>
+									<div class="star-wrap"><div class="star"><i class="fas fa-star"></i></div></div>
+									<div class="star-wrap"><div class="star"><i class="fas fa-star"></i></div></div>
+									<div class="star-wrap"><div class="star"><i class="fas fa-star"></i></div></div>
+									<div class="star-wrap"><div class="star"><i class="fas fa-star"></i></div></div>
+								</div>
+								<div class="review_random_id">
+									<span>${item.userId}</span>                                                      
+								</div>                                                  
+							</div>
+							<div class="random_wrap F">
+								<div class="review_random_date">
+									<span>${item.date}</span>                                                      
+								</div>  
+							</div>
+						</div>
+						<div class="review_second_wrap">
+							<p>${item.text}</p>
+						</div>
+					</td> 
+				</tr>
+			`;
+		}
+
+		// 별점 적용
+		applyStarRatings() {
+			$(".rating").each(function () {
+				const $this = $(this);
+				const scoreNum = parseFloat($this.attr("data-rate"));
+				const fullStars = Math.floor(scoreNum);
+				const halfStar = (scoreNum % 1) * 100;
+
+				$this.find(".star-wrap .star").css({ width: "0%" });
+				for (let i = 0; i < fullStars; i++) {
+					$this.find(".star-wrap").eq(i).find(".star").css({ width: "100%" });
+				}
+
+				if (halfStar > 0) {
+					const halfStarIndex = fullStars;
+					$this
+						.find(".star-wrap")
+						.eq(halfStarIndex)
+						.find(".star")
+						.css({ width: halfStar + "%" });
+				}
+			});
+		}
+
+		// 페이지네이션 초기화
+		resetPagination() {
+			// 첫 페이지로 이동
+			pageActiveIdx = 0;
+			displayRow(0);
+			displayPage(0);
+		}
+
+		// 데이터 새로고침 (필요시 사용)
+		refreshData() {
+			this.collectReviewData();
+			this.sortReviews(this.sortType);
+		}
+	}
+
+	// ReviewManager 인스턴스 생성
+	new ReviewManager();
+
+	// 기존 정렬 코드는 제거됨 (위의 클래스로 대체)
 
 	//review more버튼
 	let moreButton = $(".more_btn_wrap");
