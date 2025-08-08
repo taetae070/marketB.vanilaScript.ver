@@ -609,12 +609,12 @@ footer .f_wrapper02 li:nth-child(3) {
 
 @media (max-width: 2300px) {
 	.container {
-		width: 70% !important;
+		width: 90% !important;
 	}
 	.first_modal {
 		width: 50%;
 		top: 15%;
-		/* left: 15%; */
+		left: 15%;
 	}
 }
 @media (max-width: 1921px) {
